@@ -1,6 +1,19 @@
 import React from 'react'
 import { FaUser, FaEnvelope, FaPhone } from 'react-icons/fa';
+import {useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { auth } from '../firebase'
+
 const Profile = () => {
+  const [session, setSession] = useState(null)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if(!auth.currentUser){
+      navigate('/')
+    }
+
+  }, [])
   return (
     <div className="w-full md:w-3/5 px-4 py-8">
       <div className="container mx-auto max-w-md bg-white rounded-lg shadow-lg shadow-gray-900">

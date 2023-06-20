@@ -5,8 +5,12 @@ import { BsFillMoonStarsFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { db } from '../firebase'
 import { addDoc, collection } from 'firebase/firestore'
+import { signOut } from 'firebase/auth'
+import { auth } from '../firebase'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+    const navigate = useNavigate()
     const [darkMode, setDarkMode] = useState(false)
     const [newProject, setNewProject] = useState(0)
      
@@ -31,9 +35,12 @@ const Navbar = () => {
         await addProject()
 
     }
-    function handleLogout(){
-      sessionStorage.removeItem('token')
-      navigate('/')
+    const handleLogout = ()=>{
+      signOut(auth).then(() => {
+        navigate('/')
+      }).catch((error) => {
+        alert(error.message)
+      })
     }
 
   return (

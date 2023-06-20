@@ -1,12 +1,22 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { MdExplore } from 'react-icons/md'
 import { ImSearch } from 'react-icons/im'
 import TemplateCard from '../components/TemplateCard'
 import Navbar from '../components/Navbar'
 import Rightmenubar from '../components/Rightmenubar'
 import Sidebar from '../components/Sidebar'
+import {auth } from '../firebase'
+import { useNavigate } from 'react-router-dom'
 const Template = () => {
-  
+  const [session, setSession] = useState(null)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if(!auth.currentUser){
+      navigate('/')
+    }
+
+  }, [])
   return (
     <div>
     <Navbar/>

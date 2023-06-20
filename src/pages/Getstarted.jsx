@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useState,useEffect } from 'react'
+import { Link, useLocation,useNavigate } from 'react-router-dom'
 import { AiOutlinePlus } from 'react-icons/ai'
-import { db } from '../firebase'
+import { db ,auth} from '../firebase'
 import { addDoc, collection } from 'firebase/firestore'
 import { BiMessageSquareDetail, BiHomeCircle } from 'react-icons/bi'
 import { FiHelpCircle } from 'react-icons/fi'
@@ -9,7 +9,6 @@ import { BsPlusSquare } from 'react-icons/bs'
 import Navbar from '../components/Navbar'
 import Rightmenubar from '../components/Rightmenubar'
 import Sidebar from '../components/Sidebar'
-
 
 const menuItems = [
   { name: 'Home', path: '/', icon: <BiHomeCircle /> },
@@ -74,6 +73,16 @@ const Getstarted = () => {
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+  const [session, setSession] = useState(null)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if(!auth.currentUser){
+      navigate('/')
+    }
+
+  }, [])
+  
   return (
     <div>
       <Navbar />

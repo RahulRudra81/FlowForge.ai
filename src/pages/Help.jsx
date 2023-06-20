@@ -1,21 +1,11 @@
-import { useState} from "react";
+import { useState,useEffect} from "react";
+import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Rightmenubar from '../components/Rightmenubar'
 import Sidebar from '../components/Sidebar'
-
+import { auth } from '../firebase'
 const Help = () => {
    
-//   return (
-//     <div className='flex flex-col  w-3/5'>
-//           <div className="title text-4xl mt-3 font-myfont border-b-2 border-solid border-gray rounded-lg text-gray-500 font-bold flex justify-center ">How Can We Help?</div>
-//           <div className="search flex flex-col justify-center items-center mt-5">
-          
-        
-
-//           </div>
-
-//     </div>
-//   )
 const [activeIndex, setActiveIndex] = useState(null);
 
   const faqData = [
@@ -36,7 +26,16 @@ const [activeIndex, setActiveIndex] = useState(null);
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+  const [session, setSession] = useState(null)
+  const navigate = useNavigate()
 
+  useEffect(() => {
+    if(!auth.currentUser){
+      navigate('/')
+    }
+
+  }, [])
+  
   return (
     <div>
     <Navbar/>

@@ -1,7 +1,7 @@
-import Login from './Login'
-import SignUp from './SignUp'
+// import Login from './Login'
+// import SignUp from './SignUp'
 import Home from './Home'
-import Goggle from './Goggle'
+// import Goggle from './Goggle'
 import Landing from './Landing'
 import DnDFlow from './DnDFlow'
 import Billing from './Billing'
@@ -13,5 +13,5 @@ import Sidebar from './Sidebar'
 import Profile from './Profile'
 
 export {
-    Login, SignUp, Home,Goggle,Landing,DnDFlow,Billing,Getstarted,Help,Mainpage,Template,Sidebar,Profile
+     Home,Landing,DnDFlow,Billing,Getstarted,Help,Mainpage,Template,Sidebar,Profile
 }

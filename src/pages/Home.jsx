@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState } from 'react'
+import { Link, useLocation , useNavigate } from 'react-router-dom'
 import { BsArrowCounterclockwise } from 'react-icons/bs'
 import { MdExplore, MdToken } from 'react-icons/md'
 import TemplateCard from '../components/TemplateCard'
-import { Link, useLocation } from 'react-router-dom'
 import RecentProject from '../components/RecentProject'
 import { AiOutlinePlus } from 'react-icons/ai'
-import { db } from '../firebase'
+import { auth } from '../firebase'
 import { addDoc, collection } from 'firebase/firestore'
 import { BiMessageSquareDetail, BiHomeCircle } from 'react-icons/bi'
 import { FiHelpCircle } from 'react-icons/fi'
@@ -14,8 +14,6 @@ import Navbar from '../components/Navbar'
 import Rightmenubar from '../components/Rightmenubar'
 import Sidebar from '../components/Sidebar'
 
-
-
 const menuItems = [
   { name: 'Home', path: '/', icon: <BiHomeCircle /> },
   { name: 'Get Started', path: '/getstarted', icon: <BiMessageSquareDetail /> },
@@ -23,7 +21,18 @@ const menuItems = [
   { name: 'Help & FAQs', path: '/help', icon: <FiHelpCircle /> },
 
 ];
-const Home = ({token}) => {
+const Home = () => {
+
+  const [session, setSession] = useState(null)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if(!auth.currentUser){
+      navigate('/')
+    }
+
+  }, [])
+
   const [newProject, setNewProject] = useState(0)
 
 
@@ -91,7 +100,7 @@ const Home = ({token}) => {
                 </Link>
               ))}
           </div>
-          <h1 className='lg:text-3xl text-2xl font-myfont mt-5 ml-5 font-bold text-gray-700'>Welcome Back, {token.user.user_metadata.full_name}</h1>
+          <h1 className='lg:text-3xl text-2xl font-myfont mt-5 ml-5 font-bold text-gray-700'>Welcome Back </h1>
           <h1 className='lg:text-lg text-sm font-myfont mt-3 ml-5 font-bold text-gray-500'>Here's what's happening with your projects today</h1>
           <div className='flex  lg:flex-row lg:justify-between items-center lg:m-5 m-2'>
             <div className='flex flex-col lg:w-[200px] lg:h-[150px] w-[150px] h-[100px] justify-center items-center border-2 border-solid border-gray rounded-lg p-5 shadow-md hover:shadow-gray-700 m-3'>
