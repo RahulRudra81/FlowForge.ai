@@ -27,7 +27,7 @@ const Landing = () => {
                     {/* <div className='text-2xl mr-3 cursor-pointer' onClick={() => { setDarkMode(!darkMode) }}>
                         {darkMode ? <BsFillMoonStarsFill /> : <FiSun />}
                     </div> */}
-                    <a href="/signup"><button className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center ">Login</button></a>
+                    <Link to='/signup'><button className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center ">Login</button></Link>
                 </div>
             </nav>
             </div>
@@ -60,7 +60,7 @@ const Landing = () => {
 
             {/* DnDFlow */}
 
-            <div className='flex align-middle justify-center' data-aos='slide-right'>
+            <div className='flex align-middle justify-center' data-aos='slide-right bg-white'>
                 <div className='mt-20 hover:scale-110 w-3/4 border-solid border-8 blorder-sky-500 hover:shadow-blue-400 hover:shadow-xl'>
                     <DnDFlow />
                 </div>
