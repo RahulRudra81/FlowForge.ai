@@ -14,6 +14,7 @@ export default {
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        mega:['Lexend Mega','sans-serif']
       },
     },
     screens: {
