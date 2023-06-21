@@ -218,12 +218,13 @@ const Auth = (params) => {
                   </div>
                   <div className="mt-6 text-grey-dark">
                     Don't have an account?
-                    <a
+                    <Link to="/signup">
+                    <div
                       className="text-[#14b8a6] hover:underline"
-                      href="/signup"
                     >
                       Sign Up
-                    </a>
+                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>
