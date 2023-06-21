@@ -4,7 +4,7 @@ import {signInWithEmailAndPassword,onAuthStateChanged, createUserWithEmailAndPas
 import "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore"; 
 import {db,auth} from '../../firebase'
-
+import { Link } from 'react-router-dom'
 const Auth = (params) => {
 
 
@@ -71,7 +71,20 @@ const Auth = (params) => {
 }
 
   return (
-    <div>
+    <div >
+      <div className='bg-gray-900 md:fixed z-10 w-full shadow-md bg-opacity-90 hover:bg-opacity-50 backdrop-blur-lg bg-clip-padding'>
+            <nav className='relative xl:px-0 sm:px-16 px-6 flex justify-between items-center '>
+                <div className=" ">
+                    <Link to='/'> <h1 className="text-4xl font-bold hover:text-[#c20051]  m-2  cursor-pointer "><span className='text-white'>Avid</span><span className='text-[#33bbcf]'>Synth</span></h1></Link>
+                </div>
+                <div className="icons flex justify-between items-center mr-3">
+                    {/* <div className='text-2xl mr-3 cursor-pointer' onClick={() => { setDarkMode(!darkMode) }}>
+                        {darkMode ? <BsFillMoonStarsFill /> : <FiSun />}
+                    </div> */}
+                    <Link to='/login'><button className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center ">Login</button></Link>
+                </div>
+            </nav>
+            </div>
       <form onSubmit={handleRegister}>
         {params.title == "SignUp" ? (
           <>

@@ -27,7 +27,7 @@ const Landing = () => {
                     {/* <div className='text-2xl mr-3 cursor-pointer' onClick={() => { setDarkMode(!darkMode) }}>
                         {darkMode ? <BsFillMoonStarsFill /> : <FiSun />}
                     </div> */}
-                    <Link to='/signup'><button className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center ">Login</button></Link>
+                    <Link to='/login'><button className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center ">Login</button></Link>
                 </div>
             </nav>
             </div>
