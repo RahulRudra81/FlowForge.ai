@@ -70,12 +70,13 @@ const Home = () => {
     return pathname === path;
   };
   
+  
   return (
     <div>
       <Navbar />
       <div className="flex flex-row ">
         <Sidebar />
-        <div className='lg:w-3/5 flex flex-col h-screen overflow-y-scroll  home'>
+        <div className='lg:w-full flex flex-col h-screen overflow-y-scroll  home'>
           <div className="flex flex-col md:hidden m-1 p-1 text-xl text-gray-600 font-semibold font-myfont">
             <div
               className=" hover:text-[#f43f5e] cursor-pointer flex items-center"
