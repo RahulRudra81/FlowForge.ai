@@ -7,9 +7,10 @@ import ReactFlow, {
     useEdgesState,
     Controls,
     Background,
+    
 } from 'reactflow'
 import 'reactflow/dist/style.css'
-
+import Discription from '../components/Discription'
 import create from 'zustand'
 
 import ColorSelectorNode from './CustomNodes/ColorSelectorNode'
@@ -29,6 +30,12 @@ const nodeTypes = {
     selectorNode: ColorSelectorNode,
     gptNode: GptNode,
 }
+
+const handleNodeDelete = (nodeId) => {
+    const updatedElements = removeElements([{ id: nodeId }], elements);
+    setElements(updatedElements);
+};
+
 
 const initialNodes = [
     // {
@@ -143,17 +150,18 @@ const DnDFlow = () => {
         reactFlowWrapper.current = true
         setEdges((els) => updateEdge(oldEdge, newConnection, els))
     }, [])
-
+    
     const onEdgeUpdateEnd = useCallback((_, edge) => {
         if (!reactFlowWrapper.current) {
             setEdges((eds) => eds.filter((e) => e.id !== edge.id))
         }
-
+        
         reactFlowWrapper.current = true
     }, [])
     return (
         <div className='dndflow'>
             <ReactFlowProvider>
+            <Sidebar />
                 <div
                     className='reactflow-wrapper'
                     ref={reactFlowWrapper}
@@ -176,12 +184,13 @@ const DnDFlow = () => {
                         nodeTypes={nodeTypes}
                         onDragOver={onDragOver}
                         fitView
+                        onElementsRemove={handleNodeDelete}
                     >
                         <Controls />
                         <Background />
                     </ReactFlow>
                 </div>
-                <Sidebar />
+                <Discription/>
             </ReactFlowProvider>
         </div>
     )

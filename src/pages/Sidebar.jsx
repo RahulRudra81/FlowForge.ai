@@ -1,4 +1,8 @@
 import React from 'react'
+import { BsInputCursorText, BsFillBookmarkFill } from "react-icons/bs";
+import { VscOutput } from "react-icons/vsc";
+import { FaRobot } from "react-icons/fa";
+import { TfiHandOpen } from "react-icons/tfi";
 
 export default () => {
     const onDragStart = (event, nodeType) => {
@@ -7,38 +11,67 @@ export default () => {
     }
 
     return (
-        <aside>
-            <div className='description'>
-                You can drag these nodes to the pane on the left.
+
+        <div className='shadow-xl p-2'>
+            <div className='flex items-center justify-evenly cursor-pointer border-solid  border-black border-2 rounded p-2'>
+                <div><TfiHandOpen /></div>
+                <div className='ml-4 text-black '>
+                    Drag to choose 
+                </div>
             </div>
+            <div className="flex-grow mt-5  border-t border-zinc-300"></div>
             <div
-                className='dndnode input'
+                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
                 onDragStart={(event) => onDragStart(event, 'input')}
                 draggable
             >
-                input
+                <div className=''>
+                    <BsInputCursorText />
+                </div>
+                <div className='ml-4 text-black'>
+                    Input
+                </div>
             </div>
+            <div className="flex-grow mt-5  border-t border-zinc-300"></div>
             <div
-                className='dndnode'
+                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
                 onDragStart={(event) => onDragStart(event, 'default')}
                 draggable
             >
-                default
+                <div>
+                    <BsFillBookmarkFill />
+                </div>
+                <div className='ml-4 text-black'>
+                    default
+                </div>
             </div>
+            <div className="flex-grow mt-5  border-t border-zinc-300"></div>
             <div
-                className='dndnode output'
+                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
                 onDragStart={(event) => onDragStart(event, 'output')}
                 draggable
             >
-                output
+                <div>
+                    <VscOutput />
+                </div>
+                <div className='ml-4 text-black'>
+                    output
+                </div>
             </div>
+            <div className="flex-grow mt-5  border-t border-zinc-300"></div>
             <div
-                className='dndnode selectorNode'
+                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
                 onDragStart={(event) => onDragStart(event, 'gptNode')}
                 draggable
             >
-                gptNode
+                <div>
+                    <FaRobot />
+                </div>
+                <div className='ml-4 text-black'>
+                    gptNode
+                </div>
             </div>
-        </aside>
+            <div className="flex-grow mt-5  border-t border-zinc-300"></div>
+        </div>
     )
 }
