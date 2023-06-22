@@ -1,10 +1,19 @@
-import React from 'react'
-import { FaUser, FaEnvelope, FaPhone } from 'react-icons/fa';
-import {useEffect, useState } from 'react'
+import { useState,useEffect} from "react";
 import { useNavigate } from 'react-router-dom'
+import Navbar from '../components/Navbar'
+import Rightmenubar from '../components/Rightmenubar'
+import Sidebar from '../components/Sidebar'
 import { auth } from '../firebase'
-
+import { FaUser, FaEnvelope, FaPhone } from 'react-icons/fa';
 const Profile = () => {
+   
+const [activeIndex, setActiveIndex] = useState(null);
+
+ 
+
+  const toggleAccordion = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
   const [session, setSession] = useState(null)
   const navigate = useNavigate()
 
@@ -14,9 +23,16 @@ const Profile = () => {
     }
 
   }, [])
+
+  console.log(auth.currentUser)
+  
   return (
-    <div className="w-full md:w-3/5 px-4 py-8">
-      <div className="container mx-auto max-w-md bg-white rounded-lg shadow-lg shadow-gray-900">
+    <div >
+    <Navbar/>
+    <div className="flex  flex-row">
+    <Sidebar/>
+    <div className="w-full">
+    <div className="container mt-10 mx-auto max-w-md bg-white rounded-lg shadow-lg shadow-gray-900 w-full">
         <div className="px-6 py-4">
           <div className="text-center">
             <img
@@ -41,7 +57,11 @@ const Profile = () => {
         </div>
       </div>
     </div>
-  )
-}
+    <Rightmenubar/>
+    </div>
+    </div>
+  );
+};
+
 
 export default Profile

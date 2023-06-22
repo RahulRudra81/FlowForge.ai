@@ -41,7 +41,7 @@ const [activeIndex, setActiveIndex] = useState(null);
     <Navbar/>
     <div className="flex flex-row">
     <Sidebar/>
-    <div className="lg:w-3/5 mx-auto lg:px-4 px-2 py-4 lg:py-8 w-full">
+    <div className="mx-auto lg:px-4 px-2 py-4 lg:py-8 w-full">
         <div className="title lg:text-4xl text-2xl mt-3 font-myfont border-b-2 border-solid border-gray rounded-lg text-gray-500 font-bold flex justify-center hidden lg:bock  ">How Can We Help?</div>
       <h1 className="lg:text-2xl text-lg text-gray-800 font-bold mb-4 mt-10">Frequently Asked Questions</h1>
       <div className="space-y-4">
