@@ -13,7 +13,7 @@ export default () => {
     return (
 
         <div className='shadow-xl p-2'>
-            <div className='flex items-center justify-evenly cursor-pointer border-solid  border-black border-2 rounded p-2'>
+            <div className='flex items-center justify-evenly cursor-pointer border-solid  border-[#dcdcdc] border-2 rounded p-2'>
                 <div><TfiHandOpen /></div>
                 <div className='ml-4 text-black '>
                     Drag to choose 
@@ -69,6 +69,32 @@ export default () => {
                 </div>
                 <div className='ml-4 text-black'>
                     gptNode
+                </div>
+            </div>
+            <div className="flex-grow mt-5  border-t border-zinc-300"></div>
+            <div
+                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
+                onDragStart={(event) => onDragStart(event, 'TextToAudio')}
+                draggable
+            >
+                <div>
+                    <FaRobot />
+                </div>
+                <div className='ml-4 text-black'>
+                    Text-to-Audio
+                </div>
+            </div>
+            <div className="flex-grow mt-5  border-t border-zinc-300"></div>
+            <div
+                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
+                onDragStart={(event) => onDragStart(event, 'VoiceCloning')}
+                draggable
+            >
+                <div>
+                    <FaRobot />
+                </div>
+                <div className='ml-4 text-black'>
+                    Voice Cloning
                 </div>
             </div>
             <div className="flex-grow mt-5  border-t border-zinc-300"></div>

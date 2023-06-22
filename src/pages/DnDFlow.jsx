@@ -19,6 +19,8 @@ import Sidebar from './Sidebar'
 
 import './index.css'
 import GptNode from './CustomNodes/GptNode'
+import TextToAudio from './CustomNodes/TextToAudio'
+import VoiceCloning from './CustomNodes/VoiceCloning'
 
 export const useBearStore = create((set) => ({
     bears: 0,
@@ -29,6 +31,8 @@ export const useBearStore = create((set) => ({
 const nodeTypes = {
     selectorNode: ColorSelectorNode,
     gptNode: GptNode,
+    TextToAudio: TextToAudio,
+    VoiceCloning: VoiceCloning
 }
 
 const handleNodeDelete = (nodeId) => {
@@ -38,38 +42,26 @@ const handleNodeDelete = (nodeId) => {
 
 
 const initialNodes = [
-    // {
-    //     id: '1',
-    //     type: 'input',
-    //     data: { label: 'root', tag: 'html', children: [] },
-    //     position: { x: 50, y: 5 },
-    // },
-    // {
-    //     id: '2',
-    //     type: 'selectorNode',
-    //     className: 'selectorNode',
-    //     data: { label: 'output node', tag: 'h3', children: [] },
-    //     style: { border: '1px solid #777', padding: 10 },
-    //     position: { x: 150, y: 5 },
-    // },
+    
     {
         id: '3',
         type: 'gptNode',
         data: { label: 'h2', tag: 'h2', children: [] },
         position: { x: 200, y: 5 },
     },
+    {
+        id: '5',
+        type: 'VoiceCloning',
+        data: { label: 'VoiceCloning', tag: 'VoiceCloning', children: [] },
+        position: { x: 50, y: 2 },
+    }
     // {
-    //   id: "4",
-    //   type: "default",
-    //   data: { label: "div", tag: "div", children: [] },
-    //   position: { x: 250, y: 5 }
-    // },
-    // {
-    //   id: "5",
-    //   type: "default",
-    //   data: { label: "div", tag: "div", children: [] },
-    //   position: { x: 250, y: 5 }
+    //     id: '4',
+    //     type: 'TextToAudio',
+    //     data: { label: 'textAudio', tag: 'textAudio', children: [] },
+    //     position: { x: 50, y: 2 },
     // }
+    
 ]
 
 let id = 0

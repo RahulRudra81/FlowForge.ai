@@ -34,19 +34,13 @@ export default memo(({ data, isConnectable }) => {
                 style={{ marginTop: 43, background: '#555' }}
                 isConnectable={isConnectable}
             />
-            <Handle
-                type='target'
-                id='c'
-                position='left'
-                style={{ marginTop: 68, background: '#555' }}
-                isConnectable={isConnectable}
-            />
+            
             <Handle
                 type='source'
                 id='d'
                 position='right'
                 style={{
-                    marginTop: 136,
+                    marginTop: 100,
                     // marginLeft: '70px',
                     background: '#555',
                     // width: 15,
@@ -54,11 +48,10 @@ export default memo(({ data, isConnectable }) => {
                 }}
                 isConnectable={isConnectable}
             />
-            <div className='node-title'>GPT4 Model</div>
+            <div className='node-title'>Voice-Cloning</div>
             <div className='node-content-wrapper'>
                 <div className='node-description'>
-                    composes conversational and human-like responses to natural
-                    language inputs
+                    Clone any text to any desired voice.
                 </div>
                 <div className='cost-wrapper'>
                     <img
@@ -96,23 +89,7 @@ export default memo(({ data, isConnectable }) => {
                             alt='checkmark--v1'
                         />
                     </div>
-                    <div className='input-wrapper'>
-                        <div className='inner'>
-                            <img
-                                width='19'
-                                height='19'
-                                src='https://img.icons8.com/ios-filled/50/align-cell-content-left.png'
-                                alt='align-cell-content-left'
-                            />
-                            <div className='input'>Description</div>
-                        </div>
-                        <img
-                            width='19'
-                            height='19'
-                            src='https://img.icons8.com/ios-glyphs/30/checkmark--v1.png'
-                            alt='checkmark--v1'
-                        />
-                    </div>
+                   
                     <div className='input-wrapper'>
                         <div className='inner'>
                             <img
