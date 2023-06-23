@@ -212,13 +212,13 @@ const DnDFlow = () => {
                 </div>
                 {/* {nodes.id==='0'&&<Discription />} */}
                 {/* {isMenuOpen? <Discription  handleChane={handleChane}/>:""} */}
-
+                
                 {
-                    activeBar==='gptDesc'&&<Discription />
+                    activeBar==='gptDesc'&& isMenuOpen ? <Discription  handleChane={handleChane}/>:""
 
                 }
                 {
-                    activeBar==='voiceCloneDesc'&&<VoiceCloneDescription/>
+                    activeBar==='voiceCloneDesc'&& isMenuOpen ? <VoiceCloneDescription handleChane={handleChane}/>:""
                 }   
                 {
                     activeBar==='textAudioDesc'&&(<div></div>)

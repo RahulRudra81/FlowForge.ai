@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
+import { AiOutlineClose } from 'react-icons/ai'
 
-
-export default () => {
+export default (props) => {
 
    
     const [audioUpload, setAudioUpload] = useState(null)
@@ -39,7 +39,10 @@ export default () => {
     
 
     return (
-        <div className='overflow-y-auto rounded-2xl shadow-xl flex flex-col justify-center items-center shadow-gray-200'>
+        <div className='overflow-y-auto rounded-2xl shadow-xl flex flex-col justify-start items-center shadow-gray-200'>
+            <span className="mt-5 w-full p-3" onClick={props.handleChane}>
+                 <AiOutlineClose  />
+            </span>
             <h1 className=' text-xl font-semibold text-gray-500 m-5'>Give Data </h1>
           <form form onSubmit={handleFileSubmit}>
             
