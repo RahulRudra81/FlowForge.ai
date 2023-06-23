@@ -3,6 +3,7 @@ import { BsInputCursorText, BsFillBookmarkFill } from "react-icons/bs";
 import { VscOutput } from "react-icons/vsc";
 import { FaRobot } from "react-icons/fa";
 import { TfiHandOpen } from "react-icons/tfi";
+import { Link } from 'react-router-dom/dist';
 
 export default () => {
     const onDragStart = (event, nodeType) => {
@@ -97,7 +98,7 @@ export default () => {
                     Voice Cloning
                 </div>
             </div>
-            <div className="flex-grow mt-5  border-t border-zinc-300"></div>
+            <Link to='/home'><div className="flex-grow mt-20 hover:text-blue-700  font-myfont  border-t-2 border-solid border-zinc-300 text-gray-500 cursor-pointer">Return to dashboard</div></Link>
         </div>
     )
 }

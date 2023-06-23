@@ -12,6 +12,7 @@ import ReactFlow, {
 import 'reactflow/dist/style.css'
 import Discription from '../components/Discription'
 import create from 'zustand'
+import VoiceCloneDescription from './VoiceCloneDescription'
 
 import ColorSelectorNode from './CustomNodes/ColorSelectorNode'
 
@@ -157,9 +158,9 @@ const DnDFlow = () => {
                 <div
                     className='reactflow-wrapper'
                     ref={reactFlowWrapper}
-                    onClick={() => {
-                        console.log('Hello')
-                    }}
+                    // onClick={() => {
+                    //     console.log('Hello')
+                    // }}
                 >
                     <ReactFlow
                         nodes={nodes}
@@ -182,7 +183,7 @@ const DnDFlow = () => {
                         <Background />
                     </ReactFlow>
                 </div>
-                <Discription/>
+                {nodes.id==='0'&&<Discription />}
             </ReactFlowProvider>
         </div>
     )
