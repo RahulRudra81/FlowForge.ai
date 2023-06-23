@@ -155,13 +155,17 @@ const DnDFlow = () => {
     }, [])
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    
+
     const toggleClose = () => {
         setIsMenuOpen(true);
     };
     const handleChane = (e) => {
         setIsMenuOpen(e.target.value);
     };
+
+    const changeDiscription=(event,node)=>{
+        console.log(node.type)
+    }
 
     return (
         <div className='dndflow'>
@@ -187,6 +191,7 @@ const DnDFlow = () => {
                         nodeTypes={nodeTypes}
                         onDragOver={onDragOver}
                         fitView
+                        onNodeClick={changeDiscription}
                         onElementsRemove={handleNodeDelete}
                     >
                         <Controls />
