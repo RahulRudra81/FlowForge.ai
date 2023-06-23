@@ -22,12 +22,14 @@ import './index.css'
 import GptNode from './CustomNodes/GptNode'
 import TextToAudio from './CustomNodes/TextToAudio'
 import VoiceCloning from './CustomNodes/VoiceCloning'
+// import { Description } from '@headlessui/react/dist/components/description/description'
 
 export const useBearStore = create((set) => ({
     bears: 0,
     increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
     removeAllBears: () => set({ bears: 0 }),
 }))
+
 
 const nodeTypes = {
     selectorNode: ColorSelectorNode,
@@ -151,6 +153,16 @@ const DnDFlow = () => {
         
         reactFlowWrapper.current = true
     }, [])
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    
+    const toggleClose = () => {
+        setIsMenuOpen(true);
+    };
+    const handleChane = (e) => {
+        setIsMenuOpen(e.target.value);
+    };
+
     return (
         <div className='dndflow'>
             <ReactFlowProvider>
@@ -158,9 +170,7 @@ const DnDFlow = () => {
                 <div
                     className='reactflow-wrapper'
                     ref={reactFlowWrapper}
-                    // onClick={() => {
-                    //     console.log('Hello')
-                    // }}
+                    onClick={toggleClose}
                 >
                     <ReactFlow
                         nodes={nodes}
@@ -183,7 +193,8 @@ const DnDFlow = () => {
                         <Background />
                     </ReactFlow>
                 </div>
-                {nodes.id==='0'&&<Discription />}
+                {/* {nodes.id==='0'&&<Discription />} */}
+                {isMenuOpen? <Discription  handleChane={handleChane}/>:""}
             </ReactFlowProvider>
         </div>
     )

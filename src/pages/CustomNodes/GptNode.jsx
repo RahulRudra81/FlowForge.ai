@@ -3,7 +3,6 @@ import { Handle } from 'reactflow'
 import { useBearStore } from '../DnDFlow'
 import './styles/gptNode.css'
 
-
 export default memo(({ data, isConnectable }) => {
     console.log(data.color)
 
@@ -140,6 +139,7 @@ export default memo(({ data, isConnectable }) => {
                             src='https://img.icons8.com/ios-filled/50/pie-chart.png'
                             alt='pie-chart'
                         />
+                        {/* <button onClick={() => removeNode(node)}>Delete</button> */}
                         <div className='input'>Result</div>
                     </div>
                 </div>
