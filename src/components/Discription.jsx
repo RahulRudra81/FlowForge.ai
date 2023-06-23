@@ -52,11 +52,11 @@ export default (props) => {
             {/* {isMenuOpen && ( */}
                 
                     <div
-                        className="m-5 hover:text-[#f43f5e] cursor-pointer"
+                        className="rounded-2xl shadow-2xl cursor-pointer"
                         
                     >
                         <span className="" onClick={props.handleChane}>
-                            <AiOutlineClose />
+                            <AiOutlineClose className="m-5" />
                         </span>
                     <h1 className=' text-xl font-semibold text-gray-500 m-5'>Give Data and Description</h1>
                     <form form onSubmit={handleFileSubmit}>

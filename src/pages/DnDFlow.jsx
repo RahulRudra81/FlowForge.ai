@@ -163,8 +163,20 @@ const DnDFlow = () => {
         setIsMenuOpen(e.target.value);
     };
 
+    const [activeBar, setActiveBar] = useState('');
+    
     const changeDiscription=(event,node)=>{
-        console.log(node.type)
+        if(node.type==='gptNode'){
+            setActiveBar('gptDesc');
+            
+        }
+        else if(node.type==='VoiceCloning'){
+            setActiveBar('voiceCloneDesc');
+        }
+        else{
+            setActiveBar('textAudioDesc');
+        }
+
     }
 
     return (
@@ -199,7 +211,18 @@ const DnDFlow = () => {
                     </ReactFlow>
                 </div>
                 {/* {nodes.id==='0'&&<Discription />} */}
-                {isMenuOpen? <Discription  handleChane={handleChane}/>:""}
+                {/* {isMenuOpen? <Discription  handleChane={handleChane}/>:""} */}
+
+                {
+                    activeBar==='gptDesc'&&<Discription />
+
+                }
+                {
+                    activeBar==='voiceCloneDesc'&&<VoiceCloneDescription/>
+                }   
+                {
+                    activeBar==='textAudioDesc'&&(<div></div>)
+                }
             </ReactFlowProvider>
         </div>
     )
