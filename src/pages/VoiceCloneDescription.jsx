@@ -53,8 +53,8 @@ export default (props) => {
                         <div className="flex-grow mt-5 mb-5  border-t-2 border-solid border-zinc-300"></div>
                        
                        <label htmlFor="data" className="cursor-pointer">
-                    <div className='mt-3 text-white bg-[#6469ff] hover:text-[#6469ff] hover:bg-blue-200 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'>Upload</div>
-                    <input type="file"   accept="audio/mp3,audio/*;capture=microphone"  name="data" id="data" className="sr-only" onChange={handleUpload} />
+                    <div className='mt-3 text-white bg-[#6469ff] hover:text-[#6469ff] hover:bg-blue-200 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'>N/A</div>
+                    {/* <input type="file"   accept="audio/mp3,audio/*;capture=microphone"  name="data" id="data" className="sr-only" onChange={handleUpload} /> */}
                 </label>
                        
                     </div>
@@ -63,7 +63,7 @@ export default (props) => {
             <div className='flex justify-center items-center '>
 
             <button  type='submit' 
-            className='bg-[#6469ff] hover:bg-[#6469ff] hover:text-white text-white font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center m-5  '
+            className=' text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center m-5  '
             >Submit</button>
             </div>
             </form>

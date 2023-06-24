@@ -14,6 +14,7 @@ export default () => {
     return (
 
         <div className='shadow-xl p-2'>
+            <Link to='/home'><div className="flex-grow  hover:text-blue-700  font-myfont  border-b-2 mb-5 border-solid border-zinc-300 text-gray-500 cursor-pointer">Return to dashboard</div></Link>
             <div className='flex items-center justify-evenly cursor-pointer border-solid  border-[#dcdcdc] border-2 rounded p-2'>
                 <div><TfiHandOpen /></div>
                 <div className='ml-4 text-black '>
@@ -98,7 +99,8 @@ export default () => {
                     Voice Cloning
                 </div>
             </div>
-            <Link to='/home'><div className="flex-grow mt-20 hover:text-blue-700  font-myfont  border-t-2 border-solid border-zinc-300 text-gray-500 cursor-pointer">Return to dashboard</div></Link>
+            
+            <button className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center  ">Deploy</button>
         </div>
     )
 }

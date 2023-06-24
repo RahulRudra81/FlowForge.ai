@@ -159,9 +159,16 @@ const DnDFlow = () => {
     const toggleClose = () => {
         setIsMenuOpen(true);
     };
+    //right menu bar settings
+
+    //closing right menu bar
     const handleChane = (e) => {
         setIsMenuOpen(e.target.value);
     };
+
+    //mapping different right menu bar with different id
+    
+    let name, value;
 
     const [activeBar, setActiveBar] = useState('');
     
@@ -176,8 +183,22 @@ const DnDFlow = () => {
         else{
             setActiveBar('textAudioDesc');
         }
-
+        name=node.id
     }
+
+    //setting firebase
+        const [Description, setDescription] = useState(" ");
+      
+        const postDescription = (event) => {
+          name = event.target.name;
+          value = event.target.value;
+      
+          setDescription({ ...Description,  [name]:value });
+          console.log(Description)
+        };
+      
+        // connect with firebase
+      
 
     return (
         <div className='dndflow'>
@@ -214,7 +235,7 @@ const DnDFlow = () => {
                 {/* {isMenuOpen? <Discription  handleChane={handleChane}/>:""} */}
                 
                 {
-                    activeBar==='gptDesc'&& isMenuOpen ? <Discription  handleChane={handleChane}/>:""
+                    activeBar==='gptDesc'&& isMenuOpen ? <Discription  handleChane={handleChane} description={postDescription}/>:""
 
                 }
                 {
