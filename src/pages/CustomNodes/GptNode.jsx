@@ -4,17 +4,17 @@ import { useBearStore } from '../DnDFlow'
 import './styles/gptNode.css'
 
 export default memo(({ data, isConnectable }) => {
-    console.log(data.color)
+    // console.log(data.color)
 
     const [rand, setRand] = useState(Math.random())
 
     const bears = useBearStore((state) => state.bears)
     const increasePopulation = useBearStore((state) => state.increasePopulation)
 
-    data.color = rand
-    data.hoohaa = 'hello'
+    // data.color = rand
+    // data.hoohaa = 'hello'
     data.myFunc = () => {
-        console.log()
+        // console.log()
     }
 
     return (

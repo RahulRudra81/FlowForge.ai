@@ -67,6 +67,7 @@ const initialNodes = [
     
 ]
 
+
 let id = 0
 const getId = () => `${id++}`
 
@@ -96,10 +97,15 @@ const DnDFlow = () => {
         [setEdges]
     )
 
+    //nodes
+    
+
     useEffect(() => {
         console.log('edges' + JSON.stringify(edges))
         console.log('nodes' + JSON.stringify(nodes))
+        
     })
+    
 
     const onDragOver = useCallback((event) => {
         event.preventDefault()
@@ -168,7 +174,7 @@ const DnDFlow = () => {
 
     //mapping different right menu bar with different id
     
-    let name, value;
+    
 
     const [activeBar, setActiveBar] = useState('');
     const [currentId,setCurrentId]=useState()
@@ -186,7 +192,7 @@ const DnDFlow = () => {
         setCurrentId(node.id);
     }
 
-    //setting firebase
+        //setting firebase
         // const [Description, setDescription] = useState(" ");
       
         // const postDescription = (event) => {
@@ -202,7 +208,7 @@ const DnDFlow = () => {
     return (
         <div className='dndflow'>
             <ReactFlowProvider>
-            <Sidebar />
+            <Sidebar node={nodes} />
                 <div
                     className='reactflow-wrapper'
                     ref={reactFlowWrapper}

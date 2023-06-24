@@ -1,15 +1,35 @@
-import React from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import { BsInputCursorText, BsFillBookmarkFill } from "react-icons/bs";
 import { VscOutput } from "react-icons/vsc";
 import { FaRobot } from "react-icons/fa";
 import { TfiHandOpen } from "react-icons/tfi";
 import { Link } from 'react-router-dom/dist';
+import  {descriptionContext}  from '../Context'
 
-export default () => {
+export default (props) => {
+
+    const {userDescription,setUserDescription , 
+        addData
+    }=useContext(descriptionContext)
+
+
+    console.log(userDescription)
+    const [objects,setObjects]=useState();
+
     const onDragStart = (event, nodeType) => {
         event.dataTransfer.setData('application/reactflow', nodeType)
         event.dataTransfer.effectAllowed = 'move'
     }
+
+    const fetchId =()=>{
+        const findObjects=props.node.map(item => [item.id,item.type])
+
+        setObjects(findObjects);
+        
+        }
+    useEffect(()=>{
+        console.log(objects)
+    },[objects])
 
     return (
 
@@ -100,7 +120,12 @@ export default () => {
                 </div>
             </div>
             
-            <button className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center  ">Deploy</button>
+            <button 
+            className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center  "
+            onClick={fetchId}
+            >
+                Deploy
+            </button>
         </div>
     )
 }

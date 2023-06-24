@@ -1,7 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
+import {auth, db} from '../firebase'
+import {addDoc, collection} from 'firebase/firestore'
+import { doc } from 'firebase/firestore'
+import  {descriptionContext}  from '../Context'
 
 export default (props) => {
+
+
+    const {userDescription,setUserDescription , 
+        addData
+    }=useContext(descriptionContext)
+
+
+
     // console.log(props.status)
     // const toggleClose = () => {
     //     this.props.status(false)
@@ -20,7 +32,7 @@ export default (props) => {
         const file = e.target.files[0]
         setImageUpload(file);
 
-        /*Important*/
+        // /Important/
 
         // if(file && file.type.substr(0,5)==='image'){
         //     const reader=new FileReader()
@@ -38,7 +50,7 @@ export default (props) => {
     const handleDescription = (e) => {
         setDescription(e.target.value)
     }
-    const [userDescription, setUserDescription] = useState(" ");
+   // const [userDescription, setUserDescription] = useState(" ");
 
     const handleFileSubmit = (e) => {
         e.preventDefault()
@@ -47,6 +59,17 @@ export default (props) => {
         // console.log(imageUpload)
         console.log(userDescription)
     }
+
+    // const addToDatabase = async () => {
+    //     const ref=collection(db,'user')
+    //     const userRef=doc(ref,auth.currentUser.uid)
+    //     const data= addDoc(collection(userRef,'projects'),{
+    //         description:userDescription,
+    //     })
+
+    //     alert('Data added to database')
+      
+    // }
 
 
     return (
@@ -96,6 +119,9 @@ export default (props) => {
                             >Submit</button>
                         </div>
                     </form>
+                    <button onClick={
+                        addData
+                    }>Add to database</button>
                 </div>
             {/* )} */}
         </>
