@@ -7,16 +7,16 @@ export const descriptionContext = createContext(null)
 const Context = ({children}) => {
     const [userDescription, setUserDescription] = useState(" ");
 
-    const addData=async()=>{
-        const docRef=await addDoc(collection(db,'users'),{
-            description:userDescription
-        })
-        console.log('Document written with ID: ', docRef.id);
-    }
+    // const addData=async()=>{
+    //     const docRef=await addDoc(collection(db,'users'),{
+    //         description:userDescription
+    //     })
+    //     console.log('Document written with ID: ', docRef.id);
+    // }
 
     
   return (
-    <descriptionContext.Provider value={{userDescription,setUserDescription ,addData}}>
+    <descriptionContext.Provider value={{userDescription,setUserDescription }}>
       {children}
     </descriptionContext.Provider>
   )

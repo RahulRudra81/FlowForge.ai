@@ -5,7 +5,9 @@ import { FaRobot } from "react-icons/fa";
 import { TfiHandOpen } from "react-icons/tfi";
 import { Link } from 'react-router-dom/dist';
 import { descriptionContext } from '../Context'
-// import { Description } from '@headlessui/react/dist/components/description/description';
+import { auth, db } from '../firebase'
+import { addDoc, collection } from 'firebase/firestore'
+
 
 export default (props) => {
     //node name and node id
@@ -17,9 +19,7 @@ export default (props) => {
 
     //node id and description
 
-    const { userDescription, setUserDescription,
-        addData
-    } = useContext(descriptionContext)
+    const { userDescription} = useContext(descriptionContext)
 
     
     // console.log(userDescription)
@@ -35,22 +35,65 @@ export default (props) => {
         event.dataTransfer.setData('application/reactflow', nodeType)
         event.dataTransfer.effectAllowed = 'move'
     }
-
-    const fetchId = () => {
-        const findObjects = props.node.map(item => [item.id, item.type])
-        const findEdges = props.edges.map(item => [item.source,item.target])
-        setObjects(findObjects);
+    
+    
+    const fetchId = async () => {
+        const findObjects =await props.node.map(item => [item.id, item.type])
+        const idMapObject=findObjects.map(([key, value]) => ({ key, value }));
+        console.log(idMapObject)
+        const findEdges = await props.edges.map(item => [item.source,item.target])
+        const edgeConnections=findEdges.map(([key, value]) => ({ key, value }));
+        console.log(edgeConnections)
+        console.log(userDescription)
+         setObjects(findObjects);
         setAllEdges(findEdges);
 
+        const docRef=await addDoc(collection(db,'dataPipeline'),{
+            Userid:auth.currentUser.uid,
+             idAndNodeMapping: idMapObject,
+            edgesConnections: edgeConnections,
+            description:userDescription
+        })
+        alert('Document written with ID: ', docRef.Userid);
 
+        //addDataPipeline()
     }
 
+    // const idMap=props.node.map(item => [item.id, item.type])
+
+    // console.log(idMap)
+
+    // const arrayObjects = idMap.map(([key, value]) => ({ key, value }));
+
+    // console.log(arrayObjects)
+
+   
+
+   
+    
+    // const addDataPipeline=async()=>{
+    //     const docRef=await addDoc(collection(db,'dataPipeline'),{
+    //         Userid:auth.currentUser.uid,
+    //          idAndNodeMapping: findObjects.map(item => [item[0], item[1]]),
+    //         // edgesConnections:allEdges || null,
+    //         //idAndNodeMapping:props.node.map(item => [item.id, item.type]),
+    //         description:userDescription
+    //     })
+    //     alert('Document written with ID: ', docRef.Userid);
+    // }
+
+      
+
     useEffect(() => {
-        console.log(objects)
-        console.log(allEdges)
-        console.log(userDescription)
-        const object=Object.assign({}, objects);
-        const allEdge=Object.assign({},allEdges)
+        // console.log(objects)
+        // console.log(allEdges)
+        // console.log(userDescription)
+        // const object=Object.assign({}, objects);
+        // const allEdge=Object.assign({},allEdges)
+
+        
+
+       // addDataPipeline();
          
     }, [objects])
 

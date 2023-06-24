@@ -8,8 +8,8 @@ import  {descriptionContext}  from '../Context'
 export default (props) => {
 
 
-    const {userDescription,setUserDescription , 
-        addData
+    const {userDescription,setUserDescription 
+        
     }=useContext(descriptionContext)
 
 
@@ -119,9 +119,7 @@ export default (props) => {
                             >Submit</button>
                         </div>
                     </form>
-                    <button onClick={
-                        addData
-                    }>Add to database</button>
+                    
                 </div>
             {/* )} */}
         </>
