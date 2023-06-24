@@ -38,11 +38,14 @@ export default (props) => {
     const handleDescription = (e) => {
         setDescription(e.target.value)
     }
+    const [userDescription, setUserDescription] = useState(" ");
 
     const handleFileSubmit = (e) => {
         e.preventDefault()
-        console.log(description)
-        console.log(imageUpload)
+        setUserDescription({ ...userDescription, [props.id]: description });
+        // console.log(description)
+        // console.log(imageUpload)
+        console.log(userDescription)
     }
 
 
@@ -89,7 +92,7 @@ export default (props) => {
 
                             <button type='submit'
                                 className=' text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center m-5  '
-                                onClick={props.description}
+                                onClick={props.postDescription}
                             >Submit</button>
                         </div>
                     </form>

@@ -171,7 +171,7 @@ const DnDFlow = () => {
     let name, value;
 
     const [activeBar, setActiveBar] = useState('');
-    
+    const [currentId,setCurrentId]=useState()
     const changeDiscription=(event,node)=>{
         if(node.type==='gptNode'){
             setActiveBar('gptDesc');
@@ -183,19 +183,18 @@ const DnDFlow = () => {
         else{
             setActiveBar('textAudioDesc');
         }
-        name=node.id
+        setCurrentId(node.id);
     }
 
     //setting firebase
-        const [Description, setDescription] = useState(" ");
+        // const [Description, setDescription] = useState(" ");
       
-        const postDescription = (event) => {
-          name = event.target.name;
-          value = event.target.value;
-      
-          setDescription({ ...Description,  [name]:value });
-          console.log(Description)
-        };
+        // const postDescription = (event) => {
+        //     value = event.target.value;
+            
+        //   setDescription({ ...Description,  value });
+        //   console.log(Description)
+        // };
       
         // connect with firebase
       
@@ -235,7 +234,7 @@ const DnDFlow = () => {
                 {/* {isMenuOpen? <Discription  handleChane={handleChane}/>:""} */}
                 
                 {
-                    activeBar==='gptDesc'&& isMenuOpen ? <Discription  handleChane={handleChane} description={postDescription}/>:""
+                    activeBar==='gptDesc'&& isMenuOpen ? <Discription  handleChane={handleChane} id={currentId} />:""
 
                 }
                 {
