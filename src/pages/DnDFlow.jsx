@@ -46,18 +46,18 @@ const handleNodeDelete = (nodeId) => {
 
 const initialNodes = [
     
-    {
-        id: '3',
-        type: 'gptNode',
-        data: { label: 'h2', tag: 'h2', children: [] },
-        position: { x: 200, y: 5 },
-    },
-    {
-        id: '5',
-        type: 'VoiceCloning',
-        data: { label: 'VoiceCloning', tag: 'VoiceCloning', children: [] },
-        position: { x: 50, y: 2 },
-    }
+    // {
+    //     id: '3',
+    //     type: 'gptNode',
+    //     data: { label: 'h2', tag: 'h2', children: [] },
+    //     position: { x: 200, y: 5 },
+    // },
+    // {
+    //     id: '5',
+    //     type: 'VoiceCloning',
+    //     data: { label: 'VoiceCloning', tag: 'VoiceCloning', children: [] },
+    //     position: { x: 50, y: 2 },
+    // }
     // {
     //     id: '4',
     //     type: 'TextToAudio',
@@ -208,7 +208,7 @@ const DnDFlow = () => {
     return (
         <div className='dndflow'>
             <ReactFlowProvider>
-            <Sidebar node={nodes} />
+            <Sidebar node={nodes} edges={edges} />
                 <div
                     className='reactflow-wrapper'
                     ref={reactFlowWrapper}

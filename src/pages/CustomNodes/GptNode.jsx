@@ -21,12 +21,12 @@ export default memo(({ data, isConnectable }) => {
         <div className='gpt-node-wrapper'>
             <Handle
                 type='target'
-                id='a'
+                id='gptIn'
                 position='left'
                 style={{ marginTop: 18, background: '#555' }}
                 isConnectable={isConnectable}
             />
-            <Handle
+            {/* <Handle
                 type='target'
                 id='b'
                 position='left'
@@ -39,10 +39,10 @@ export default memo(({ data, isConnectable }) => {
                 position='left'
                 style={{ marginTop: 68, background: '#555' }}
                 isConnectable={isConnectable}
-            />
+            /> */}
             <Handle
                 type='source'
-                id='d'
+                id='gptOut'
                 position='right'
                 style={{
                     marginTop: 136,

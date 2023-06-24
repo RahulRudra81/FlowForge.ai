@@ -21,7 +21,7 @@ export default memo(({ data, isConnectable }) => {
         <div className='gpt-node-wrapper'>
             <Handle
                 type='target'
-                id='a'
+                id='textToAudioIn'
                 position='left'
                 style={{ marginTop: 18, background: '#555' }}
                 isConnectable={isConnectable}
@@ -29,7 +29,7 @@ export default memo(({ data, isConnectable }) => {
             
             <Handle
                 type='source'
-                id='d'
+                id='textToAudioOut'
                 position='right'
                 style={{
                     marginTop: 70,

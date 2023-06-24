@@ -1,35 +1,57 @@
-import React,{useState,useEffect,useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { BsInputCursorText, BsFillBookmarkFill } from "react-icons/bs";
 import { VscOutput } from "react-icons/vsc";
 import { FaRobot } from "react-icons/fa";
 import { TfiHandOpen } from "react-icons/tfi";
 import { Link } from 'react-router-dom/dist';
-import  {descriptionContext}  from '../Context'
+import { descriptionContext } from '../Context'
+// import { Description } from '@headlessui/react/dist/components/description/description';
 
 export default (props) => {
+    //node name and node id
+    const [objects, setObjects] = useState();
 
-    const {userDescription,setUserDescription , 
+    //edges source and target
+
+    const [allEdges,setAllEdges]= useState();
+
+    //node id and description
+
+    const { userDescription, setUserDescription,
         addData
-    }=useContext(descriptionContext)
+    } = useContext(descriptionContext)
 
+    
+    // console.log(userDescription)
 
-    console.log(userDescription)
-    const [objects,setObjects]=useState();
+    const descriptionArray = Object.entries(userDescription)
+    // console.log(descriptionArray)
+    
+    
+    //node id and node name mappping = objects
+    
 
     const onDragStart = (event, nodeType) => {
         event.dataTransfer.setData('application/reactflow', nodeType)
         event.dataTransfer.effectAllowed = 'move'
     }
 
-    const fetchId =()=>{
-        const findObjects=props.node.map(item => [item.id,item.type])
-
+    const fetchId = () => {
+        const findObjects = props.node.map(item => [item.id, item.type])
+        const findEdges = props.edges.map(item => [item.source,item.target])
         setObjects(findObjects);
-        
-        }
-    useEffect(()=>{
+        setAllEdges(findEdges);
+
+
+    }
+
+    useEffect(() => {
         console.log(objects)
-    },[objects])
+        console.log(allEdges)
+        console.log(userDescription)
+    }, [objects])
+
+
 
     return (
 
@@ -38,7 +60,7 @@ export default (props) => {
             <div className='flex items-center justify-evenly cursor-pointer border-solid  border-[#dcdcdc] border-2 rounded p-2'>
                 <div><TfiHandOpen /></div>
                 <div className='ml-4 text-black '>
-                    Drag to choose 
+                    Drag to choose
                 </div>
             </div>
             <div className="flex-grow mt-5  border-t border-zinc-300"></div>
@@ -119,10 +141,10 @@ export default (props) => {
                     Voice Cloning
                 </div>
             </div>
-            
-            <button 
-            className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center  "
-            onClick={fetchId}
+
+            <button
+                className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center  "
+                onClick={fetchId}
             >
                 Deploy
             </button>
