@@ -49,6 +49,9 @@ export default (props) => {
         console.log(objects)
         console.log(allEdges)
         console.log(userDescription)
+        const object=Object.assign({}, objects);
+        const allEdge=Object.assign({},allEdges)
+         
     }, [objects])
 
 
