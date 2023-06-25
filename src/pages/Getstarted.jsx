@@ -30,6 +30,8 @@ const Getstarted = () => {
   const addProject = async () => {
     try {
       const docRef = await addDoc(collection(db, 'projects'), {
+        user: auth.currentUser.id,
+        userEmail: auth.currentUser.email,
         projectName:projectName,
         date: new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear(),
       })

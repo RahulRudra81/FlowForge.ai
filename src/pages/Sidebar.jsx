@@ -49,7 +49,8 @@ export default (props) => {
         setAllEdges(findEdges);
 
         const docRef=await addDoc(collection(db,'dataPipeline'),{
-            Userid:auth.currentUser.uid,
+             Userid:auth.currentUser.uid,
+             UserEmail:auth.currentUser.email,
              idAndNodeMapping: idMapObject,
             edgesConnections: edgeConnections,
             description:userDescription

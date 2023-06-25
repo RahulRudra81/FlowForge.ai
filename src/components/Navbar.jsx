@@ -22,6 +22,7 @@ const Navbar = () => {
     const addProject = async() => {
       try{
         const docRef = await addDoc(collection(db, 'projects'), {
+          user: auth.currentUser.uid,
           projectName: projectName,
           date: new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear(),
       })

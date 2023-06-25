@@ -13,6 +13,7 @@ const Auth = (params) => {
     email: "",
     password: "",
     name: "",
+    
 });
 
   useEffect(() => {
@@ -38,6 +39,7 @@ const Auth = (params) => {
    const addUser = async(e) => {
     try{
       const userdata= await addDoc(collection(db, "user"), {
+        id:auth.currentUser.uid,
         name: data.name,
         email: data.email,
         password:data.password

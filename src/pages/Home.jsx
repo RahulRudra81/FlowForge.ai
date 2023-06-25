@@ -36,11 +36,12 @@ const Home = () => {
   const [newProject, setNewProject] = useState(0)
 
 
-  //console.log(newProject);
+   
 
   const addProject = async () => {
     try {
       const docRef = await addDoc(collection(db, 'projects'), {
+        user: auth.currentUser.uid,
         name: `New Project ${newProject + 1}`,
         date: new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear(),
       })
@@ -54,6 +55,7 @@ const Home = () => {
   const handleNewProject = async () => {
 
     setNewProject(newProject + 1)
+    console.log(auth.currentUser.uid)
     await addProject()
 
   }
