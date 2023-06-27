@@ -42,7 +42,7 @@ const Landing = () => {
                             LogIn
                         </div>
                         <Link to='/signup'>
-                            <button className="text-white justify-center h-8 w-[120px] bg-[#33bbcf] p-3  rounded-md flex  items-center  shadow-gray-400 shadow-md hover:shadow-sm hover:shadow-gray-400"><LoginIcon sx={{ fontSize: 18, marginRight: 1 }} />SignUp</button>
+                            <button className="text-white justify-center h-8 w-[100px] bg-black p-3 text-sm rounded-md flex  items-center  shadow-gray-400 shadow-md hover:shadow-sm hover:shadow-gray-400 hover:bg-gray-800"><LoginIcon sx={{ fontSize: 12, marginRight: 1 }} />SignUp</button>
                         </Link>
 
                     </div>
@@ -54,16 +54,16 @@ const Landing = () => {
             <div className=' flex md:flex-row  flex-col sm:py-16 py-6 ml-20 mr-20'>
                 <div className='flex-1 flex-col xl:px-0 sm:px-16 px-6  mt-0 flex justify-center items-start w-full'>
                     <div  >
-                        <h1 className=' text-4xl md:text-5xl font-mega  mb-12'>
+                        <h1 className=' text-4xl md:text-5xl font-poppins  mb-12'>
                             No-code<br /> <span
                                 className='text-[#33BBCF] '>
                                 Audio/Video </span>
                             AI<br />Apps in seconds
                         </h1>
-                        <p className='font-mega  text-[18px] max-w-[470px] mt-5 '>Create AI backends in using drag and drop, which you can connect with no-code applicatoins or call with an API call</p>
+                        <p className='font-poppins  text-[18px] max-w-[470px] mt-5 '>Create AI backends in using drag and drop, which you can connect with no-code applicatoins or call with an API call</p>
                         <div className='mt-5 flex'>
                             <Link to='/signup'>
-                                <button className="text-white justify-center h-8 w-25 bg-[#33bbcf] p-3 rounded-md flex  items-center  shadow-gray-400 shadow-md hover:shadow-sm hover:shadow-gray-400"><KeyboardArrowRightIcon sx={{ fontSize: 18, marginRight: 0.5 }} />Get Started</button>
+                                <button className="text-white justify-center h-8 w-25 bg-black p-3 rounded-md flex  items-center  shadow-gray-400 shadow-md hover:shadow-sm hover:shadow-gray-400 hover:bg-gray-800"><KeyboardArrowRightIcon sx={{ fontSize: 18, marginRight: 0.5 }} />Get Started</button>
                             </Link>
                             <a href='#bottom'>
                                 <div className='ml-5 mt-1 text-md text-[#33bbcf] cursor-pointer hover:font-bold hover:underline hover:shadow-black' >
@@ -84,10 +84,10 @@ const Landing = () => {
             <div className='flex md:flex-row justify-center flex-col sm:py-16 py-6 w-full '>
                 <div className='mr-20 '>
                     <IoBuild />
-                    <div className='text-5xl font-mega   '>
+                    <div className='text-5xl font-poppins   '>
                         <h1> <span className='text-[#33BBCF] '>Build </span><br /> AI backend <br /> in minutes.</h1>
                     </div>
-                    <p className='text-gray-500 mt-[10px] ml-2'> No more deployment. Just drag, drop and get an API</p>
+                    <p className='text-gray-500 font-poppins mt-[10px] ml-2'> No more deployment. Just drag, drop and get an API</p>
                 </div>
                 <div >
                     <img src={video1} width="500" height="350" className='rounded-xl' />
@@ -99,10 +99,10 @@ const Landing = () => {
                 </div>
                 <div >
                     <IoCreateSharp />
-                    <div className='text-5xl font-mega   '>
+                    <div className='text-5xl font-poppins   '>
                         <h1> <span className='text-[#33BBCF] '>Customize </span><br /> your pipeline.</h1>
                     </div>
-                    <p className='text-gray-500 mt-[10px] ml-2'> Drag, drop and build end-end customized AI audio or video pipeline<br /> with our 20+ functionalities.</p>
+                    <p className='text-gray-500 font-poppins mt-[10px] ml-2'> Drag, drop and build end-end customized AI audio or video pipeline<br /> with our 20+ functionalities.</p>
                 </div>
 
             </div>
