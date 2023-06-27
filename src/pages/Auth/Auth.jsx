@@ -1,9 +1,9 @@
-import React, { useState,useEffect } from 'react'
-import {useNavigate } from "react-router-dom";
-import {signInWithEmailAndPassword,onAuthStateChanged, createUserWithEmailAndPassword} from 'firebase/auth'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword } from 'firebase/auth'
 import "firebase/firestore";
-import { collection, addDoc } from "firebase/firestore"; 
-import {db,auth} from '../../firebase'
+import { collection, addDoc } from "firebase/firestore";
+import { db, auth } from '../../firebase'
 import { Link } from 'react-router-dom'
 import { FiSun, FiLock } from 'react-icons/fi'
 import { IoArrowBackCircle } from "react-icons/io5";
@@ -14,50 +14,51 @@ const Auth = (params) => {
 
 
   const navigate = useNavigate();
-  const [data, setData] = useState({ 
+  const [data, setData] = useState({
     email: "",
     password: "",
     name: "",
-    
-});
+
+  });
 
   useEffect(() => {
-    onAuthStateChanged(auth,  (user) => {
-        if (user) {
-            navigate('/home')
-        }
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate('/home')
+      }
     })
-}, [])
+  }, [])
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-  
+
   const handleSignIn = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth,data.email, data.password).then(()=>{
-        navigate('/home')
+    signInWithEmailAndPassword(auth, data.email, data.password).then(() => {
+      navigate('/home')
     }).catch((error) => {
-        alert(error.message)
+      alert(error.message)
     })
-}
+  }
 
-   const addUser = async(e) => {
-    try{
-      const userdata= await addDoc(collection(db, "user"), {
-        id:auth.currentUser.uid,
+  const addUser = async (e) => {
+    try {
+      const userdata = await addDoc(collection(db, "user"), {
+        id: auth.currentUser.uid,
         name: data.name,
         email: data.email,
-        password:data.password
-       });
-        alert("User added to database")
-    }catch{
+        password: data.password
+      });
+      alert("User added to database")
+    } catch {
       ((error) => {
         alert(error.message)
-    })
-  }}
+      })
+    }
+  }
 
 
-  const handleRegister = async(e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     try {
       const { user } = await createUserWithEmailAndPassword(auth, data.email, data.password);
@@ -75,17 +76,17 @@ const Auth = (params) => {
     }
 
 
-}
+  }
 
   return (
-    
-    <div >
-    <Link to='/'>
-      <div className='text-3xl m-3'>
-        <IoArrowBackCircle/>
-      </div>
-    </Link>
-        
+
+    <div className='font-poppins min-h-screen'>
+      <Link to='/'>
+        <div className='text-3xl ml-3 p-5'>
+          <IoArrowBackCircle />
+        </div>
+      </Link>
+
       {/* <div className='bg-gray-900 md:fixed z-10 w-full shadow-md bg-opacity-90 hover:bg-opacity-50 backdrop-blur-lg bg-clip-padding'>
             <nav className='relative xl:px-0 sm:px-16 px-6 flex justify-between items-center '>
                 <div className=" ">
@@ -101,69 +102,68 @@ const Auth = (params) => {
             </div> */}
       <form onSubmit={handleRegister}>
         {params.title == "SignUp" ? (
-          <>
-            <div className="flex font-poppins items-center justify-center min-h-screen  m-auto w-full">
+            <div className="flex font-poppins items-center justify-center  mt-0 w-full">
               <div className="px-8 py-6 mx-4 mt-4 text-left  md:w-1/3 lg:w-1/3 sm:w-1/3">
                 <div
                   className="flex items-center justify-center mb-4 bg-black text-white rounded-full h-10 w-10 m-auto text-2xl font-bold"
-                > <FiLock/></div>
+                > <FiLock /></div>
                 <h3 className="text-2xl font-bold text-center text-gray-800">Sign Up</h3>
                 <div>
                   <div className="mt-4">
                     <div>
-                      
-                          <input
-                            type="text"
-                            placeholder="Name"
-                            onChange={(e) => handleChange(e)}
-                            value={data.name}
-                            name="name"
-                            required
-                            className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
-                          />
-                        
+
+                      <input
+                        type="text"
+                        placeholder="Name"
+                        onChange={(e) => handleChange(e)}
+                        value={data.name}
+                        name="name"
+                        required
+                        className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
+                      />
+
                     </div>
                     <div className="mt-4">
-                      
-                          <input
-                            type="email"
-                            placeholder="Email"
-                            onChange={(e) => handleChange(e)}
-                            value={data.email}
-                            name="email"
-                            required
-                            className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
-                          />
-                      
+
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        onChange={(e) => handleChange(e)}
+                        value={data.email}
+                        name="email"
+                        required
+                        className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
+                      />
+
                     </div>
                     <div className="mt-4">
-                      
-                          <input
-                            onChange={(e) => handleChange(e)}
-                            value={data.password}
-                            name="password"
-                            type="Password"
-                            required
-                            placeholder="Password"
-                            className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
-                          />
-                       
+
+                      <input
+                        onChange={(e) => handleChange(e)}
+                        value={data.password}
+                        name="password"
+                        type="Password"
+                        required
+                        placeholder="Password"
+                        className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
+                      />
+
                     </div>
                     <div className="flex">
-                      
-                        <button type="submit"
-                          // onClick={handleRegister}
-                          className="w-full px-6 py-2 mt-4 text-white bg-[black] rounded-md  hover:bg-gray-800"
-                        >
-                          Create Account
-                        </button>
-                      
+
+                      <button type="submit"
+                        // onClick={handleRegister}
+                        className="w-full px-6 py-2 mt-4  text-white bg-[black] rounded-md font-poppins  hover:bg-gray-800"
+                      >
+                        Create Account
+                      </button>
+
                     </div>
-                    <div className="mt-6 flex  text-grey-dark">
+                    <div className="mt-6 flex  font-poppins text-grey-dark">
                       Already have an account?
                       <Link to='/login'>
                         <div
-                          className="text-[#14b8a6] ml-2 hover:underline"
+                          className="text-[#33BBCF] ml-2 hover:underline"
                         >
                           Log In
                         </div>
@@ -173,62 +173,61 @@ const Auth = (params) => {
                 </div>
               </div>
             </div>
-          </>
         ) : (
-            <div className="flex items-center font-poppins justify-center min-h-screen  m-auto w-full">
+          <div className="flex items-center font-poppins justify-center min-h-screen  m-auto w-full">
             <div className="px-8 py-6 mx-4 mt-4 text-left  md:w-1/3 lg:w-1/3 sm:w-1/3">
-            <div
-                  className="flex items-center justify-center mb-4 bg-black text-white rounded-full h-10 w-10 m-auto text-2xl font-bold"
-                > <FiLock/></div>
+              <div
+                className="flex items-center justify-center mb-4 bg-black text-white rounded-full h-10 w-10 m-auto text-2xl font-bold"
+              > <FiLock /></div>
               <h3 className="text-2xl font-bold text-gray-800 text-center">Log In</h3>
               <div>
                 <div className="mt-4">
-                  
+
                   <div className="mt-4">
-                    
-                        <input
-                          type="email"
-                          placeholder="Email"
-                          onChange={(e) => handleChange(e)}
-                          value={data.email}
-                          name="email"
-                          required
-                          className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
-                        />
-                     
+
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      onChange={(e) => handleChange(e)}
+                      value={data.email}
+                      name="email"
+                      required
+                      className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
+                    />
+
                   </div>
                   <div className="mt-4">
-                    
-                        <input
-                          onChange={(e) => handleChange(e)}
-                          value={data.password}
-                          name="password"
-                          type="Password"
-                          required
-                          placeholder="Password"
-                          className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
-                        />
-                      
-                    </div>
+
+                    <input
+                      onChange={(e) => handleChange(e)}
+                      value={data.password}
+                      name="password"
+                      type="Password"
+                      required
+                      placeholder="Password"
+                      className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
+                    />
+
+                  </div>
 
                   <div className="flex">
-                    
-                      <button
-                        onClick={handleSignIn}
-                        className="w-full px-6 py-2 mt-4 text-white bg-[black] rounded-xl hover:bg-gray-800 "
-                      >
-                        Log In
-                      </button>
-                    
+
+                    <button
+                      onClick={handleSignIn}
+                      className="w-full px-6 py-2 mt-4 text-white bg-[black] rounded-xl hover:bg-gray-800 "
+                    >
+                      Log In
+                    </button>
+
                   </div>
                   <div className="mt-6 text-grey-dark flex">
                     Don't have an account?
                     <Link to="/signup">
-                    <div
-                      className="text-[#14b8a6] ml-2 hover:underline"
-                    >
-                      Sign Up
-                    </div>
+                      <div
+                        className="text-[#14b8a6] ml-2 hover:underline"
+                      >
+                        Sign Up
+                      </div>
                     </Link>
                   </div>
                 </div>
@@ -237,11 +236,11 @@ const Auth = (params) => {
           </div>
         )}
       </form>
-      
-      
-        
+
+
+
     </div>
-    
+
   );
 };
 
@@ -254,7 +253,7 @@ export default Auth;
 
 
 
-                    {/* 
+{/* 
                     <div className="mt-4">
                       <label className="block text-lg text-[#0f766e]">
                         State
