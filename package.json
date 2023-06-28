@@ -24,6 +24,7 @@
     "autoprefixer": "^10.4.14",
     "axios": "^1.4.0",
     "firebase": "^9.22.2",
+    "mdb-react-ui-kit": "^6.1.0",
     "postcss": "^8.4.24",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",

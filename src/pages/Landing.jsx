@@ -14,6 +14,7 @@ import video2 from '../assets/vid2.gif'
 import { IoBuild, IoCreateSharp } from "react-icons/io5";
 import bg from '../assets/bg.png'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import Footer from '../components/Footer'
 // import { createTheme ,ThemeProvider } from '@mui/material/styles';
 
 // const theme = createTheme({
@@ -146,6 +147,7 @@ const Landing = () => {
                     </div>
                 </div>
             </a>
+            <Footer/>
         </div>
     )
 }

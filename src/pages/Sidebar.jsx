@@ -3,10 +3,11 @@ import { BsInputCursorText, BsFillBookmarkFill } from "react-icons/bs";
 import { VscOutput } from "react-icons/vsc";
 import { FaRobot } from "react-icons/fa";
 import { TfiHandOpen } from "react-icons/tfi";
-import { Link } from 'react-router-dom/dist';
+import { Link, useParams, useLocation } from 'react-router-dom/dist';
 import { descriptionContext } from '../Context'
 import { auth, db } from '../firebase'
 import { addDoc, collection } from 'firebase/firestore'
+
 
 
 export default (props) => {
@@ -36,6 +37,8 @@ export default (props) => {
         event.dataTransfer.effectAllowed = 'move'
     }
     
+
+    const location=useLocation()
     
     const fetchId = async () => {
         const findObjects =await props.node.map(item => [item.id, item.type])
@@ -189,12 +192,12 @@ export default (props) => {
                 </div>
             </div>
 
-            <button
+           {window.location.pathname=='/'?"":<button
                 className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center  "
                 onClick={fetchId}
             >
                 Deploy
-            </button>
+            </button>}
         </div>
     )
 }
