@@ -106,7 +106,10 @@ export default (props) => {
     return (
 
         <div className='shadow-xl p-2'>
+            {window.location.pathname=='/'?""
+            :
             <Link to='/home'><div className="flex-grow  hover:text-blue-700  font-myfont  border-b-2 mb-5 border-solid border-zinc-300 text-gray-500 cursor-pointer">Return to dashboard</div></Link>
+            } 
             <div className='flex items-center justify-evenly cursor-pointer border-solid  border-[#dcdcdc] border-2 rounded p-2'>
                 <div><TfiHandOpen /></div>
                 <div className='ml-4 text-black '>
