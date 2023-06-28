@@ -161,13 +161,13 @@ const Getstarted = () => {
             <div className='border-2 lg:p-5 m-5 p-3 w-[300px] h-[150px] lg:h-[200px] border-solid border-gray-400 rounded-xl flex flex-col justify-between'>
               <h1 className='lg:text-2xl text-lg font-myfont font-bold text-gray-500 text-center ' >Create your model</h1>
               <div className="flex justify-center items-center mt-10 ">
-                <button className='bg-[#db005b] hover:bg-[#fc0069] text-white p-2  rounded-md flex justify-between items-center text-sm ' onClick={view}><span>Get Started</span></button>
+                <button className='text-white justify-center h-8  bg-black p-5 text-sm rounded-full flex  items-center border-solid border-2 border-black  shadow-gray-400 shadow-md hover:shadow-md hover:shadow-gray-400 hover:bg-gray-800 ' onClick={view}><span>Get Started</span></button>
               </div>
             </div>
             <div className='border-2 lg:p-5 p-3 m-5 w-[300px] h-[150px] lg:h-[200px] border-solid border-gray-400 rounded-xl flex flex-col justify-between'>
               <h1 className='lg:text-xl text-lg font-myfont font-bold text-gray-500 text-center '>Explore Pre-existing Models</h1>
               <div className="flex justify-center items-center mt-10">
-                <Link to='/template'><button className='bg-[#db005b] hover:bg-[#fc0069] text-white p-2   rounded-md flex justify-between items-center text-sm'><span>Let's Go</span></button> </Link>
+                <Link to='/template'><button className='text-white justify-center h-8  bg-black p-5 text-sm rounded-full flex  items-center border-solid border-2 border-black  shadow-gray-400 shadow-md hover:shadow-md hover:shadow-gray-400 hover:bg-gray-800'><span>Let's Go</span></button> </Link>
               </div>
             </div>
           </div>
@@ -206,7 +206,7 @@ const Getstarted = () => {
             
             <div className='w-full flex items-center justify-end'>
         <button
-         className='bg-[#db005b] hover:bg-[#fc0069] text-white p-1 mt-2 rounded-md flex justify-end items-end right-0 bottom-0 mr-2 mb-2 flex justify-center '  onClick={handleNewProject}
+         className='text-white justify-center h-8 w-[80px] bg-black p-5 text-sm rounded-full flex  items-center border-solid border-2 border-black  shadow-gray-400 shadow-md hover:shadow-md hover:shadow-gray-400 hover:bg-gray-800 mt-5 '  onClick={handleNewProject}
          >Finish</button>
         </div>
             

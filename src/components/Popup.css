@@ -27,10 +27,10 @@
     right: 16px;
     cursor: pointer;
     font-size: larger;
-    background-color: #ef4444;
+    background-color: black;
     color: #fff;
     border-radius: 50%;
 }
 .popup-inner .close-btn:hover{
-    background-color: #dc2626;
+    background-color: black;
 }

@@ -22,9 +22,9 @@ const Template = () => {
     <Navbar/>
     <div className="flex flex-row ">
     <Sidebar/>
-    <div className='lg:w-3/5 h-[88vh] overflow-y-scroll flex flex-col  home'>
+    <div className='lg:w-full h-[88vh] overflow-y-scroll flex flex-col  home'>
       <div className=" ">
-       <div className="flex justify-between items-center fixed bg-white lg:w-3/5 p-2 ">
+       <div className="flex justify-between items-center  bg-white  p-2   ">
        <h1 className='lg:text-2xl text-sm font-myfont font-bold text-gray-600 flex mr-5 items-center'><span><MdExplore className='lg:mr-2'/></span>Explore Templates</h1>
       
         <div className="flex justify-center items-center border-2 border-solid border-gray rounded-lg p-2 shadow-md hover:shadow-gray-700 m-3 cursor-pointer  text-sm">
@@ -32,7 +32,7 @@ const Template = () => {
           <button className='outline-none'><ImSearch className='text-gray-700'/></button>
           </div>
        </div>
-            <div className="flex flex-wrap items-center justify-center mt-20 ">
+            <div className="flex flex-wrap items-center justify-center mt-2 ">
             <TemplateCard className='m-2'/>
             <TemplateCard className='m-2'/>
             <TemplateCard className='m-2'/>

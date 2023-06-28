@@ -56,13 +56,13 @@ const Navbar = () => {
     }
 
   return (
-    <div className='flex justify-between items-center p-2 border-b-4 border-gray-200 boder-solid '>
-         <div className="logo">
-             <Link to='/home'> <h1 className="lg:text-4xl text-2xl text-gray-600 font-bold m-2  cursor-pointer ">AvidSynth</h1></Link>
-         </div>
+    <div className='flex justify-between items-center p-2  border-gray-200 boder-solid mr-5  font-poppins '>
+         <div className="">
+                        <Link to='/'> <h1 className="text-4xl font-bold  m-2  cursor-pointer "><span className=''>Avid</span><span className='text-[#33bbcf]'>Synth</span></h1></Link>
+                    </div>
 
          <div className="add-task md:block hidden">
-                <button className=" bg-[#db005b] hover:bg-[#fc0069] text-white lg:p-3 p-1  rounded-md flex justify-between items-center" onClick={view}><span><AiOutlinePlus className='mr-3 text-white font-bold lg:text-xl text-sm'/></span>New Model</button>
+                <button className="text-white justify-center h-8 w-fit bg-black p-5 text-md rounded-full flex  items-center  shadow-gray-400 shadow-md hover:shadow-lg hover:shadow-gray-400 hover:bg-gray-800" onClick={view}><span><AiOutlinePlus className='mr-3 text-white font-bold lg:text-xl text-sm'/></span>New Model</button>
          </div>
 
          <div className="icons flex justify-between items-center">
@@ -71,7 +71,7 @@ const Navbar = () => {
             </div>
             {/* <Link to='/profile'><img src="https://avatars.githubusercontent.com/u/75154257?v=4" alt="" className='w-8 h-8 rounded-full cursor-pointer mr-3 hover:border-2 border-solid border-gray-500'/></Link> */}
             {/* logout */}
-            <Link to='/'><button className="bg-gray-300 text-[black] hidden lg:block hover:bg-gray-400 hover:text-[white]  p-3 mr-3 rounded-md flex justify-between items-center " onClick={handleLogout}>Logout</button></Link>
+            <Link to='/'><button className="text-white justify-center h-8 w-[100px] bg-black p-5 text-md rounded-full flex  items-center  shadow-gray-400 shadow-md hover:shadow-lg hover:shadow-gray-400 hover:bg-gray-800" onClick={handleLogout}>Logout</button></Link>
 
             <Popup trigger={buttonPopup} setTrigger={setButtonPopup} className="flex justify-center items-center  " >
       <div className="h-[300px]  w-[500px] rounded-xl  items-center ">
@@ -108,7 +108,7 @@ const Navbar = () => {
             
             <div className='w-full flex items-center justify-end'>
         <button
-         className='bg-[#db005b] hover:bg-[#fc0069] text-white p-1 mt-2 rounded-md flex justify-end items-end right-0 bottom-0 mr-2 mb-2 flex justify-center '  onClick={handleNewProject}
+         className='text-white justify-center h-8 w-[80px] bg-black p-5 text-sm rounded-full flex  items-center border-solid border-2 border-black  shadow-gray-400 shadow-md hover:shadow-md hover:shadow-gray-400 hover:bg-gray-800 mt-5 '  onClick={handleNewProject}
          >Finish</button>
         </div>
             

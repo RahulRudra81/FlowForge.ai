@@ -47,7 +47,7 @@ const Sidebar = () => {
       <div className="flex lg:block hidden flex-col justify-between bg-stone-50 border-r-4 border-solid border-gray-500 w-1/3 h-screen transition-transform duration-300 ease-in-out transform">
       <div className="flex flex-col m-3 p-1 text-xl text-gray-600 font-semibold font-myfont">
         <div
-          className="m-5 hover:text-[#f43f5e] cursor-pointer flex items-center justify-end"
+          className="m-5 hover:text-black cursor-pointer flex items-center justify-end"
           onClick={toggleClose}
         >
           <span className="m-2 text-2xl">
@@ -59,8 +59,8 @@ const Sidebar = () => {
           {menuItems.map((item) => (
             <Link to={item.path} key={item.name}>
               <div
-                className={`m-5 hover:bg-pink-50 cursor-pointer flex items-center ${
-                  isCurrentPath(item.path) ? 'text-[#f43f5e] rounded-xl bg-pink-100' : ''
+                className={`m-5 hover:bg-gray-500 hover:text-white text-lg rounded-xl cursor-pointer flex items-center ${
+                  isCurrentPath(item.path) ? 'text-white rounded-xl bg-gray-500' : ''
                 }`}
               >
                 <span className="m-2">{item.icon}</span>

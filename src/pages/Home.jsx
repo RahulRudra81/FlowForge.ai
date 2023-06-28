@@ -74,9 +74,9 @@ const Home = () => {
   
   
   return (
-    <div>
+    <div className='font-poppins '>
       <Navbar />
-      <div className="flex flex-row ">
+      <div className="flex flex-row  ">
         <Sidebar />
         <div className='lg:w-full flex flex-col h-screen overflow-y-scroll  home'>
           <div className="flex flex-col md:hidden m-1 p-1 text-xl text-gray-600 font-semibold font-myfont">
