@@ -81,7 +81,7 @@ const Landing = () => {
 
             {/* Key Features */}
 
-            <div >
+            <div  className='bg-gray-100 mt-20' >
                 <div className='flex justify-center' >
                     <h1 className=' text-4xl md:text-5xl font-poppins  font-bold mt-20'>
                         Key <span
