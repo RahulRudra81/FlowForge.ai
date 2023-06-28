@@ -174,7 +174,7 @@ const Auth = (params) => {
               </div>
             </div>
         ) : (
-          <div className="flex items-center font-poppins justify-center min-h-screen  m-auto w-full">
+          <div className="flex font-poppins items-center justify-center  mt-0 w-full">
             <div className="px-8 py-6 mx-4 mt-4 text-left  md:w-1/3 lg:w-1/3 sm:w-1/3">
               <div
                 className="flex items-center justify-center mb-4 bg-black text-white rounded-full h-10 w-10 m-auto text-2xl font-bold"
