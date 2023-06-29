@@ -13,6 +13,8 @@ import { BsPlusSquare } from 'react-icons/bs'
 import Navbar from '../components/Navbar'
 import Rightmenubar from '../components/Rightmenubar'
 import Sidebar from '../components/Sidebar'
+import {AiFillDollarCircle} from 'react-icons/ai'
+import {BsFillBoxFill, BsFillDatabaseFill} from 'react-icons/bs'
 
 const menuItems = [
   { name: 'Home', path: '/', icon: <BiHomeCircle /> },
@@ -106,17 +108,26 @@ const Home = () => {
           <h1 className='lg:text-3xl text-2xl font-myfont mt-5 ml-5 font-bold text-gray-700'>Welcome Back </h1>
           <h1 className='lg:text-lg text-sm font-myfont mt-3 ml-5 font-bold text-gray-500'>Here's what's happening with your projects today</h1>
           <div className='flex  lg:flex-row lg:justify-between items-center lg:m-5 m-2'>
-            <div className='flex flex-col lg:w-[200px] lg:h-[150px] w-[150px] h-[100px] justify-center items-center border-2 border-solid border-gray rounded-lg p-5 shadow-md hover:shadow-gray-700 m-3'>
+            <div className='flex flex-col lg:w-[200px] lg:h-[150px] w-[150px] h-[100px] justify-center items-center border-2 border-solid border-gray rounded-2xl p-5 shadow-md hover:shadow-gray-700 m-3'>
               <h1 className='lg:text-2xl text-xl font-myfont font-medium text-gray-600'>0</h1>
-              <h1 className='lg:text-lg text-sm text-center  font-myfont font-medium text-gray-600'>Total Projects</h1>
+              <div className='flex justify-between items-center'>
+              <h1 className='text-4xl mr-5'><BsFillDatabaseFill/></h1>
+              <h1 className='lg:text-lg text-sm text-center font-myfont font-medium text-gray-600'> Projects</h1>
+              </div>
             </div>
-            <div className='flex flex-col justify-center items-center border-2 border-solid border-gray rounded-lg p-5 shadow-md hover:shadow-gray-700 lg:w-[200px] lg:h-[150px] w-[150px] h-[100px]  m-3'>
+            <div className='flex flex-col justify-center items-center border-2 border-solid border-gray rounded-2xl p-5 shadow-md hover:shadow-gray-700 lg:w-[200px] lg:h-[150px] w-[150px] h-[100px]  m-3'>
               <h1 className='lg:text-2xl text-xl font-myfont font-medium text-gray-600'>0</h1>
-              <h1 className='lg:text-lg text-center text-sm font-myfont font-medium text-gray-600'>Total Templates Used</h1>
+              <div className='flex justify-between items-center'>
+              <h1 className='text-4xl mr-5'><BsFillBoxFill/></h1>
+              <h1 className='lg:text-lg text-sm text-center font-myfont font-medium text-gray-600'> Templates</h1>
+              </div>
             </div>
-            <div className='flex flex-col justify-center items-center border-2 border-solid border-gray rounded-lg p-5 shadow-md hover:shadow-gray-700 lg:w-[200px] lg:h-[150px] w-[150px] h-[100px]  m-3'>
+            <div className='flex flex-col justify-center items-center border-2 border-solid border-gray rounded-2xl p-5 shadow-md hover:shadow-gray-700 lg:w-[200px] lg:h-[150px] w-[150px] h-[100px]  m-3'>
               <h1 className='lg:text-2xl text-xl font-myfont font-medium text-gray-600'>0</h1>
+              <div className='flex justify-between items-center'>
+              <h1 className='text-4xl mr-5'><AiFillDollarCircle/></h1>
               <h1 className='lg:text-lg text-sm text-center font-myfont font-medium text-gray-600'>Total Cost</h1>
+              </div>
             </div>
           </div>
           <div className="add-task ml-5 m-3 md:hidden">

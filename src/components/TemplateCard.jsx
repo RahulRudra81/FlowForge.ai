@@ -20,7 +20,7 @@ const TemplateCard = () => {
     addTemplate()
   }
   return (
-    <div className='flex flex-col lg:w-fit rounded-lg lg:m-5 m-2 p-2 lg:w-2/6 items center border-solid border-2 border-gray-600 shadow-md hover:shadow-gray-900 font-poppins '>
+    <div className='flex flex-col lg:w-fit rounded-2xl lg:m-5 m-2 p-2 lg:w-2/6 items center border-solid border-2 border-gray-600 shadow-md hover:shadow-gray-900 font-poppins '>
       <div className="flex items-center lg:p-4 justify-between">
       <img src="https://avatars.githubusercontent.com/u/75154257?v=4" alt="" className='w-8 h-8 rounded-full  mr-3 '/>
         <h1 className='text-gray-500 lg:text-lg text-md lg:m-4 flex justify-between items-center '>Template Name</h1>
