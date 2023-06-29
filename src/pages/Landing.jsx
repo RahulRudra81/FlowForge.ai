@@ -54,9 +54,9 @@ const Landing = () => {
 
             {/* Hero Section */}
 
-            <div className=' flex md:flex-row  flex-col sm:py-16 py-6 ml-20 mr-20 ' >
-                <div className='mt-32 flex-1 flex-col xl:px-0 sm:px-16 px-6   flex justify-center items-start w-full'>
-                    <div className='flex justify-center flex-col align-middle' >
+            <div className=' flex md:flex-row  justify-center flex-col sm:py-16 py-6 ' >
+                <div className='mt-32 flex-1 flex-col  flex justify-center items-start '>
+                    <div className='flex justify-center m-auto flex-col align-middle' >
                         <h1 className=' text-4xl md:text-5xl font-poppins  mb-12 font-bold'>
                             No-code <span
                                 className='text-[#33BBCF] '>
