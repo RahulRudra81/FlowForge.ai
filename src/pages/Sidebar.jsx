@@ -20,7 +20,7 @@ export default (props) => {
 
     //node id and description
 
-    const { userDescription} = useContext(descriptionContext)
+    const { userDescription,speechDropDown} = useContext(descriptionContext)
 
     
     // console.log(userDescription)
@@ -39,7 +39,27 @@ export default (props) => {
     
 
     const location=useLocation()
+    const handleDataBackend=async(idMapObject,edgeConnections)=>{
+        try {
+            const req = await fetch('http://localhost:8000/api/openAi/createModel', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    dropArray: idMapObject,
+                    mapArray: edgeConnections,
+                    inputText: 'Who is the CEO of Tesla',
+                    extraInfo: { userDescription, speechDropDown }
+                })
+            });
     
+            const response = await req.json(); // Assuming response is JSON
+            console.log(response); // Log the response for debugging
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
     const fetchId = async () => {
         const findObjects =await props.node.map(item => [item.id, item.type])
         const idMapObject=findObjects.map(([key, value]) => ({ key, value }));
@@ -47,18 +67,12 @@ export default (props) => {
         const findEdges = await props.edges.map(item => [item.source,item.target])
         const edgeConnections=findEdges.map(([key, value]) => ({ key, value }));
         console.log(edgeConnections)
-        console.log(userDescription)
+        console.log({userDescription,speechDropDown})
          setObjects(findObjects);
-        setAllEdges(findEdges);
+         setAllEdges(findEdges);
 
-        const docRef=await addDoc(collection(db,'dataPipeline'),{
-             Userid:auth.currentUser.uid,
-             UserEmail:auth.currentUser.email,
-             idAndNodeMapping: idMapObject,
-            edgesConnections: edgeConnections,
-            description:userDescription
-        })
-        alert('Document written with ID: ', docRef.Userid);
+         handleDataBackend(idMapObject,edgeConnections)
+         alert("deployed")
 
         //addDataPipeline()
     }
@@ -182,7 +196,7 @@ export default (props) => {
                 </div>
             </div>
             <div className="flex-grow mt-5  border-t border-zinc-300"></div>
-            <div
+            {/* <div
                 className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
                 onDragStart={(event) => onDragStart(event, 'VoiceCloning')}
                 draggable
@@ -193,7 +207,7 @@ export default (props) => {
                 <div className='ml-4 text-black'>
                     Voice Cloning
                 </div>
-            </div>
+            </div> */}
 
            {window.location.pathname=='/'?"":<button
                 className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center  "

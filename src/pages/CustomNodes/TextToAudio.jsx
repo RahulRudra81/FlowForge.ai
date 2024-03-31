@@ -45,7 +45,7 @@ export default memo(({ data, isConnectable }) => {
                 <div className='node-description'>
                     Convert your text to audio.
                 </div>
-                <div className='cost-wrapper'>
+                {/* <div className='cost-wrapper'>
                     <img
                         width='19'
                         height='19'
@@ -59,7 +59,7 @@ export default memo(({ data, isConnectable }) => {
                         </span>{' '}
                         per token
                     </div>
-                </div>
+                </div> */}
                 <div className='input-section-wrapper'>
                     <div className='input-title'>Input</div>
                 </div>

@@ -6,7 +6,9 @@ export const descriptionContext = createContext(null)
 
 const Context = ({children}) => {
     const [userDescription, setUserDescription] = useState(" ");
+    const [speechDropDown,setSpeechDropDown]=useState("")
 
+    //console.log(speechDropDown)
     // const addData=async()=>{
     //     const docRef=await addDoc(collection(db,'users'),{
     //         description:userDescription
@@ -16,7 +18,7 @@ const Context = ({children}) => {
 
     
   return (
-    <descriptionContext.Provider value={{userDescription,setUserDescription }}>
+    <descriptionContext.Provider value={{userDescription,setUserDescription,speechDropDown,setSpeechDropDown }}>
       {children}
     </descriptionContext.Provider>
   )

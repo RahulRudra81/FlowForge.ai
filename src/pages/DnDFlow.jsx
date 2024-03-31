@@ -22,6 +22,7 @@ import './index.css'
 import GptNode from './CustomNodes/GptNode'
 import TextToAudio from './CustomNodes/TextToAudio'
 import VoiceCloning from './CustomNodes/VoiceCloning'
+import TextToSpeechDesc from '../components/TextToSpeechDesc'
 // import { Description } from '@headlessui/react/dist/components/description/description'
 
 export const useBearStore = create((set) => ({
@@ -186,8 +187,10 @@ const DnDFlow = () => {
         else if(node.type==='VoiceCloning'){
             setActiveBar('voiceCloneDesc');
         }
-        else{
+        else if(node.type==='TextToAudio'){
             setActiveBar('textAudioDesc');
+        }else{
+            setActiveBar("other")
         }
         setCurrentId(node.id);
     }
@@ -247,7 +250,10 @@ const DnDFlow = () => {
                     activeBar==='voiceCloneDesc'&& isMenuOpen ? <VoiceCloneDescription handleChane={handleChane}/>:""
                 }   
                 {
-                    activeBar==='textAudioDesc'&&(<div></div>)
+                    activeBar==='textAudioDesc'&& isMenuOpen ? <TextToSpeechDesc handleChane={handleChane} id={currentId}/>:""
+                }
+                {
+                    activeBar==='other' &&(<div></div>)
                 }
             </ReactFlowProvider>
         </div>

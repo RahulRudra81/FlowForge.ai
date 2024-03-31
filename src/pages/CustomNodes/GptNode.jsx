@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react'
+import  { memo, useState } from 'react'
 import { Handle } from 'reactflow'
 import { useBearStore } from '../DnDFlow'
 import './styles/gptNode.css'
@@ -53,13 +53,13 @@ export default memo(({ data, isConnectable }) => {
                 }}
                 isConnectable={isConnectable}
             />
-            <div className='node-title'>GPT4 Model</div>
+            <div className='node-title'>GPT3 Model</div>
             <div className='node-content-wrapper'>
                 <div className='node-description'>
                     composes conversational and human-like responses to natural
                     language inputs
                 </div>
-                <div className='cost-wrapper'>
+                {/* <div className='cost-wrapper'>
                     <img
                         width='19'
                         height='19'
@@ -73,11 +73,11 @@ export default memo(({ data, isConnectable }) => {
                         </span>{' '}
                         per token
                     </div>
-                </div>
+                </div> */}
                 <div className='input-section-wrapper'>
                     <div className='input-title'>Input</div>
 
-                    <div className='input-wrapper'>
+                    {/* <div className='input-wrapper'>
                         <div className='inner'>
                             <img
                                 width='19'
@@ -94,7 +94,7 @@ export default memo(({ data, isConnectable }) => {
                             src='https://img.icons8.com/ios-glyphs/30/checkmark--v1.png'
                             alt='checkmark--v1'
                         />
-                    </div>
+                    </div> */}
                     <div className='input-wrapper'>
                         <div className='inner'>
                             <img
@@ -112,7 +112,7 @@ export default memo(({ data, isConnectable }) => {
                             alt='checkmark--v1'
                         />
                     </div>
-                    <div className='input-wrapper'>
+                    {/* <div className='input-wrapper'>
                         <div className='inner'>
                             <img
                                 width='19'
@@ -128,7 +128,7 @@ export default memo(({ data, isConnectable }) => {
                             src='https://img.icons8.com/windows/32/delete-sign.png'
                             alt='delete-sign'
                         />
-                    </div>
+                    </div> */}
                 </div>
                 <div className='output-section-wrapper'>
                     <div className='input-title'>Output</div>
