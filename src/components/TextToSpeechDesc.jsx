@@ -31,7 +31,6 @@ export default (props) => {
                             <Option value="Fable">Fable</Option>
                             <Option value="Onyx">Onyx</Option>
                             <Option value="Nova">Nova</Option>
-                            <Option value="Nova">Nova</Option>
                             <Option value="Shimmer">Shimmer</Option>
                         </Select>
                     </div>
