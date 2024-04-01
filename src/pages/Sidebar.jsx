@@ -8,6 +8,10 @@ import { descriptionContext } from '../Context'
 import { auth, db } from '../firebase'
 import { addDoc, collection } from 'firebase/firestore'
 
+window.addEventListener('beforeunload', function(event) {
+    event.preventDefault();
+    event.returnValue = 'Are you sure you want to leave?'; 
+});
 
 
 export default (props) => {
@@ -20,7 +24,7 @@ export default (props) => {
 
     //node id and description
 
-    const { userDescription,speechDropDown,userInput} = useContext(descriptionContext)
+    const { userDescription,speechDropDown,userInput, projectKaNaam} = useContext(descriptionContext)
 
     
     // console.log(userDescription)
@@ -41,6 +45,7 @@ export default (props) => {
     const location=useLocation()
     const handleDataBackend=async(idMapObject,edgeConnections)=>{
         try {
+            
             const req = await fetch('http://localhost:8000/api/openAi/createModel', {
                 method: 'POST',
                 headers: {
@@ -51,28 +56,44 @@ export default (props) => {
                     mapArray: edgeConnections,
                     inputText: userInput,
                     gptDiscription:userDescription,
-                    speechDropDown: speechDropDown
+                    speechDropDown: speechDropDown,
+                    projectName:projectKaNaam
                 
                 })
             });
     
-            const response = await req.json(); // Assuming response is JSON
-            console.log(response); // Log the response for debugging
+            const response = await req.json(); 
+            console.log(response); 
         } catch (error) {
             console.error('Error:', error);
         }
     }
+    const isOutputAlertCompulsory = (data) => {
+        return data.some(item => item.value === 'output');
+      };
+    const isInputAlertCompulsory = (data) => {
+        return data.some(item => item.value === 'input');
+      };
     const fetchId = async () => {
         const findObjects =await props.node.map(item => [item.id, item.type])
         const idMapObject=findObjects.map(([key, value]) => ({ key, value }));
+        const outputCompulsory = isOutputAlertCompulsory(idMapObject);
+        const inputCompulsory=isInputAlertCompulsory(idMapObject)
+        if(outputCompulsory === false || inputCompulsory===false){
+            alert('Both input and output are compulsory field')
+            return;
+        }
         console.log(idMapObject)
         const findEdges = await props.edges.map(item => [item.source,item.target])
         const edgeConnections=findEdges.map(([key, value]) => ({ key, value }));
         console.log(edgeConnections)
-        console.log({userDescription,speechDropDown})
+        console.log({userDescription,speechDropDown,userInput})
          setObjects(findObjects);
          setAllEdges(findEdges);
-
+         if(userInput===""){
+            alert("Input should not be empty")
+            return
+        }
          handleDataBackend(idMapObject,edgeConnections)
          alert("deployed")
 
@@ -126,6 +147,8 @@ export default (props) => {
             :
             <Link to='/home'><div className="flex-grow  hover:text-blue-700  font-myfont  border-b-2 mb-5 border-solid border-zinc-300 text-gray-500 cursor-pointer">Return to dashboard</div></Link>
             } 
+
+            <h1 className=' text-xl font-semibold text-gray-500 m-5'>{projectKaNaam}</h1>
             <div className='flex items-center justify-evenly cursor-pointer border-solid  border-[#dcdcdc] border-2 rounded p-2'>
                 <div><TfiHandOpen /></div>
                 <div className='ml-4 text-black '>
@@ -146,7 +169,7 @@ export default (props) => {
                 </div>
             </div>
             <div className="flex-grow mt-5  border-t border-zinc-300"></div>
-            <div
+            {/* <div
                 className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
                 onDragStart={(event) => onDragStart(event, 'default')}
                 draggable
@@ -157,8 +180,8 @@ export default (props) => {
                 <div className='ml-4 text-black'>
                     default
                 </div>
-            </div>
-            <div className="flex-grow mt-5  border-t border-zinc-300"></div>
+            </div> */}
+            {/* <div className="flex-grow mt-5  border-t border-zinc-300"></div> */}
             <div
                 className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
                 onDragStart={(event) => onDragStart(event, 'output')}

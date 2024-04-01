@@ -6,7 +6,7 @@ export default (props) => {
 
 
     const {speechDropDown,setSpeechDropDown }=useContext(descriptionContext)
-    const [voice, setVoice] = useState('Alloy')
+    const [voice, setVoice] = useState('alloy')
     const handleFileSubmit = (e) => {
         e.preventDefault()
         setSpeechDropDown({ ...speechDropDown, [props.id]: voice });
@@ -26,12 +26,12 @@ export default (props) => {
                             value={voice}
                             onChange={(val) => setVoice(val)}
                         >
-                            <Option value="Alloy">Alloy</Option>
-                            <Option value="Echo">Echo</Option>
-                            <Option value="Fable">Fable</Option>
-                            <Option value="Onyx">Onyx</Option>
-                            <Option value="Nova">Nova</Option>
-                            <Option value="Shimmer">Shimmer</Option>
+                            <Option value="alloy">Alloy</Option>
+                            <Option value="echo">Echo</Option>
+                            <Option value="fable">Fable</Option>
+                            <Option value="onyx">Onyx</Option>
+                            <Option value="nova">Nova</Option>
+                            <Option value="shimmer">Shimmer</Option>
                         </Select>
                     </div>
                     <form form onSubmit={handleFileSubmit}>

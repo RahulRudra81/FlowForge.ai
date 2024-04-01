@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { FiSun } from 'react-icons/fi'
 import { BsFillMoonStarsFill } from 'react-icons/bs'
@@ -9,32 +9,34 @@ import { signOut } from 'firebase/auth'
 import { auth } from '../firebase'
 import { useNavigate } from 'react-router-dom'
 import Popup from './Popup'
+import { descriptionContext } from '../Context'
 
 const Navbar = () => {
     const navigate = useNavigate()
     const [darkMode, setDarkMode] = useState(false)
     const [projectName, setProjectName] = useState('Untitled Project')
     const [buttonPopup, setButtonPopup] = useState(false)
-     
+    
+    const {setProjectKaNaam}=useContext(descriptionContext)
 
     //console.log(newProject);
 
-    const addProject = async() => {
-      try{
-        const docRef = await addDoc(collection(db, 'projects'), {
-          user: auth.currentUser.uid,
-          projectName: projectName,
-          date: new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear(),
-      })
-      }catch{
-        ((error) => {
-          alert(error.message)
-      })  
-    }}
+    // const addProject = async() => {
+    //   try{
+    //     const docRef = await addDoc(collection(db, 'projects'), {
+    //       user: auth.currentUser.uid,
+    //       projectName: projectName,
+    //       date: new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear(),
+    //   })
+    //   }catch{
+    //     ((error) => {
+    //       alert(error.message)
+    //   })  
+    // }}
 
     const handleNewProject = async () => {
        
-      await addProject()
+      setProjectKaNaam(projectName)
 
       setButtonPopup(false)
       navigate('/dnd')

@@ -5,9 +5,10 @@ export const descriptionContext = createContext(null)
 
 
 const Context = ({children}) => {
-    const [userDescription, setUserDescription] = useState(" ");
+    const [userDescription, setUserDescription] = useState("Act as an agent");
     const [userInput,setUserInput]=useState("")
-    const [speechDropDown,setSpeechDropDown]=useState("")
+    const [speechDropDown,setSpeechDropDown]=useState("alloy")
+    const [projectKaNaam, setProjectKaNaam] = useState('Untitled Project')
 
     //console.log(speechDropDown)
     // const addData=async()=>{
@@ -19,7 +20,7 @@ const Context = ({children}) => {
 
     
   return (
-    <descriptionContext.Provider value={{userDescription,setUserDescription,speechDropDown,setSpeechDropDown,userInput,setUserInput}}>
+    <descriptionContext.Provider value={{userDescription,setUserDescription,speechDropDown,setSpeechDropDown,userInput,setUserInput, projectKaNaam, setProjectKaNaam}}>
       {children}
     </descriptionContext.Provider>
   )
