@@ -13,16 +13,17 @@ import 'reactflow/dist/style.css'
 import Discription from '../components/Discription'
 import create from 'zustand'
 import VoiceCloneDescription from './VoiceCloneDescription'
-
-import ColorSelectorNode from './CustomNodes/ColorSelectorNode'
+import InputTextarea from '../components/InputTextarea'
 
 import Sidebar from './Sidebar'
 
 import './index.css'
+import ColorSelectorNode from './CustomNodes/ColorSelectorNode'
 import GptNode from './CustomNodes/GptNode'
 import TextToAudio from './CustomNodes/TextToAudio'
 import VoiceCloning from './CustomNodes/VoiceCloning'
 import TextToSpeechDesc from '../components/TextToSpeechDesc'
+
 // import { Description } from '@headlessui/react/dist/components/description/description'
 
 export const useBearStore = create((set) => ({
@@ -180,6 +181,7 @@ const DnDFlow = () => {
     const [activeBar, setActiveBar] = useState('');
     const [currentId,setCurrentId]=useState()
     const changeDiscription=(event,node)=>{
+        
         if(node.type==='gptNode'){
             setActiveBar('gptDesc');
             
@@ -189,7 +191,11 @@ const DnDFlow = () => {
         }
         else if(node.type==='TextToAudio'){
             setActiveBar('textAudioDesc');
-        }else{
+        }
+        else if(node.type==="input"){
+            setActiveBar('InputTextarea')
+        }
+        else{
             setActiveBar("other")
         }
         setCurrentId(node.id);
@@ -251,6 +257,9 @@ const DnDFlow = () => {
                 }   
                 {
                     activeBar==='textAudioDesc'&& isMenuOpen ? <TextToSpeechDesc handleChane={handleChane} id={currentId}/>:""
+                }
+                {
+                    activeBar==='InputTextarea' && isMenuOpen ? <InputTextarea handleChane={handleChane} id={currentId}/>:""
                 }
                 {
                     activeBar==='other' &&(<div></div>)

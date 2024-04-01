@@ -6,6 +6,7 @@ export const descriptionContext = createContext(null)
 
 const Context = ({children}) => {
     const [userDescription, setUserDescription] = useState(" ");
+    const [userInput,setUserInput]=useState("")
     const [speechDropDown,setSpeechDropDown]=useState("")
 
     //console.log(speechDropDown)
@@ -18,7 +19,7 @@ const Context = ({children}) => {
 
     
   return (
-    <descriptionContext.Provider value={{userDescription,setUserDescription,speechDropDown,setSpeechDropDown }}>
+    <descriptionContext.Provider value={{userDescription,setUserDescription,speechDropDown,setSpeechDropDown,userInput,setUserInput}}>
       {children}
     </descriptionContext.Provider>
   )

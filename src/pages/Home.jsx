@@ -28,12 +28,12 @@ const Home = () => {
   const [session, setSession] = useState(null)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if(!auth.currentUser){
-      navigate('/')
-    }
+  // useEffect(() => {
+  //   if(!auth.currentUser){
+  //     navigate('/')
+  //   }
 
-  }, [])
+  // }, [])
 
   const [newProject, setNewProject] = useState(0)
 

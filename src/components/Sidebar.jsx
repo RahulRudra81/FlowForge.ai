@@ -18,7 +18,7 @@ const menuItems = [
 ];
 const Sidebar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  
   
   const { pathname } = useLocation();
 

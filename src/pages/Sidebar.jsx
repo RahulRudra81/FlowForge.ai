@@ -20,7 +20,7 @@ export default (props) => {
 
     //node id and description
 
-    const { userDescription,speechDropDown} = useContext(descriptionContext)
+    const { userDescription,speechDropDown,userInput} = useContext(descriptionContext)
 
     
     // console.log(userDescription)
@@ -49,8 +49,10 @@ export default (props) => {
                 body: JSON.stringify({
                     dropArray: idMapObject,
                     mapArray: edgeConnections,
-                    inputText: 'Who is the CEO of Tesla',
-                    extraInfo: { userDescription, speechDropDown }
+                    inputText: userInput,
+                    gptDiscription:userDescription,
+                    speechDropDown: speechDropDown
+                
                 })
             });
     
