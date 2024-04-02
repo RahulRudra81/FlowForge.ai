@@ -3,7 +3,7 @@ import { BsInputCursorText, BsFillBookmarkFill } from "react-icons/bs";
 import { VscOutput } from "react-icons/vsc";
 import { FaRobot } from "react-icons/fa";
 import { TfiHandOpen } from "react-icons/tfi";
-import { Link, useParams, useLocation } from 'react-router-dom/dist';
+import { Link, useParams, useLocation, useNavigate } from 'react-router-dom/dist';
 import { descriptionContext } from '../Context'
 import { auth, db } from '../firebase'
 import { addDoc, collection } from 'firebase/firestore'
@@ -92,13 +92,18 @@ export default (props) => {
          handleDataBackend(idMapObject,edgeConnections)
          alert("deployed")
     }
-
+     
+    const navigate=useNavigate()
+    const handleHome=()=>{
+        localStorage.removeItem("reactFlowState")
+        navigate('/home')
+    }
     return (
 
         <div className='shadow-xl p-2'>
             {window.location.pathname=='/'?""
             :
-            <Link to='/home'><div className="flex-grow  hover:text-blue-700  font-myfont  border-b-2 mb-5 border-solid border-zinc-300 text-gray-500 cursor-pointer">Return to dashboard</div></Link>
+            <button onClick={handleHome}><div className="flex-grow  hover:text-blue-700  font-myfont  border-b-2 mb-5 border-solid border-zinc-300 text-gray-500 cursor-pointer">Return to dashboard</div></button>
             } 
 
             <h1 className=' text-xl font-semibold text-gray-500 m-5'>{localStorage.getItem("projectName")}</h1>

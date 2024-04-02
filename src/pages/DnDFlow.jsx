@@ -7,6 +7,9 @@ import ReactFlow, {
     useEdgesState,
     Controls,
     Background,
+    Panel,
+    useReactFlow,
+    //useReactFlow,
     // useReactFlow,
 } from 'reactflow'
 import 'reactflow/dist/style.css'
@@ -23,6 +26,8 @@ import GptNode from './CustomNodes/GptNode'
 import TextToAudio from './CustomNodes/TextToAudio'
 import VoiceCloning from './CustomNodes/VoiceCloning'
 import TextToSpeechDesc from '../components/TextToSpeechDesc'
+
+//import { useStoreState } from 'react-flow-renderer';
 
 // import { Description } from '@headlessui/react/dist/components/description/description'
 
@@ -73,7 +78,7 @@ const initialNodes = [
 let id = 0
 const getId = () => `${id++}`
 
-const DnDFlow = () => {
+const DnDFlowInside = () => {
     const reactFlowWrapper = useRef(null)
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
     const [edges, setEdges, onEdgesChange] = useEdgesState([])
@@ -280,32 +285,39 @@ const DnDFlow = () => {
         //to save the react-flow state on refresh
 
         //const [rfInstance, setRfInstance] = useState(null);
-        // const {  setViewport } = useReactFlow();
-        // const onSave = useCallback(() => {
-        //     if (reactFlowInstance) {
-        //         const flow = reactFlowInstance.toObject();
-        //         localStorage.setItem('reactFlowState', JSON.stringify(flow));
-        //     }
-        // }, [reactFlowInstance]);
+        //const useFlow=useReactFlow();
+         const { setViewport } = useReactFlow()
+        // console.log(setViewport)
+        const onSave = useCallback(() => {
+            if (reactFlowInstance) {
+                const flow = reactFlowInstance.toObject();
+                localStorage.setItem('reactFlowState', JSON.stringify(flow));
+            }
+        }, [reactFlowInstance]);
     
-        // const onRestore = useCallback(() => {
-        //     const flow = JSON.parse(localStorage.getItem('reactFlowState'));
+        const onRestore = useCallback(() => {
+            const flow = JSON.parse(localStorage.getItem('reactFlowState'));
+        
+            if (flow) {
+                const { nodes, edges, viewport } = flow;
+        
+                if (viewport) {
+                    const { x = 0, y = 0, zoom = 1 } = viewport;
+                    setViewport({ x, y, zoom });
+                }
+        
+                setNodes(nodes || []);
+                setEdges(edges || []);
+            }
+        }, [setNodes, setEdges, setViewport]);
     
-        //     if (flow) {
-        //         const { x = 0, y = 0, zoom = 1 } = flow.viewport;
-        //         setNodes(flow.nodes || []);
-        //         setEdges(flow.edges || []);
-        //         setViewport({ x, y, zoom });
-        //     }
-        // }, [setNodes, setEdges, setViewport]);
-    
-        // useEffect(() => {
-        //     onRestore();
-        // }, [onRestore]);
+        useEffect(() => {
+            onRestore();
+        }, [onRestore]);
      
     return (
         <div className='dndflow'>
-            <ReactFlowProvider>
+            {/* <ReactFlowProvider> */}
             <Sidebar node={nodes} edges={edges} />
                 <div
                     className='reactflow-wrapper'
@@ -332,10 +344,10 @@ const DnDFlow = () => {
                     >
                         <Controls />
                         <Background />
-                        {/* <Panel position="top-right">
-                        <button onClick={onSave}>save</button>
+                        <Panel position="top-right" >
+                        <button onClick={onSave} className='m-5'>save</button>
                         <button onClick={onRestore}>restore</button>
-                        </Panel> */}
+                        </Panel>
                     </ReactFlow>
                 </div>
                 {/* {nodes.id==='0'&&<Discription />} */}
@@ -357,8 +369,16 @@ const DnDFlow = () => {
                 {
                     activeBar==='other' &&(<div></div>)
                 } */}
-            </ReactFlowProvider>
+            {/* </ReactFlowProvider> */}
         </div>
+    )
+}
+
+function DnDFlow(){
+    return(
+        <ReactFlowProvider>
+            <DnDFlowInside/>
+        </ReactFlowProvider>
     )
 }
 
