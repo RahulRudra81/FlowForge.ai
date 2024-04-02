@@ -1,21 +1,21 @@
 import  { memo, useState } from 'react'
 import { Handle } from 'reactflow'
-import { useBearStore } from '../DnDFlow'
+//import { useBearStore } from '../DnDFlow'
 import './styles/gptNode.css'
 
 export default memo(({ data, isConnectable }) => {
     // console.log(data.color)
 
-    const [rand, setRand] = useState(Math.random())
+    // const [rand, setRand] = useState(Math.random())
 
-    const bears = useBearStore((state) => state.bears)
-    const increasePopulation = useBearStore((state) => state.increasePopulation)
+    // const bears = useBearStore((state) => state.bears)
+    // const increasePopulation = useBearStore((state) => state.increasePopulation)
 
-    // data.color = rand
-    // data.hoohaa = 'hello'
-    data.myFunc = () => {
-        // console.log()
-    }
+    // // data.color = rand
+    // // data.hoohaa = 'hello'
+    // data.myFunc = () => {
+    //     // console.log()
+    // }
 
     return (
         <div className='gpt-node-wrapper'>
@@ -96,21 +96,22 @@ export default memo(({ data, isConnectable }) => {
                         />
                     </div> */}
                     <div className='input-wrapper'>
-                        <div className='inner'>
-                            <img
+                        {/* <div className='inner'>
+                             <img
                                 width='19'
                                 height='19'
                                 src='https://img.icons8.com/ios-filled/50/align-cell-content-left.png'
                                 alt='align-cell-content-left'
-                            />
-                            <div className='input'>Description</div>
-                        </div>
-                        <img
+                            /> 
+                            <div className='input'>Description</div> 
+                        </div> */}
+                            <input type="text" className='border-black border-2 rounded ' placeholder='Enter description' defaultValue={data.dataOfNode} onChange={data.onChange}/>
+                        {/* <img
                             width='19'
                             height='19'
                             src='https://img.icons8.com/ios-glyphs/30/checkmark--v1.png'
                             alt='checkmark--v1'
-                        />
+                        /> */}
                     </div>
                     {/* <div className='input-wrapper'>
                         <div className='inner'>

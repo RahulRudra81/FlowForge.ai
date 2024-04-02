@@ -1,21 +1,24 @@
 import React, { memo, useEffect, useState } from 'react'
 import { Handle } from 'reactflow'
-import { useBearStore } from '../DnDFlow'
+//import { useBearStore } from '../DnDFlow'
 import './styles/gptNode.css'
+import { Option, Select } from '@material-tailwind/react'
 
 export default memo(({ data, isConnectable }) => {
-    console.log(data.color)
+    // console.log(data.color)
 
-    const [rand, setRand] = useState(Math.random())
+    // const [rand, setRand] = useState(Math.random())
 
-    const bears = useBearStore((state) => state.bears)
-    const increasePopulation = useBearStore((state) => state.increasePopulation)
+    // const bears = useBearStore((state) => state.bears)
+    // const increasePopulation = useBearStore((state) => state.increasePopulation)
 
-    data.color = rand
-    data.hoohaa = 'hello'
-    data.myFunc = () => {
-        console.log()
-    }
+    // data.color = rand
+    // data.hoohaa = 'hello'
+    // data.myFunc = () => {
+    //     console.log()
+    // }
+
+    //const [voice, setVoice] = useState('alloy')
 
     return (
         <div className='gpt-node-wrapper'>
@@ -62,6 +65,23 @@ export default memo(({ data, isConnectable }) => {
                 </div> */}
                 <div className='input-section-wrapper'>
                     <div className='input-title'>Input</div>
+                    <div className='input-wrapper'>
+                    <div className="">
+                        <Select size="sm"
+                            label="Select Voice"
+                            value={data.dataOfNode}
+                            onChange={data.onChange}
+                        >
+                            <Option value="alloy">Alloy</Option>
+                            <Option value="echo">Echo</Option>
+                            <Option value="fable">Fable</Option>
+                            <Option value="onyx">Onyx</Option>
+                            <Option value="nova">Nova</Option>
+                            <Option value="shimmer">Shimmer</Option>
+                        </Select>
+                    </div>
+                     
+                    </div>
                 </div>
                 <div className='output-section-wrapper'>
                     <div className='input-title'>Output</div>

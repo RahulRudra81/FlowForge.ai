@@ -7,11 +7,11 @@ import ReactFlow, {
     useEdgesState,
     Controls,
     Background,
-    
+    // useReactFlow,
 } from 'reactflow'
 import 'reactflow/dist/style.css'
 import Discription from '../components/Discription'
-import create from 'zustand'
+//import create from 'zustand'
 import VoiceCloneDescription from './VoiceCloneDescription'
 import InputTextarea from '../components/InputTextarea'
 
@@ -26,11 +26,11 @@ import TextToSpeechDesc from '../components/TextToSpeechDesc'
 
 // import { Description } from '@headlessui/react/dist/components/description/description'
 
-export const useBearStore = create((set) => ({
-    bears: 0,
-    increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-    removeAllBears: () => set({ bears: 0 }),
-}))
+// export const useBearStore = create((set) => ({
+//     bears: 0,
+//     increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+//     removeAllBears: () => set({ bears: 0 }),
+// }))
 
 
 const nodeTypes = {
@@ -79,6 +79,10 @@ const DnDFlow = () => {
     const [edges, setEdges, onEdgesChange] = useEdgesState([])
     const [reactFlowInstance, setReactFlowInstance] = useState(null)
 
+    //gptKaDescription
+    const [initialDesc,setDesc]=useState("Act as an agent")
+    //textToSpeech
+    const [initialVoice,setVoice]=useState("alloy")
     const onConnect = useCallback(
         (params) =>
             setEdges((eds) =>
@@ -113,37 +117,96 @@ const DnDFlow = () => {
         event.preventDefault()
         event.dataTransfer.dropEffect = 'move'
     }, [])
-
+    
+    const dataToPass=(type)=>{
+        if(type==='gptNode'){
+            return initialDesc
+        }else if(type==='TextToAudio'){
+            return initialVoice
+        }
+        else{
+            return null
+        }
+    }
+    const setDataOfNode=(type)=>{
+        if(type==='gptNode'){
+            return setDesc
+        }else if(type==='TextToAudio'){
+            return setVoice
+        }
+    }
+ 
+    const dataChangeEvent=(event,type)=>{
+        if(type==='gptNode'){
+            return event.target.value
+        }else if(type==='TextToAudio'){
+            return event
+        }
+    }
+    
     const onDrop = useCallback(
         (event) => {
-            event.preventDefault()
-
-            const reactFlowBounds =
-                reactFlowWrapper.current.getBoundingClientRect()
-            const type = event.dataTransfer.getData('application/reactflow')
-
+            event.preventDefault();
+    
+            const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
+            const type = event.dataTransfer.getData('application/reactflow');
+    
             // check if the dropped element is valid
             if (typeof type === 'undefined' || !type) {
-                return
+                return;
             }
-
+    
+            const dataOfNode = dataToPass(type); 
+    
             const position = reactFlowInstance.project({
                 x: event.clientX - reactFlowBounds.left,
                 y: event.clientY - reactFlowBounds.top,
-            })
+            });
+    
             const newNode = {
                 id: getId(),
                 type,
                 position,
-                data: { label: `${type}`, color: 'hello' },
+                data: {
+                    label: `${type}`, 
+                    color: 'hello',
+                    dataOfNode,
+                    onChange: (event) => {
+                        const dataChanged =dataChangeEvent(event,type)
+            
+                        if (type === 'gptNode') {
+                            setDesc(dataChanged);
+                        } else if (type === 'TextToAudio') {
+                            setVoice(dataChanged);
+                        }
+            
+                        setNodes((nds) =>
+                            nds.map((node) => {
+                                if (node.id !== newNode.id) {
+                                    return node;
+                                }
+            
+                                return {
+                                    ...node,
+                                    data: {
+                                        ...node.data,
+                                        dataOfNode: dataChanged,
+                                    },
+                                };
+                            })
+                        );
+                    }
+                },
                 sourcePosition: 'right',
                 targetPosition: 'left',
-            }
-
-            setNodes((nds) => nds.concat(newNode))
+            };
+            
+    
+            setNodes((nds) => nds.concat(newNode));
         },
-        [reactFlowInstance]
-    )
+        [reactFlowInstance, setNodes, setDesc, setVoice]
+    );
+    
 
     const onEdgeUpdateStart = useCallback(() => {
         reactFlowWrapper.current = false
@@ -214,6 +277,32 @@ const DnDFlow = () => {
         // connect with firebase
       
 
+        //to save the react-flow state on refresh
+
+        //const [rfInstance, setRfInstance] = useState(null);
+        // const {  setViewport } = useReactFlow();
+        // const onSave = useCallback(() => {
+        //     if (reactFlowInstance) {
+        //         const flow = reactFlowInstance.toObject();
+        //         localStorage.setItem('reactFlowState', JSON.stringify(flow));
+        //     }
+        // }, [reactFlowInstance]);
+    
+        // const onRestore = useCallback(() => {
+        //     const flow = JSON.parse(localStorage.getItem('reactFlowState'));
+    
+        //     if (flow) {
+        //         const { x = 0, y = 0, zoom = 1 } = flow.viewport;
+        //         setNodes(flow.nodes || []);
+        //         setEdges(flow.edges || []);
+        //         setViewport({ x, y, zoom });
+        //     }
+        // }, [setNodes, setEdges, setViewport]);
+    
+        // useEffect(() => {
+        //     onRestore();
+        // }, [onRestore]);
+     
     return (
         <div className='dndflow'>
             <ReactFlowProvider>
@@ -243,12 +332,16 @@ const DnDFlow = () => {
                     >
                         <Controls />
                         <Background />
+                        {/* <Panel position="top-right">
+                        <button onClick={onSave}>save</button>
+                        <button onClick={onRestore}>restore</button>
+                        </Panel> */}
                     </ReactFlow>
                 </div>
                 {/* {nodes.id==='0'&&<Discription />} */}
                 {/* {isMenuOpen? <Discription  handleChane={handleChane}/>:""} */}
                 
-                {
+                {/* {
                     activeBar==='gptDesc'&& isMenuOpen ? <Discription  handleChane={handleChane} id={currentId} />:""
 
                 }
@@ -260,10 +353,10 @@ const DnDFlow = () => {
                 }
                 {/* {
                     activeBar==='InputTextarea' && isMenuOpen ? <InputTextarea handleChane={handleChane} id={currentId}/>:""
-                } */}
+                } 
                 {
                     activeBar==='other' &&(<div></div>)
-                }
+                } */}
             </ReactFlowProvider>
         </div>
     )

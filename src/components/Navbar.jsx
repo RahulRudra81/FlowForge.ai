@@ -35,7 +35,8 @@ const Navbar = () => {
     // }}
 
     const handleNewProject = async () => {
-       
+      
+      localStorage.setItem("projectName",projectName)
       setProjectKaNaam(projectName)
 
       setButtonPopup(false)
