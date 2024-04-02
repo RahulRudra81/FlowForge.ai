@@ -54,7 +54,7 @@ export default (props) => {
                 body: JSON.stringify({
                     dropArray: idMapObject,
                     mapArray: edgeConnections,
-                    inputText: userInput,
+                    inputText: "Explain history of the taj mahal",
                     gptDiscription:userDescription,
                     speechDropDown: speechDropDown,
                     projectName:projectKaNaam
@@ -87,13 +87,15 @@ export default (props) => {
         const findEdges = await props.edges.map(item => [item.source,item.target])
         const edgeConnections=findEdges.map(([key, value]) => ({ key, value }));
         console.log(edgeConnections)
-        console.log({userDescription,speechDropDown,userInput})
+        console.log(userDescription);
+        console.log(speechDropDown)
+        console.log(projectKaNaam)
          setObjects(findObjects);
          setAllEdges(findEdges);
-         if(userInput===""){
-            alert("Input should not be empty")
-            return
-        }
+        //  if(userInput===""){
+        //     alert("Input should not be empty")
+        //     return
+        // }
          handleDataBackend(idMapObject,edgeConnections)
          alert("deployed")
 

@@ -192,9 +192,9 @@ const DnDFlow = () => {
         else if(node.type==='TextToAudio'){
             setActiveBar('textAudioDesc');
         }
-        else if(node.type==="input"){
-            setActiveBar('InputTextarea')
-        }
+        // else if(node.type==="input"){
+        //     setActiveBar('InputTextarea')
+        // }
         else{
             setActiveBar("other")
         }
@@ -258,9 +258,9 @@ const DnDFlow = () => {
                 {
                     activeBar==='textAudioDesc'&& isMenuOpen ? <TextToSpeechDesc handleChane={handleChane} id={currentId}/>:""
                 }
-                {
+                {/* {
                     activeBar==='InputTextarea' && isMenuOpen ? <InputTextarea handleChane={handleChane} id={currentId}/>:""
-                }
+                } */}
                 {
                     activeBar==='other' &&(<div></div>)
                 }
