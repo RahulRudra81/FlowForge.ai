@@ -4,6 +4,7 @@ import {Routes, Route} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Auth from './pages/Auth/Auth'
 import './App.css'
+import Header from './pages/Header';
 const App = () => {
 
  
@@ -14,7 +15,8 @@ const App = () => {
         {/* <Route path={'/login'} element={ <Login setToken={setToken}/>} /> */}
         <Route path='/signup' element={<Auth title="SignUp"/>}/>
         <Route path={'/dnd'} element={ <DnDFlow />} />
-        <Route path={'/'} element={ <Landing />} />
+        {/* <Route path={'/'} element={ <Landing/>} /> */}
+        <Route path={'/'} element={ <Header/>} />
         <Route path='/login' element={<Auth title="SignIn"/>}/>
         <Route path="/billing" element={<Billing/>}/>
         <Route path="/profile" element={<Profile/>}/>
