@@ -3,7 +3,7 @@ import { BsInputCursorText, BsFillBookmarkFill } from "react-icons/bs";
 import { VscOutput } from "react-icons/vsc";
 import { FaRobot } from "react-icons/fa";
 import { TfiHandOpen } from "react-icons/tfi";
-import { Link, useParams, useLocation } from 'react-router-dom/dist';
+import { Link, useParams, useLocation, useNavigate } from 'react-router-dom/dist';
 import { descriptionContext } from '../Context'
 import { auth, db } from '../firebase'
 import { addDoc, collection } from 'firebase/firestore'
@@ -24,12 +24,12 @@ export default (props) => {
 
     //node id and description
 
-    const { userDescription,speechDropDown,userInput, projectKaNaam} = useContext(descriptionContext)
+    
 
     
     // console.log(userDescription)
 
-    const descriptionArray = Object.entries(userDescription)
+    //const descriptionArray = Object.entries(userDescription)
     // console.log(descriptionArray)
     
     
@@ -46,7 +46,7 @@ export default (props) => {
     const handleDataBackend=async(idMapObject,edgeConnections)=>{
         try {
             
-            const req = await fetch('http://localhost:8000/api/openAi/createModel', {
+            const req = await fetch('http://localhost:8000/api/openAi/deployModel', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -55,9 +55,7 @@ export default (props) => {
                     dropArray: idMapObject,
                     mapArray: edgeConnections,
                     inputText: "Explain history of the taj mahal",
-                    gptDiscription:userDescription,
-                    speechDropDown: speechDropDown,
-                    projectName:projectKaNaam
+                    projectName:localStorage.getItem("projectName")
                 
                 })
             });
@@ -68,6 +66,7 @@ export default (props) => {
             console.error('Error:', error);
         }
     }
+
     const isOutputAlertCompulsory = (data) => {
         return data.some(item => item.value === 'output');
       };
@@ -75,8 +74,8 @@ export default (props) => {
         return data.some(item => item.value === 'input');
       };
     const fetchId = async () => {
-        const findObjects =await props.node.map(item => [item.id, item.type])
-        const idMapObject=findObjects.map(([key, value]) => ({ key, value }));
+        const findObjects =await props.node.map(item => [item.id, item.type,item.data.dataOfNode])
+        const idMapObject=findObjects.map(([key, value,data]) => ({ key, value,data }));
         const outputCompulsory = isOutputAlertCompulsory(idMapObject);
         const inputCompulsory=isInputAlertCompulsory(idMapObject)
         if(outputCompulsory === false || inputCompulsory===false){
@@ -87,70 +86,27 @@ export default (props) => {
         const findEdges = await props.edges.map(item => [item.source,item.target])
         const edgeConnections=findEdges.map(([key, value]) => ({ key, value }));
         console.log(edgeConnections)
-        console.log(userDescription);
-        console.log(speechDropDown)
-        console.log(projectKaNaam)
+        console.log(localStorage.getItem('projectName'))
          setObjects(findObjects);
          setAllEdges(findEdges);
-        //  if(userInput===""){
-        //     alert("Input should not be empty")
-        //     return
-        // }
          handleDataBackend(idMapObject,edgeConnections)
          alert("deployed")
-
-        //addDataPipeline()
     }
-
-    // const idMap=props.node.map(item => [item.id, item.type])
-
-    // console.log(idMap)
-
-    // const arrayObjects = idMap.map(([key, value]) => ({ key, value }));
-
-    // console.log(arrayObjects)
-
-   
-
-   
-    
-    // const addDataPipeline=async()=>{
-    //     const docRef=await addDoc(collection(db,'dataPipeline'),{
-    //         Userid:auth.currentUser.uid,
-    //          idAndNodeMapping: findObjects.map(item => [item[0], item[1]]),
-    //         // edgesConnections:allEdges || null,
-    //         //idAndNodeMapping:props.node.map(item => [item.id, item.type]),
-    //         description:userDescription
-    //     })
-    //     alert('Document written with ID: ', docRef.Userid);
-    // }
-
-      
-
-    useEffect(() => {
-        // console.log(objects)
-        // console.log(allEdges)
-        // console.log(userDescription)
-        // const object=Object.assign({}, objects);
-        // const allEdge=Object.assign({},allEdges)
-
-        
-
-       // addDataPipeline();
-         
-    }, [objects])
-
-
-
+     
+    const navigate=useNavigate()
+    const handleHome=()=>{
+        localStorage.removeItem("reactFlowState")
+        navigate('/home')
+    }
     return (
 
         <div className='shadow-xl p-2'>
             {window.location.pathname=='/'?""
             :
-            <Link to='/home'><div className="flex-grow  hover:text-blue-700  font-myfont  border-b-2 mb-5 border-solid border-zinc-300 text-gray-500 cursor-pointer">Return to dashboard</div></Link>
+            <button onClick={handleHome}><div className="flex-grow  hover:text-blue-700  font-myfont  border-b-2 mb-5 border-solid border-zinc-300 text-gray-500 cursor-pointer">Return to dashboard</div></button>
             } 
 
-            <h1 className=' text-xl font-semibold text-gray-500 m-5'>{projectKaNaam}</h1>
+            <h1 className=' text-xl font-semibold text-gray-500 m-5'>{localStorage.getItem("projectName")}</h1>
             <div className='flex items-center justify-evenly cursor-pointer border-solid  border-[#dcdcdc] border-2 rounded p-2'>
                 <div><TfiHandOpen /></div>
                 <div className='ml-4 text-black '>
