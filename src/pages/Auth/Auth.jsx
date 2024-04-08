@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword } from 'firebase/auth'
-import "firebase/firestore";
-import { collection, addDoc } from "firebase/firestore";
-import { db, auth } from '../../firebase'
 import { Link } from 'react-router-dom'
-import { FiSun, FiLock } from 'react-icons/fi'
+import { FiLock } from 'react-icons/fi'
 import { IoArrowBackCircle } from "react-icons/io5";
+import axios from "axios"
 
 
 
@@ -22,11 +19,10 @@ const Auth = (params) => {
   });
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        navigate('/home')
-      }
-    })
+    const token = localStorage.getItem('token')
+    if(token != null){
+      navigate('/home')
+    }
   }, [])
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -34,48 +30,39 @@ const Auth = (params) => {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, data.email, data.password).then(() => {
-      navigate('/home')
-    }).catch((error) => {
-      alert(error.message)
-    })
-  }
-
-  const addUser = async (e) => {
     try {
-      const userdata = await addDoc(collection(db, "user"), {
-        id: auth.currentUser.uid,
-        name: data.name,
-        email: data.email,
-        password: data.password
-      });
-      alert("User added to database")
-    } catch {
-      ((error) => {
-        alert(error.message)
-      })
+      const login = await axios.post(
+        'http://localhost:8000/api/v1/user/login',
+        {
+          email : data.email,
+          password : data.password
+        }
+      )
+      localStorage.setItem('token' ,login.data.data.accessToken)
+      navigate('/home')
+    } catch (error) {
+      alert(error.message)
     }
-  }
 
+  }
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const { user } = await createUserWithEmailAndPassword(auth, data.email, data.password);
-
-      // await firebase.firestore().collection("users").doc(user.uid).set({
-      //   name:data.name,
-      //   city:data.city,
-      //   state:data.state,
-      //   email:data.email,
-      // });
-      addUser()
+      const register = await axios.post(
+        'http://localhost:8000/api/v1/user/register',
+        {
+          fullName : data.name,
+          email : data.email,
+          password : data.password
+        }
+      )
+      console.log(register);
+      localStorage.setItem('token',register.data.data.accessToken)
       navigate('/home')
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
-
-
   }
 
   return (
