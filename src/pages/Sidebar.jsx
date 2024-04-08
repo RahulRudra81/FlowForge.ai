@@ -41,21 +41,21 @@ export default (props) => {
         event.dataTransfer.effectAllowed = 'move'
     }
     
-
-    const location=useLocation()
     const handleDataBackend=async(idMapObject,edgeConnections)=>{
         try {
             
-            const req = await fetch('http://localhost:8000/api/openAi/deployModel', {
+            const req = await fetch('http://localhost:8000/api/v1/aiModel/deployModel', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
                 },
                 body: JSON.stringify({
                     dropArray: idMapObject,
                     mapArray: edgeConnections,
-                    inputText: "Explain history of the taj mahal",
-                    projectName:localStorage.getItem("projectName")
+                    // inputText: "Explain history of the taj mahal",
+                    modelDescription:localStorage.getItem("projectName"),
+                    coordinateObject:JSON.parse(localStorage.getItem("reactFlowState"))
                 
                 })
             });
@@ -90,6 +90,7 @@ export default (props) => {
          setObjects(findObjects);
          setAllEdges(findEdges);
          handleDataBackend(idMapObject,edgeConnections)
+        // localStorage.removeItem("reactFlowState")
          alert("deployed")
     }
      
