@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Auth from './pages/Auth/Auth'
 import './App.css'
 import Header from './pages/Header';
+import ProjectDetailPage from './components/ProjectDetailPage';
 // import Footer2 from './pages/Footer2';
 const App = () => {
 
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/help' element={<Help/>}/>
         <Route path='/mainpage' element={<Mainpage/>}/>
         <Route path={'/home'} element={ <Home  />} />
+        <Route path={'/project/:id'} element={ <ProjectDetailPage  />} />
       </Routes>
     </div>
   )
