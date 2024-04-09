@@ -44,7 +44,7 @@ export default (props) => {
     const handleDataBackend=async(idMapObject,edgeConnections)=>{
         try {
             
-            const req = await fetch('http://localhost:8000/api/v1/aiModel/deployModel', {
+            const req = await fetch('https://bit-hackathon-1.onrender.com/api/v1/aiModel/deployModel', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ const ProjectDetailPage = () => {
     useEffect(() => {
         const fetchModel = async () => {
             try {
-                const response = await fetch(`http://localhost:8000/api/v1/aiModel/getModel?modelId=${id}`, {
+                const response = await fetch(`https://bit-hackathon-1.onrender.com/api/v1/aiModel/getModel?modelId=${id}`, {
                     method: 'GET',
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -35,7 +35,7 @@ const ProjectDetailPage = () => {
         if (model && model._id) {
             const fetchModelCoordinates = async () => {
                 try {
-                    const response = await fetch(`http://localhost:8000/api/v1/aiModel/getModelAxes?modelId=${model._id}`, {
+                    const response = await fetch(`https://bit-hackathon-1.onrender.com/api/v1/aiModel/getModelAxes?modelId=${model._id}`, {
                         method: 'GET',
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`
