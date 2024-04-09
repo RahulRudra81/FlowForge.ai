@@ -73,15 +73,22 @@ export default (props) => {
     const isInputAlertCompulsory = (data) => {
         return data.some(item => item.value === 'input');
       };
+      const navigate=useNavigate()
+    const handleHome=()=>{
+        localStorage.removeItem("reactFlowState")
+        navigate('/home')
+    }
     const fetchId = async () => {
         const findObjects =await props.node.map(item => [item.id, item.type,item.data.dataOfNode])
         const idMapObject=findObjects.map(([key, value,data]) => ({ key, value,data }));
         const outputCompulsory = isOutputAlertCompulsory(idMapObject);
         const inputCompulsory=isInputAlertCompulsory(idMapObject)
+
         if(outputCompulsory === false || inputCompulsory===false){
             alert('Both input and output are compulsory field')
             return;
         }
+        
         console.log(idMapObject)
         const findEdges = await props.edges.map(item => [item.source,item.target])
         const edgeConnections=findEdges.map(([key, value]) => ({ key, value }));
@@ -94,10 +101,20 @@ export default (props) => {
          alert("deployed")
     }
      
-    const navigate=useNavigate()
-    const handleHome=()=>{
-        localStorage.removeItem("reactFlowState")
-        navigate('/home')
+    
+
+    const checkConnectivity=async()=>{
+        // console.log(props.checkConnectivity())
+        if(!props.checkConnectivity()){
+            // console.log("1st");
+            return ;
+            
+        }
+        else{
+            // console.log("2nd");
+            fetchId();
+            return ;
+        }
     }
     return (
 
@@ -195,7 +212,7 @@ export default (props) => {
 
            {window.location.pathname=='/'?"":<button
                 className="w-full py-2 my-4 text-black bg-orange-400 hover:bg-orange-700 hover:text-[white]  p-3  rounded-md flex justify-between items-center  "
-                onClick={fetchId}
+                onClick={checkConnectivity}
             >
                 Deploy
             </button>}

@@ -1,1 +1,0 @@
-{"name":"Local: bla","url":"c:\\Users\\rudra\\Desktop\\avid\\avidsynth.ai\\src\\pages\\bla.cpp","tests":[{"id":1687963434649,"input":"2\n3 2\n3 2 1\n4 3\n3 2 4 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\rudra\\Desktop\\avid\\avidsynth.ai\\src\\pages\\bla.cpp","group":"local","local":true}
