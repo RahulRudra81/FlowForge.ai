@@ -45,6 +45,7 @@ const Navbar = () => {
     }
     const handleLogout = ()=>{
       signOut(auth).then(() => {
+        localStorage.clear()
         navigate('/')
       }).catch((error) => {
         alert(error.message)
@@ -69,9 +70,7 @@ const Navbar = () => {
          </div>
 
          <div className="icons flex justify-between items-center">
-            <div className='text-2xl mr-3 cursor-pointer' onClick={()=>{setDarkMode(!darkMode)}}>
-                {darkMode ? <BsFillMoonStarsFill/> : <FiSun/>}
-            </div>
+           
             {/* <Link to='/profile'><img src="https://avatars.githubusercontent.com/u/75154257?v=4" alt="" className='w-8 h-8 rounded-full cursor-pointer mr-3 hover:border-2 border-solid border-gray-500'/></Link> */}
             {/* logout */}
             <Link to='/'><button className="text-white justify-center h-8 w-[100px] bg-black p-5 text-md rounded-full flex  items-center  shadow-gray-400 shadow-md hover:shadow-lg hover:shadow-gray-400 hover:bg-gray-800" onClick={handleLogout}>Logout</button></Link>
