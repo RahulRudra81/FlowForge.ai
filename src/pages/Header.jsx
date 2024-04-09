@@ -113,9 +113,28 @@ import DnDFlow from './DnDFlow'
 
         {/* preview  */}
 
+        <div>
+        
+  <style jsx>{`
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        <div className="flex justify-center items-center">
-        <Card className="w-full max-w-[48rem] flex-row">
+    .animate-fade-in-up {
+      animation: fadeInUp 0.5s ease-out;
+    }
+  `}</style>
+
+
+        <div className="flex justify-center items-center pt-20">
+        <Card className="w-full max-w-[48rem] flex-row p-4 animate-fade-in-up"> 
       <CardHeader
         shadow={false}
         floated={false}
@@ -129,16 +148,15 @@ import DnDFlow from './DnDFlow'
       </CardHeader>
       <CardBody>
         <Typography variant="h6" color="gray" className="mb-4 uppercase">
-          startups
+        Drag-and-Drop Interface
         </Typography>
         <Typography variant="h4" color="blue-gray" className="mb-2">
-          Lyft launching cross-platform service this week
+        Feature: Intuitive Model Selection
         </Typography>
         <Typography color="gray" className="mb-8 font-normal">
-          Like so many organizations these days, Autodesk is a company in
-          transition. It was until recently a traditional boxed software company
-          selling licenses. Yet its own business model disruption is only part
-          of the story
+        Effortlessly construct your machine learning pipeline with our intuitive drag-and-drop interface. 
+        Choose from a library of diverse machine learning models, easily dragging them onto the canvas to build your customized flowchart. 
+        Streamline your workflow and experiment with various model combinations seamlessly.
         </Typography>
         <a href="#" className="inline-block">
           <Button variant="text" className="flex items-center gap-2">
@@ -166,22 +184,20 @@ import DnDFlow from './DnDFlow'
 
 {/* 2 */}
 
-    <div className="flex justify-center items-center h-screen">
-        <Card className="w-full max-w-[48rem] flex-row">
-      
+<div className="flex justify-center items-center pt-20">
+<Card className="w-full max-w-[48rem] flex-row p-4 animate-fade-in-up"> 
       <CardBody>
         <Typography variant="h6" color="gray" className="mb-4 uppercase">
-          startups
+        Customizable Parameters
         </Typography>
         <Typography variant="h4" color="blue-gray" className="mb-2">
-          Lyft launching cross-platform service this week
+        Feature: Flexible Model Configuration
         </Typography>
         <Typography color="gray" className="mb-8 font-normal">
-          Like so many organizations these days, Autodesk is a company in
-          transition. It was until recently a traditional boxed software company
-          selling licenses. Yet its own business model disruption is only part
-          of the story
-        </Typography>
+        Tailor each machine learning model to your specific needs with our customizable parameters feature.
+         Fine-tune hyperparameters and settings directly within the interface,
+          empowering you to optimize the performance of your pipeline. Gain full control over your models and achieve superior results with ease.
+</Typography>
         <a href="#" className="inline-block">
           <Button variant="text" className="flex items-center gap-2">
             Learn More
@@ -219,8 +235,8 @@ import DnDFlow from './DnDFlow'
 {/* 3 */}
 
 
-    <div className="flex justify-center items-center h-screen">
-        <Card className="w-full max-w-[48rem] flex-row">
+    <div className="flex justify-center items-center pt-20">
+    <Card className="w-full max-w-[48rem] flex-row p-4 animate-fade-in-up"> 
       <CardHeader
         shadow={false}
         floated={false}
@@ -234,16 +250,16 @@ import DnDFlow from './DnDFlow'
       </CardHeader>
       <CardBody>
         <Typography variant="h6" color="gray" className="mb-4 uppercase">
-          startups
+        Seamless Execution
         </Typography>
         <Typography variant="h4" color="blue-gray" className="mb-2">
-          Lyft launching cross-platform service this week
+        Feature: Effortless Pipeline Execution
         </Typography>
         <Typography color="gray" className="mb-8 font-normal">
-          Like so many organizations these days, Autodesk is a company in
-          transition. It was until recently a traditional boxed software company
-          selling licenses. Yet its own business model disruption is only part
-          of the story
+        Experience smooth and efficient pipeline execution with our seamless system. Once your pipeline is constructed,
+         simply submit your configuration, triggering the backend to execute the pipeline autonomously.
+         Sit back and relax as our system handles the heavy lifting,
+         generating the desired output promptly. Accelerate your prototyping and experimentation process effortlessly.
         </Typography>
         <a href="#" className="inline-block">
           <Button variant="text" className="flex items-center gap-2">
@@ -266,6 +282,7 @@ import DnDFlow from './DnDFlow'
         </a>
       </CardBody>
     </Card>
+    </div>
     </div>
 
 
