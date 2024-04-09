@@ -116,7 +116,7 @@ export default (props) => {
             </div>
             <div className="flex-grow mt-5  border-t border-zinc-300"></div>
             <div
-                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
+                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-orange-700'
                 onDragStart={(event) => onDragStart(event, 'input')}
                 draggable
             >
@@ -142,7 +142,7 @@ export default (props) => {
             </div> */}
             {/* <div className="flex-grow mt-5  border-t border-zinc-300"></div> */}
             <div
-                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
+                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-orange-700'
                 onDragStart={(event) => onDragStart(event, 'output')}
                 draggable
             >
@@ -155,7 +155,7 @@ export default (props) => {
             </div>
             <div className="flex-grow mt-5  border-t border-zinc-300"></div>
             <div
-                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
+                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-orange-700'
                 onDragStart={(event) => onDragStart(event, 'gptNode')}
                 draggable
             >
@@ -168,7 +168,7 @@ export default (props) => {
             </div>
             <div className="flex-grow mt-5  border-t border-zinc-300"></div>
             <div
-                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600'
+                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-orange-700'
                 onDragStart={(event) => onDragStart(event, 'TextToAudio')}
                 draggable
             >
@@ -194,7 +194,7 @@ export default (props) => {
             </div> */}
 
            {window.location.pathname=='/'?"":<button
-                className="w-full py-2 my-4 text-black bg-blue-gradient hover:bg-[#c20051] hover:text-[white]  p-3  rounded-md flex justify-between items-center  "
+                className="w-full py-2 my-4 text-black bg-orange-400 hover:bg-orange-700 hover:text-[white]  p-3  rounded-md flex justify-between items-center  "
                 onClick={fetchId}
             >
                 Deploy

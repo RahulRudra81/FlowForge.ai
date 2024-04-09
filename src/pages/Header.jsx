@@ -8,10 +8,35 @@ import { Carousel,Card,
 import DnDFlow from './DnDFlow'
 
  function Header() {
+    const scrollToSection = () => {
+        const section = document.getElementById('targetSection');
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+    const scrollToSection1 = () => {
+        const section = document.getElementById('targetSection1');
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+    const scrollToSection2 = () => {
+        const section = document.getElementById('targetSection2');
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+    const scrollToSection3 = () => {
+        const section = document.getElementById('targetSection3');
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    }
     return (
         <>
         {/* header */}
-        <header className="shadow sticky z-50 top-0">
+        <div id="targetSection">
+        <header className="shadow fixed z-50 top-0 w-screen">
             <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/" className="flex items-center">
@@ -41,44 +66,48 @@ import DnDFlow from './DnDFlow'
                     >
                         <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                             <li>
-                                <NavLink
-                                to="/"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    Home
-                                </NavLink>
+                            <NavLink
+                    to="/"
+                    onClick={scrollToSection}
+                    className=
+                    "block py-2 pr-4 pl-3 duration-200 hover:text-orange-700  text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0"
+                    
+                >
+                Home
+                </NavLink>
                             </li>
                             <li>
-                                <NavLink
-                                to="/about"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    Preview
-                                </NavLink>
+                            <NavLink
+                        to="/"
+                        onClick={scrollToSection1}
+                        className=
+                    "block py-2 pr-4 pl-3 duration-200 hover:text-orange-700  text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0"
+                    
+                    >
+                     About
+                    </NavLink>
                             </li>
                             <li>
-                                <NavLink
-                                to="/contact"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    DnDFlow
-                                </NavLink>
+                            <NavLink
+                        to="/"
+                        onClick={scrollToSection2}
+                        className=
+                    "block py-2 pr-4 pl-3 duration-200 hover:text-orange-700  text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0"
+                    
+                    >
+                     Preview
+                </NavLink>
                             </li>
                             { <li>
                                 <NavLink
-                                to="/kuchbhi"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-orange-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                                    }
-                                >
-                                    Get in touch
-                                </NavLink>
+                        to="/"
+                        onClick={scrollToSection3}
+                        className=
+                    "block py-2 pr-4 pl-3 duration-200 hover:text-orange-700  text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0"
+                    
+                     >
+                    Get in touch
+                </NavLink>
                             </li> }
                             
                         </ul>
@@ -86,6 +115,8 @@ import DnDFlow from './DnDFlow'
                 </div>
             </nav>
         </header>
+        </div>
+
         
 
         {/* corousel */}
@@ -109,11 +140,19 @@ import DnDFlow from './DnDFlow'
     </Carousel>
 
 
-    
+    {/* Horizontal Line */}
 
-        {/* preview  */}
+ <div className=' flex items-center justify-center pt-20'>
+                <div className="relative w-3/4  flex py-5 items-center">
+                    <div className="flex-grow border-t text-gray-700"></div>
+                    <span className="flex-shrink mx-4 text-orange-700">About</span>
+                    <div className="flex-grow border-t text-gray-700"></div>
+                </div>
+            </div>
 
-        <div>
+        {/* about */}
+
+        <div id="targetSection1">
         
   <style jsx>{`
     @keyframes fadeInUp {
@@ -289,7 +328,7 @@ import DnDFlow from './DnDFlow'
 
  {/* Horizontal Line */}
 
- <div className=' flex items-center justify-center'>
+ <div className=' flex items-center justify-center pt-20'>
                 <div className="relative w-3/4  flex py-5 items-center">
                     <div className="flex-grow border-t text-gray-700"></div>
                     <span className="flex-shrink mx-4 text-orange-700">Preview</span>
@@ -299,6 +338,7 @@ import DnDFlow from './DnDFlow'
 
 
  {/* DnDFlow */}
+ <div id="targetSection2">
     <a id='bottom'>
         <div className='flex items-center justify-center'>
         <div className='mt-20 w-3/4 border-solid border-8 border-sky-500 hover:border-orange-700 hover:shadow-orange-700 hover:shadow-xl'>
@@ -306,9 +346,11 @@ import DnDFlow from './DnDFlow'
             </div>
         </div>
     </a>
+    </div>
 
 
-        {/* sighup */}
+        {/* get in touch*/}
+        <div id="targetSection3">
         <div className="relative flex items-top justify-center min-h-[700px] bg-white sm:items-center sm:pt-0">
             <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div className="mt-8 overflow-hidden">
@@ -445,6 +487,7 @@ import DnDFlow from './DnDFlow'
                 </div>
             </div>
         </div>
+        </div>
 
 
 
@@ -519,7 +562,7 @@ import DnDFlow from './DnDFlow'
                     <span className="text-sm text-gray-500 sm:text-center">
                         © 2024
                         <a href="" className="hover:underline">
-                            Kushagra Bhadauria 
+                        FlowForge 
                         </a>
                         . All Rights Reserved.
                     </span>
