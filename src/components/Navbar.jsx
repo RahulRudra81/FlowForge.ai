@@ -61,7 +61,17 @@ const Navbar = () => {
   return (
     <div className='flex justify-between items-center p-2  border-gray-200 boder-solid mr-5  font-poppins '>
          <div className="">
-                        <Link to='/home'> <h1 className="text-4xl font-bold  m-2  cursor-pointer "><span className=''>Avid</span><span className='text-[#33bbcf]'>Synth</span></h1></Link>
+         <Link to="/" className="flex items-center">
+                    <img
+                        src="/avidsynth.ai/src/assets/logo latest.png"
+                        className="mr-3 h-12"
+                        alt="Logo"
+                    />
+
+                        <div className="">
+                        <Link to='/'> <h1 className="text-3xl font-bold  m-2  cursor-pointer inline-block text-left"><span className=''>Flow</span><span className='text-orange-700'>Forge</span></h1></Link>
+                    </div>
+                    </Link>
                     </div>
 
          <div className="add-task md:block hidden">

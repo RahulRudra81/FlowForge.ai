@@ -40,12 +40,17 @@ import DnDFlow from './DnDFlow'
             <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/" className="flex items-center">
-                        <img
-                            src=""
-                            className="mr-3 h-12"
-                            alt="Logo"
-                        />
+                    <img
+                        src="/avidsynth.ai/src/assets/logo latest.png"
+                        className="mr-3 h-12"
+                        alt="Logo"
+                    />
+
+                        <div className="">
+                        <Link to='/'> <h1 className="text-3xl font-bold  m-2  cursor-pointer inline-block text-left"><span className=''>Flow</span><span className='text-orange-700'>Forge</span></h1></Link>
+                    </div>
                     </Link>
+                    
                     <div className="flex items-center lg:order-2">
                         <Link
                             to="#"
@@ -498,7 +503,7 @@ import DnDFlow from './DnDFlow'
                     <div className="mb-6 md:mb-0">
                         <Link to="/" className="flex items-center">
                             <img
-                                src=""
+                                src="/avidsynth.ai/src/assets/logo latest.png"
                                 className="mr-3 h-16"
                                 alt="Logo"
                             />
