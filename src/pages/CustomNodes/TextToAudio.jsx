@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from 'react'
 import { Handle } from 'reactflow'
 //import { useBearStore } from '../DnDFlow'
-import './styles/gptNode.css'
+import './styles/textNode.css'
 import { Option, Select } from '@material-tailwind/react'
 
 export default memo(({ data, isConnectable }) => {
@@ -21,7 +21,7 @@ export default memo(({ data, isConnectable }) => {
     //const [voice, setVoice] = useState('alloy')
 
     return (
-        <div className='gpt-node-wrapper'>
+        <div className='text-node-wrapper'>
             <Handle
                 type='target'
                 id='textToAudioIn'
@@ -48,26 +48,13 @@ export default memo(({ data, isConnectable }) => {
                 <div className='node-description'>
                     Convert your text to audio.
                 </div>
-                {/* <div className='cost-wrapper'>
-                    <img
-                        width='19'
-                        height='19'
-                        src='https://img.icons8.com/ios-glyphs/30/money--v1.png'
-                        alt='money--v1'
-                    />
-                    <div className='cost'>
-                        costs{' '}
-                        <span style={{ color: 'purple', fontWeight: '800' }}>
-                            $0.06
-                        </span>{' '}
-                        per token
-                    </div>
-                </div> */}
-                <div className='input-section-wrapper'>
+                
+                <div className='input-section-wrapper '>
                     <div className='input-title'>Input</div>
                     <div className='input-wrapper'>
                     <div className="">
-                        <Select size="sm"
+                        <Select
+                            size='sm'
                             label="Select Voice"
                             value={data.dataOfNode}
                             onChange={data.onChange}

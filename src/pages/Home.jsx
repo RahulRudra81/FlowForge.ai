@@ -83,7 +83,7 @@ const Home = () => {
    useEffect(() => {
        const fetchProjects = async () => {
            try {
-               const response = await fetch('http://localhost:8000/api/v1/aiModel/getModels',{
+               const response = await fetch('https://bit-hackathon-1.onrender.com/api/v1/aiModel/getModels',{
                   method: 'GET',
                    headers: {
                        Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -106,32 +106,9 @@ const Home = () => {
     <div className='font-poppins '>
       <Navbar />
       <div className="flex flex-row  ">
-        <Sidebar />
+        
         <div className='lg:w-full flex flex-col h-screen overflow-y-scroll  home'>
-          <div className="flex flex-col md:hidden m-1 p-1 text-xl text-gray-600 font-semibold font-myfont">
-            <div
-              className=" hover:text-[#f43f5e] cursor-pointer flex items-center"
-              onClick={toggleMenu}
-            >
-              <span className="m-2 text-xl">
-                <AiOutlinePlus />
-              </span>
-              Menu
-            </div>
-
-            {isMenuOpen &&
-              menuItems.map((item) => (
-                <Link to={item.path} key={item.name}>
-                  <div
-                    className={`m-5 hover:bg-pink-50 cursor-pointer flex items-center text-sm ${isCurrentPath(item.path) ? 'text-[#f43f5e] rounded-xl bg-pink-100' : ''
-                      }`}
-                  >
-                    <span className="m-2">{item.icon}</span>
-                    {item.name}
-                  </div>
-                </Link>
-              ))}
-          </div>
+          
           <h1 className='lg:text-3xl text-2xl font-myfont mt-5 ml-5 font-bold text-gray-700'>Welcome Back </h1>
           <h1 className='lg:text-lg text-sm font-myfont mt-3 ml-5 font-bold text-gray-500'>Here's what's happening with your projects today</h1>
           <div className='flex  lg:flex-row lg:justify-between items-center lg:m-5 m-2'>
