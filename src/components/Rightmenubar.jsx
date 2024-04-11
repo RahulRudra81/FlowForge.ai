@@ -8,20 +8,26 @@ import { BsFillTelephoneForwardFill } from 'react-icons/bs'
 import { SlDocs } from 'react-icons/sl'
 const Rightmenubar = () => {
   return (
-    // <div className='flex hidden lg:block flex-col p-5 w-[15%] border-l-2 border-solid border-gray-100 items-center'>
-    //   <h1 className='text-gray-500 text-lg cursor-pointer m-4 flex justify-between items-center hover:underline'><span className='mr-2'><SlDocs/></span>Read Docs</h1>
-    //   <h1 className='text-gray-500 text-lg cursor-pointer m-4 flex justify-between items-center hover:underline'><span className='mr-2'><BsFillChatRightTextFill/></span>Chat  us</h1>
-    //   <h1 className='text-gray-500 text-lg cursor-pointer m-4 flex justify-between items-center hover:underline'><span className='mr-2'><BsFillTelephoneForwardFill/></span>Contact </h1>
-    //   <div className='flex flex-col items-center justify-center'>
-    //     <h1 className='text-gray-500 text-xl mt-4'>Follow Us</h1>
-    //     <div className='flex justify-between items-center w-1/2 text-6xl text-gray-700 '>
-    //      <AiFillLinkedin className='hover:text-blue-700 cursor-pointer'/>
-    //       <AiFillTwitterCircle className='hover:text-blue-700 cursor-pointer'/>
-    //       <MdEmail className='hover:text-blue-700 cursor-pointer'/>
-    //     </div>
-    //     </div>
-    // </div>
     <>
+
+
+      <div className='h-screen bg-[#1E1E1E] p-4 gap-4 sm:w-1/3 lg:w-1/6 flex flex-col'>
+        <div>
+          <h1 className='text-3xl font-bold text-gray-400'>Flow <span className='text-red-800'>Forge.ai</span></h1>
+        </div>
+        <div className='bg-gray-500 h-0.5'></div>
+        <div>
+
+          <Button
+            onClick={handleNewProject}
+            className='bg-white flex items-center justify-center gap-3 w-full border-solid text-gray-800 hover:bg-gray-900 hover:text-white'>
+            <span><AiOutlinePlus className='text-xl' /></span><span className='text-lg'>Create Project</span>
+          </Button>
+        </div>
+      </div>
+      <div>
+
+      </div>
     </>
   )
 }

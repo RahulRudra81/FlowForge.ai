@@ -6,6 +6,7 @@ import { Carousel,Card,
     Typography,
     Button } from "@material-tailwind/react";
 import DnDFlow from './DnDFlow'
+import logo from '../assets/logo.png'
 
  function Header() {
     const scrollToSection = () => {
@@ -41,7 +42,7 @@ import DnDFlow from './DnDFlow'
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/" className="flex items-center">
                     <img
-                        src="/avidsynth.ai/src/assets/logo latest.png"
+                        src={logo}
                         className="mr-3 h-12"
                         alt="Logo"
                     />

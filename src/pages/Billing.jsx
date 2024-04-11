@@ -3,7 +3,6 @@ import {useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Rightmenubar from '../components/Rightmenubar'
-import Sidebar from '../components/Sidebar'
 import { auth } from '../firebase'
 import Footer from '../components/Footer'
 

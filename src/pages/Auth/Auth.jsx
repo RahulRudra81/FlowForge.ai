@@ -32,7 +32,7 @@ const Auth = (params) => {
     e.preventDefault();
     try {
       const login = await axios.post(
-        'http://localhost:8000/api/v1/user/login',
+        'https://bit-hackathon-1.onrender.com/api/v1/user/login',
         {
           email : data.email,
           password : data.password
@@ -50,7 +50,7 @@ const Auth = (params) => {
     e.preventDefault();
     try {
       const register = await axios.post(
-        'http://localhost:8000/api/v1/user/register',
+        'https://bit-hackathon-1.onrender.com/api/v1/user/register',
         {
           fullName : data.name,
           email : data.email,

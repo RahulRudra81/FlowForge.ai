@@ -1,136 +1,124 @@
-import React, {useContext, useState} from 'react'
+import React, { useContext, useState } from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
-import { FiSun } from 'react-icons/fi'
-import { BsFillMoonStarsFill } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
-import { db } from '../firebase'
-import { addDoc, collection } from 'firebase/firestore'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,useLocation,Link } from 'react-router-dom'
 import Popup from './Popup'
 import { descriptionContext } from '../Context'
+import { Button } from "@material-tailwind/react";
+import { AiFillDollarCircle } from 'react-icons/ai'
+import { BsFillBoxFill, BsFillDatabaseFill } from 'react-icons/bs'
 
 const Navbar = () => {
-    const navigate = useNavigate()
-    const [darkMode, setDarkMode] = useState(false)
-    const [projectName, setProjectName] = useState('Untitled Project')
-    const [buttonPopup, setButtonPopup] = useState(false)
-    
-    const {setProjectKaNaam}=useContext(descriptionContext)
+  const navigate = useNavigate()
+  const [projectName, setProjectName] = useState('Untitled Project')
+  const [buttonPopup, setButtonPopup] = useState(false)
 
-    //console.log(newProject);
+  const { setProjectKaNaam } = useContext(descriptionContext)
 
-    // const addProject = async() => {
-    //   try{
-    //     const docRef = await addDoc(collection(db, 'projects'), {
-    //       user: auth.currentUser.uid,
-    //       projectName: projectName,
-    //       date: new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear(),
-    //   })
-    //   }catch{
-    //     ((error) => {
-    //       alert(error.message)
-    //   })  
-    // }}
+  //console.log(newProject);
 
-    const handleNewProject = async () => {
-      
-      localStorage.setItem("projectName",projectName)
-      setProjectKaNaam(projectName)
+  // const addProject = async() => {
+  //   try{
+  //     const docRef = await addDoc(collection(db, 'projects'), {
+  //       user: auth.currentUser.uid,
+  //       projectName: projectName,
+  //       date: new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear(),
+  //   })
+  //   }catch{
+  //     ((error) => {
+  //       alert(error.message)
+  //   })  
+  // }}
 
-      setButtonPopup(false)
-      navigate('/dnd')
+  const handleNewProject = async () => {
 
-    }
-    const handleLogout = ()=>{
-      signOut(auth).then(() => {
-        localStorage.clear()
-        navigate('/')
-      }).catch((error) => {
-        alert(error.message)
-      })
-    }
-    const view=()=>{
-      setButtonPopup(true)
-    }
+    localStorage.setItem("projectName", projectName)
+    setProjectKaNaam(projectName)
 
-    const handleChange = (e) => {
-      setProjectName(e.target.value)
-    }
+    setButtonPopup(false)
+    navigate('/dnd')
+
+  }
+  const handleLogout = () => {
+    signOut(auth).then(() => {
+      localStorage.clear()
+      navigate('/')
+    }).catch((error) => {
+      alert(error.message)
+    })
+  }
+  const view = () => {
+    setButtonPopup(true)
+  }
+
+  const handleChange = (e) => {
+    setProjectName(e.target.value)
+  }
+  const { pathname } = useLocation();
+
 
   return (
-    <div className='flex justify-between items-center p-2  border-gray-200 boder-solid mr-5  font-poppins '>
-         <div className="">
-         <Link to="/" className="flex items-center">
-                    <img
-                        src="/avidsynth.ai/src/assets/logo latest.png"
-                        className="mr-3 h-12"
-                        alt="Logo"
-                    />
+    <>
+      <div className='h-screen shadow-2xl bg-[#171717] p-4 gap-4 w-1/3 lg:w-1/6 flex flex-col justify-between'>
+        <div className='flex flex-col gap-4'>
+          <div>
+            <h1 className='text-3xl font-bold text-gray-400'>Flow<span className='text-orange-800'>Forge.ai</span></h1>
+          </div>
+          <div className='bg-gray-500 h-0.5'></div>
 
-                        <div className="">
-                        <Link to='/'> <h1 className="text-3xl font-bold  m-2  cursor-pointer inline-block text-left"><span className=''>Flow</span><span className='text-orange-700'>Forge</span></h1></Link>
-                    </div>
-                    </Link>
-                    </div>
+          <div>
 
-         <div className="add-task md:block hidden">
-                <button className="text-white justify-center h-8 w-fit bg-black p-5 text-md rounded-full flex  items-center  shadow-gray-400 shadow-md hover:shadow-lg hover:shadow-gray-400 hover:bg-gray-800" onClick={view}><span><AiOutlinePlus className='mr-3 text-white font-bold lg:text-xl text-sm'/></span>New Model</button>
-         </div>
+            <Button
+              onClick={view}
+              className='bg-white flex items-center justify-center gap-3 w-full border-solid text-gray-800 hover:bg-orange-800 hover:text-white'>
+              <span><AiOutlinePlus className='text-xl' /></span><span className='text-md'>Create Project</span>
+            </Button>
+          </div>
+          <div>
+            {/* content of sidebar */}
+            <div className='flex flex-col  text-xl text-gray-300 gap-8 mt-6 w-full '>
+              <span className='flex gap-3 hover:bg-orange-800 hover:text-black px-4 py-2 rounded-xl'><BsFillDatabaseFill />Projects</span>
+              <span className='flex gap-3 hover:bg-orange-800 hover:text-black px-4 py-2 rounded-xl'><BsFillBoxFill />Templates</span>
+              <span className='flex gap-3 hover:bg-orange-800 hover:text-black px-4 py-2 rounded-xl'><AiFillDollarCircle />Wallet</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <Button
+            onClick={handleLogout}
+            className='bg-white flex items-center justify-center gap-3 w-full border-solid text-gray-800 hover:bg-orange-800 hover:text-white'>
+            LogOut
+          </Button>
+        </div>
+      </div>
+      <Popup trigger={buttonPopup} setTrigger={setButtonPopup} className="flex justify-center items-center  " >
+        <div className="h-[300px]  w-[500px] rounded-xl  items-center ">
 
-         <div className="icons flex justify-between items-center">
-           
-            {/* <Link to='/profile'><img src="https://avatars.githubusercontent.com/u/75154257?v=4" alt="" className='w-8 h-8 rounded-full cursor-pointer mr-3 hover:border-2 border-solid border-gray-500'/></Link> */}
-            {/* logout */}
-            <Link to='/'><button className="text-white justify-center h-8 w-[100px] bg-black p-5 text-md rounded-full flex  items-center  shadow-gray-400 shadow-md hover:shadow-lg hover:shadow-gray-400 hover:bg-gray-800" onClick={handleLogout}>Logout</button></Link>
-
-            <Popup trigger={buttonPopup} setTrigger={setButtonPopup} className="flex justify-center items-center  " >
-      <div className="h-[300px]  w-[500px] rounded-xl  items-center ">
-     
-        <div className="flex  flex-col   p-2">
-          <div className="intro m-5
+          <div className="flex  flex-col   p-2">
+            <div className="intro m-5
           text-gray-600 font-myfont  text-[15px]
           ">
-          Introducing the revolutionary way to create APIs: effortlessly build powerful interfaces by simply dragging and dropping models. Streamline your development process today!
+              Introducing the revolutionary way to create APIs: effortlessly build powerful interfaces by simply dragging and dropping models. Streamline your development process today!
+
+            </div>
+            <h2 className='text-gray-700  font-semibol font-myfont'>Project Name</h2>
+            <input type="text" className="border-solid border-[black] border-[2px] rounded-md p-1" onChange={handleChange} value={projectName} />
+          </div>
+
+          <div className="selectModel">
+
+            <div className='w-full flex items-center justify-end'>
+              <button
+                className='text-white justify-center h-8 w-[80px] bg-black p-5 text-sm rounded-full flex  items-center border-solid border-2 border-black  shadow-gray-400 shadow-md hover:shadow-md hover:shadow-gray-400 hover:bg-gray-800 mt-5 ' onClick={handleNewProject}
+              >Finish</button>
+            </div>
+
 
           </div>
-          <h2 className='text-gray-700  font-semibol font-myfont'>Project Name</h2>
-          <input type="text" className="border-solid border-[black] border-[2px] rounded-md p-1"onChange={handleChange} value={projectName} />
         </div>
-
-         <div className="selectModel">
-            {/* <h2 className=' text-gray-600 font-myfont  font-bold text-[15px] '>Select Model</h2>
-            <div className="flex items-center cursor-pointer h-[200px] rounded-xl overflow-x-scroll border-black border-solid border-4 home">
-            
-              {modelsName.map((model) => (
-                 <div className='flex items-center m-5 border-solid p-4 border-2 rounded-xl hover:bg-gray-200 bg-gray-100 border-black hover:shadow-xl shadow-white'>
-                  <div className='text-[#db005b] text-4xl'>
-                    {model.icon}
-                  </div>
-                  <h2 className='text-gray-700 m-5  font-semibol font-myfont'>{model.name}</h2>
-                 
-                 </div>
-              ))}
-
-
-              
-              
-            </div> */}
-            
-            <div className='w-full flex items-center justify-end'>
-        <button
-         className='text-white justify-center h-8 w-[80px] bg-black p-5 text-sm rounded-full flex  items-center border-solid border-2 border-black  shadow-gray-400 shadow-md hover:shadow-md hover:shadow-gray-400 hover:bg-gray-800 mt-5 '  onClick={handleNewProject}
-         >Finish</button>
-        </div>
-            
-
-         </div>
-      </div>
       </Popup>
-         </div>
-
-    </div>
+    </>
   )
 }
 

@@ -34,9 +34,9 @@ const RecentProject = () => {
         <Link
         to={`/project/${project._id}`} 
         key={project._id}
-         className="flex justify-between items-center border-2 border-solid border-gray rounded-lg p-5 shadow-md hover:shadow-gray-700 m-3 cursor-pointer">
-        <h1 className='lg:text-lg text-sm font-myfont  text-gray-600'> {project.modelDescription}</h1>
-        <h1 className='lg:text-lg text-sm font-myfont  text-gray-600'><span className="font-bold  text-gray-600"> Project Id-</span> {project._id}</h1>
+         className="flex justify-between items-center text-white bg-gray-800 backdrop:border-2 border-solid border-orange-800 rounded-lg p-5 shadow-md hover:shadow-gray-700 m-3 cursor-pointer">
+        <h1 className='lg:text-lg text-sm font-myfont '> {project.modelDescription}</h1>
+        <h1 className='lg:text-lg text-sm font-myfont'><span className="font-bold "> Project Id-</span> {project._id}</h1>
       </Link>
       ))}
     </div>
