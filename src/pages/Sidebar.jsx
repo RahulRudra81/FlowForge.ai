@@ -37,8 +37,17 @@ export default (props) => {
         event.dataTransfer.setData('application/reactflow', nodeType)
         event.dataTransfer.effectAllowed = 'move'
     }
+
+    
+    const coordinateFlowObject=JSON.parse(localStorage.getItem("reactFlowState"))
+
     
     const handleDataBackend=async(idMapObject,edgeConnections)=>{
+        if(coordinateFlowObject==null){
+            alert("Please save changes before deploying")
+            return
+        }
+        else{
         try {
             
             const req = await fetch('https://bit-hackathon-1.onrender.com/api/v1/aiModel/deployModel', {
@@ -52,16 +61,20 @@ export default (props) => {
                     mapArray: edgeConnections,
                     // inputText: "Explain history of the taj mahal",
                     modelDescription:localStorage.getItem("projectName"),
-                    coordinateObject:JSON.parse(localStorage.getItem("reactFlowState"))
+                    coordinateObject:coordinateFlowObject
                 
                 })
             });
     
             const response = await req.json(); 
             console.log(response); 
+            alert("deployed")
+            localStorage.removeItem("reactFlowState")
+            navigate('/home')
         } catch (error) {
             console.error('Error:', error);
         }
+       }
     }
 
     const isOutputAlertCompulsory = (data) => {
@@ -95,8 +108,7 @@ export default (props) => {
          setAllEdges(findEdges);
          handleDataBackend(idMapObject,edgeConnections)
         // localStorage.removeItem("reactFlowState")
-         alert("deployed")
-         navigate('/home')
+         
     }
      
     
