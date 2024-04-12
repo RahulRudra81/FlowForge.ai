@@ -5,9 +5,8 @@ import { FaRobot } from "react-icons/fa";
 import { TfiHandOpen } from "react-icons/tfi";
 import { Link, useParams, useLocation, useNavigate } from 'react-router-dom/dist';
 import { descriptionContext } from '../Context'
-import { auth, db } from '../firebase'
-import { addDoc, collection } from 'firebase/firestore'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -44,7 +43,15 @@ export default (props) => {
     
     const handleDataBackend=async(idMapObject,edgeConnections)=>{
         if(coordinateFlowObject==null){
-            alert("Please save changes before deploying")
+            toast("Please save the flow before deploying", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
             return
         }
         else{

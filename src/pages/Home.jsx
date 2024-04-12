@@ -61,22 +61,15 @@ const Home = () => {
     <div>
 
       <div>
-        <div className='font-poppins flex w-screen h-screen'>
+        <div className='font-poppins flex w-screen h-screen '>
           <Navbar />
           
               
           {/* projects */}
-          <div className='flex w-full flex-col p-10  gap-10 bg-[#212121]'>
+          <div className='flex w-full flex-col p-10  gap-10 bg-[#212121] '>
               <h1 className='text-5xl font-bold text-orange-800'>Projects</h1>
-              <div className='flex gap-4'>
-                <input className='p-2 bg-[#212121] border-2 text-white focus:border-gray-700 focus:outline-none border-[#323232] rounded-lg' placeholder='Enter to search'/>
-                <Button className='bg-black hover:bg-orange-800 hover:text-black'>
-                  <BiSearch className='text-lg'/>
-                </Button>
               
-              </div>
-              <span className='text-xl text-orange-800 font-bold'>Recent Projects </span>
-              <div><RecentProject/></div>
+              <div className='overflow-y-scroll home'><RecentProject/></div>
           </div>
         </div>
       </div>
