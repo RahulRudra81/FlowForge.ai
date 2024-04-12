@@ -101,8 +101,8 @@ const ProjectDetailPage = () => {
                         <div className='flex flex-col gap-10'>  
                             <div className="uppercase tracking-wide text-lg text-orange-800 font-semibold">Model Name: {model.modelDescription}</div>
                             <p className="mt-2 text-gray-300">Your API</p>
-                            <div onClick={handleCopy} className='border-orange-500 border-2 p-4 flex rounded-lg overflow-hidden justify-between items-start'>
-                            <span  className='  text-orange-800 '>{model.modelUrl}</span>
+                            <div onClick={handleCopy} className='border-orange-800 border-2 p-4 flex rounded-lg overflow-hidden justify-between items-start'>
+                            <span  className='  text-white '>{model.modelUrl}</span>
                             <MdOutlineContentCopy className='text-2xl text-orange-800 ml-2 cursor-pointer'/>
                             </div>
                             {modelCoordinates ? (

@@ -41,7 +41,7 @@ import temp3 from '../assets/assets/temp/temp3.png'
         {/* header */}
         <div id="targetSection">
         <header className="shadow fixed z-50 top-0 w-screen ">
-            <nav className=" bg-#171717 border-gray-200 px-4 lg:px-6 py-2.5  ">
+            <nav className=" bg-[#171717] shadow-xl border-gray-200 px-4 lg:px-6 py-2.5  ">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/" className="flex items-center">
                     <img
@@ -58,7 +58,7 @@ import temp3 from '../assets/assets/temp/temp3.png'
                     <div className="flex items-center lg:order-2">
                         <Link
                             to="/login"
-                            className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
+                            className="text-white hover:bg-orange-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
                         >
                             Log in
                         </Link>
@@ -79,7 +79,7 @@ import temp3 from '../assets/assets/temp/temp3.png'
                     to="/"
                     onClick={scrollToSection}
                     className=
-                    "block py-2 pr-4 pl-3 duration-200 hover:text-orange-700  text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0"
+                    "block py-2 pr-4 pl-3 duration-200 hover:text-orange-700  text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0"
                     
                 >
                 Home
@@ -90,7 +90,7 @@ import temp3 from '../assets/assets/temp/temp3.png'
                         to="/"
                         onClick={scrollToSection1}
                         className=
-                    "block py-2 pr-4 pl-3 duration-200 hover:text-orange-700  text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0"
+                    "block py-2 pr-4 pl-3 duration-200 hover:text-orange-700  text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0"
                     
                     >
                      About
@@ -101,7 +101,7 @@ import temp3 from '../assets/assets/temp/temp3.png'
                         to="/"
                         onClick={scrollToSection2}
                         className=
-                    "block py-2 pr-4 pl-3 duration-200 hover:text-orange-700  text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0"
+                    "block py-2 pr-4 pl-3 duration-200 hover:text-orange-700  text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0"
                     
                     >
                      Preview
@@ -112,7 +112,7 @@ import temp3 from '../assets/assets/temp/temp3.png'
                         to="/"
                         onClick={scrollToSection3}
                         className=
-                    "block py-2 pr-4 pl-3 duration-200 hover:text-orange-700  text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0"
+                    "block py-2 pr-4 pl-3 duration-200 hover:text-orange-700  text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0"
                     
                      >
                     Get in touch
@@ -209,8 +209,7 @@ import temp3 from '../assets/assets/temp/temp3.png'
         <a href="#" className="inline-block">
         <Button 
   variant="text" 
-  className="flex items-center gap-2 bg-orange-500 text-black px-3 py-2 rounded-md"
-  style={{ color: "black" }}
+  className="flex items-center gap-2  hover:bg-orange-700 text-white px-3 py-2 rounded-md"
 >
   Learn More
   <svg
@@ -255,8 +254,8 @@ import temp3 from '../assets/assets/temp/temp3.png'
         <a href="#" className="inline-block">
         <Button 
   variant="text" 
-  className="flex items-center gap-2 bg-orange-500 text-black px-3 py-2 rounded-md"
-  style={{ color: "black" }}
+  className="flex items-center gap-2 hover:bg-orange-700 text-white px-3 py-2 rounded-md"
+  
 >
   Learn More
   <svg
@@ -323,8 +322,8 @@ import temp3 from '../assets/assets/temp/temp3.png'
         <a href="#" className="inline-block">
         <Button 
   variant="text" 
-  className="flex items-center gap-2 bg-white  text-black px-3 py-2 rounded-md"
-  style={{ color: "black" }}
+  className="flex items-center gap-2 hover:bg-orange-700  text-white px-3 py-2 rounded-md"
+  
 >
   Learn More
   <svg

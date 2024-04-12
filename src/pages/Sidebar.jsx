@@ -43,15 +43,7 @@ export default (props) => {
     
     const handleDataBackend=async(idMapObject,edgeConnections)=>{
         if(coordinateFlowObject==null){
-            toast("Please save the flow before deploying", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                });
+            alert("Please save changes before deploying")
             return
         }
         else{
