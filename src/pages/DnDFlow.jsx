@@ -348,11 +348,11 @@ const DnDFlowInside = () => {
 
 
     return (
-        <div className='dndflow'>
+        <div className='dndflow bg-white'>
             {/* <ReactFlowProvider> */}
             <Sidebar node={nodes} edges={edges} checkConnectivity={checkConnectivity}/>
             <div
-                className='reactflow-wrapper'
+                className='reactflow-wrapper bg-white'
                 ref={reactFlowWrapper}
                 onClick={toggleClose}
             >

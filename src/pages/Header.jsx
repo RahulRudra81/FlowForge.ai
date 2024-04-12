@@ -7,6 +7,9 @@ import { Carousel,Card,
     Button } from "@material-tailwind/react";
 import DnDFlow from './DnDFlow'
 import logo from '../assets/logo.png'
+import temp1 from '../assets/assets/temp/temp1.png'
+import temp2 from '../assets/assets/temp/temp2.png'
+import temp3 from '../assets/assets/temp/temp3.png'
 
  function Header() {
     const scrollToSection = () => {
@@ -37,8 +40,8 @@ import logo from '../assets/logo.png'
         <>
         {/* header */}
         <div id="targetSection">
-        <header className="shadow fixed z-50 top-0 w-screen">
-            <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
+        <header className="shadow fixed z-50 top-0 w-screen ">
+            <nav className=" bg-#171717 border-gray-200 px-4 lg:px-6 py-2.5  ">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/" className="flex items-center">
                     <img
@@ -48,7 +51,7 @@ import logo from '../assets/logo.png'
                     />
 
                         <div className="">
-                        <Link to='/'> <h1 className="text-3xl font-bold  m-2  cursor-pointer inline-block text-left"><span className=''>Flow</span><span className='text-orange-700'>Forge</span></h1></Link>
+                            <Link to='/'> <h1 className="text-3xl font-bold  m-2  cursor-pointer inline-block text-left"><span className='text-[#BDBDBD]'>Flow</span><span className='text-orange-700'>Forge</span></h1></Link>
                     </div>
                     </Link>
                     
@@ -129,17 +132,17 @@ import logo from '../assets/logo.png'
 
         <Carousel  transition={{ duration: 2 }}autoplay interval={3000} loop className="rounded-xl" >
       <img
-        src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
+        src={temp1}
         alt="image 1"
         className="h-66 w-full object-cover"
       />
       <img
-        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+        src={temp2}
         alt="image 2"
         className="h-66 w-full object-cover"
       />
       <img
-        src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+        src={temp3}
         alt="image 3"
         className="h-66 w-full object-cover"
       />
@@ -179,48 +182,53 @@ import logo from '../assets/logo.png'
 
 
         <div className="flex justify-center items-center pt-20">
-        <Card className="w-full max-w-[48rem] flex-row p-4 animate-fade-in-up"> 
+        <Card className="w-full max-w-[48rem] flex-row p-4 animate-fade-in-up bg-[#212121]"> 
       <CardHeader
         shadow={false}
         floated={false}
         className="m-6 w-2/5 shrink-0 rounded-r-none"
       >
         <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+          src="https://en.pimg.jp/101/152/608/1/101152608.jpg"
           alt="card-image"
           className="h-full w-full object-cover"
         />
       </CardHeader>
       <CardBody>
-        <Typography variant="h6" color="gray" className="mb-4 uppercase">
+        <Typography variant="h6" color="white" className="mb-4 uppercase">
         Drag-and-Drop Interface
         </Typography>
-        <Typography variant="h4" color="blue-gray" className="mb-2">
-        Feature: Intuitive Model Selection
+        <Typography variant="h4" color="orange" className="mb-2">
+         Intuitive Model Selection
         </Typography>
-        <Typography color="gray" className="mb-8 font-normal">
+        <Typography color="white" className="mb-8 font-normal">
         Effortlessly construct your machine learning pipeline with our intuitive drag-and-drop interface. 
         Choose from a library of diverse machine learning models, easily dragging them onto the canvas to build your customized flowchart. 
         Streamline your workflow and experiment with various model combinations seamlessly.
         </Typography>
         <a href="#" className="inline-block">
-          <Button variant="text" className="flex items-center gap-2">
-            Learn More
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              className="h-4 w-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </Button>
+        <Button 
+  variant="text" 
+  className="flex items-center gap-2 bg-orange-500 text-black px-3 py-2 rounded-md"
+  style={{ color: "black" }}
+>
+  Learn More
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+    className="h-4 w-4"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+    />
+  </svg>
+</Button>
+
         </a>
       </CardBody>
     </Card>
@@ -230,37 +238,43 @@ import logo from '../assets/logo.png'
 {/* 2 */}
 
 <div className="flex justify-center items-center pt-20">
-<Card className="w-full max-w-[48rem] flex-row p-4 animate-fade-in-up"> 
+<Card className="w-full max-w-[48rem] flex-row p-4 animate-fade-in-up bg-[#212121]"> 
       <CardBody>
-        <Typography variant="h6" color="gray" className="mb-4 uppercase">
+        <Typography variant="h6" color="white" className="mb-4 uppercase">
         Customizable Parameters
         </Typography>
-        <Typography variant="h4" color="blue-gray" className="mb-2">
-        Feature: Flexible Model Configuration
+        <Typography variant="h4" color="orange" className="mb-2">
+        
+         Flexible Model Configuration
         </Typography>
-        <Typography color="gray" className="mb-8 font-normal">
+        <Typography color="white" className="mb-8 font-normal">
         Tailor each machine learning model to your specific needs with our customizable parameters feature.
          Fine-tune hyperparameters and settings directly within the interface,
           empowering you to optimize the performance of your pipeline. Gain full control over your models and achieve superior results with ease.
 </Typography>
         <a href="#" className="inline-block">
-          <Button variant="text" className="flex items-center gap-2">
-            Learn More
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              className="h-4 w-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </Button>
+        <Button 
+  variant="text" 
+  className="flex items-center gap-2 bg-orange-500 text-black px-3 py-2 rounded-md"
+  style={{ color: "black" }}
+>
+  Learn More
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+    className="h-4 w-4"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+    />
+  </svg>
+</Button>
+
         </a>
       </CardBody>
       <CardHeader
@@ -269,9 +283,9 @@ import logo from '../assets/logo.png'
         className="m-6 w-2/5 shrink-0 rounded-r-none"
       >
         <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+          src="https://images.prismic.io/turing/6566f9d7531ac2845a256bf8_Generative_AI_Tools_d0e9aff9a5.webp?auto=format,compress"
           alt="card-image"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain"
         />
       </CardHeader>
     </Card>
@@ -281,49 +295,54 @@ import logo from '../assets/logo.png'
 
 
     <div className="flex justify-center items-center pt-20">
-    <Card className="w-full max-w-[48rem] flex-row p-4 animate-fade-in-up"> 
+    <Card className="w-full max-w-[48rem] flex-row p-4 animate-fade-in-up bg-[#212121]"> 
       <CardHeader
         shadow={false}
         floated={false}
         className="m-6 w-2/5 shrink-0 rounded-r-none"
       >
         <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+          src="https://shorturl.at/chjpZ"
           alt="card-image"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain"
         />
       </CardHeader>
       <CardBody>
-        <Typography variant="h6" color="gray" className="mb-4 uppercase">
+        <Typography variant="h6" color="white" className="mb-4 uppercase">
         Seamless Execution
         </Typography>
-        <Typography variant="h4" color="blue-gray" className="mb-2">
-        Feature: Effortless Pipeline Execution
+        <Typography variant="h4" color="orange" className="mb-2">
+         Effortless Pipeline Execution
         </Typography>
-        <Typography color="gray" className="mb-8 font-normal">
+        <Typography color="white" className="mb-8 font-normal">
         Experience smooth and efficient pipeline execution with our seamless system. Once your pipeline is constructed,
          simply submit your configuration, triggering the backend to execute the pipeline autonomously.
          Sit back and relax as our system handles the heavy lifting,
          generating the desired output promptly. Accelerate your prototyping and experimentation process effortlessly.
         </Typography>
         <a href="#" className="inline-block">
-          <Button variant="text" className="flex items-center gap-2">
-            Learn More
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              className="h-4 w-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </Button>
+        <Button 
+  variant="text" 
+  className="flex items-center gap-2 bg-white  text-black px-3 py-2 rounded-md"
+  style={{ color: "black" }}
+>
+  Learn More
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+    className="h-4 w-4"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+    />
+  </svg>
+</Button>
+
         </a>
       </CardBody>
     </Card>
@@ -357,8 +376,9 @@ import logo from '../assets/logo.png'
 
         {/* get in touch*/}
         <div id="targetSection3">
-        <div className="relative flex items-top justify-center min-h-[700px] bg-white sm:items-center sm:pt-0">
-            <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
+        
+        <div className="relative flex items-top justify-center min-h-[700px] bg-[#171717] sm:items-center sm:pt-0">
+        <div class="max-w-6xl mx-auto pl-14 pr-8 pt-8 pb-14 rounded-xl  bg-[#212121]">
                 <div className="mt-8 overflow-hidden">
                     <div className="grid grid-cols-1 md:grid-cols-2">
                         <div className="p-6 mr-2 bg-gray-100 sm:rounded-lg">
@@ -484,7 +504,7 @@ import logo from '../assets/logo.png'
 
                             <button
                                 type="submit"
-                                className="md:w-32 bg-orange-700 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-orange-600 transition ease-in-out duration-300"
+                                className="md:w-32 bg-orange-700 hover:bg-blue-dark text-black font-bold py-3 px-6 rounded-lg mt-3 hover:bg-orange-600 transition ease-in-out duration-300"
                             >
                                 Submit
                             </button>
@@ -498,21 +518,20 @@ import logo from '../assets/logo.png'
 
 
         {/* footer  */}
-         <footer className="bg-white border-y">
+         <footer className="bg- #171717 border-y">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
                         <Link to="/" className="flex items-center">
-                            <img
-                                src="/avidsynth.ai/src/assets/logo latest.png"
-                                className="mr-3 h-16"
-                                alt="Logo"
-                            />
+                            
+                             <div className="">
+                        <Link to='/'> <h1 className="text-3xl font-bold  m-2  cursor-pointer inline-block text-left"><span className='text-[#BDBDBD]'>Flow</span><span className='text-orange-700'>Forge.ai</span></h1></Link>
+                    </div>
                         </Link>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
+                            <h2 className="mb-6 text-sm font-semibold text-white uppercase">Resources</h2>
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
                                     <Link to="/" className="hover:underline">
@@ -527,7 +546,7 @@ import logo from '../assets/logo.png'
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
+                            <h2 className="mb-6 text-sm font-semibold text-white uppercase">Follow us</h2>
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
                                     <a
@@ -547,7 +566,7 @@ import logo from '../assets/logo.png'
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Legal</h2>
+                            <h2 className="mb-6 text-sm font-semibold text-white uppercase">Legal</h2>
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
                                     <Link to="#" className="hover:underline">
