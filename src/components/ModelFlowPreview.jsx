@@ -13,7 +13,7 @@ const ModelFlowPreview = (props) => {
     console.log(nodes)
     console.log(edges)
     return (
-      <div className='flex flex-col h-96 border-2 border-orange-800 mt-10 shadow-md hover:shadow-orange-800 '>
+      <div className='flex flex-col h-96 border-2 rounded-lg border-orange-800 mt-10 shadow-md hover:shadow-orange-800 '>
         <ReactFlow
           nodes={nodes} 
           edges={edges}

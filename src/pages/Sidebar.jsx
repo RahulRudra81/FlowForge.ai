@@ -96,6 +96,7 @@ export default (props) => {
          handleDataBackend(idMapObject,edgeConnections)
         // localStorage.removeItem("reactFlowState")
          alert("deployed")
+         navigate('/home')
     }
      
     
