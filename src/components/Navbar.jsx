@@ -78,9 +78,9 @@ const Navbar = () => {
           <div>
             {/* content of sidebar */}
             <div className='flex flex-col  text-xl text-gray-300 gap-8 mt-6 w-full '>
-              <span className='flex gap-3 hover:bg-orange-800 hover:text-black px-4 py-2 rounded-xl'><BsFillDatabaseFill />Projects</span>
-              <span className='flex gap-3 hover:bg-orange-800 hover:text-black px-4 py-2 rounded-xl'><BsFillBoxFill />Templates</span>
-              <span className='flex gap-3 hover:bg-orange-800 hover:text-black px-4 py-2 rounded-xl'><AiFillDollarCircle />Wallet</span>
+              <span className='flex gap-3 hover:bg-orange-800 hover:text-black px-4 py-2 rounded-xl cursor-pointer'><BsFillDatabaseFill />Projects</span>
+              <span className='flex gap-3 hover:bg-orange-800 hover:text-black px-4 py-2 rounded-xl cursor-pointer'><BsFillBoxFill />Templates</span>
+              <span className='flex gap-3 hover:bg-orange-800 hover:text-black px-4 py-2 rounded-xl cursor-pointer'><AiFillDollarCircle />Wallet</span>
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@ const Navbar = () => {
               Introducing the revolutionary way to create APIs: effortlessly build powerful interfaces by simply dragging and dropping models. Streamline your development process today!
 
             </div>
-            <h2 className='text-gray-700  font-semibol font-myfont'>Project Name</h2>
+            <h2 className='text-gray-400  font-semibol font-myfont'>Project Name</h2>
             <input type="text" className="border-solid border-[black] border-[2px] rounded-md p-1" onChange={handleChange} value={projectName} />
           </div>
 
@@ -110,7 +110,7 @@ const Navbar = () => {
 
             <div className='w-full flex items-center justify-end'>
               <button
-                className='text-white justify-center h-8 w-[80px] bg-black p-5 text-sm rounded-full flex  items-center border-solid border-2 border-black  shadow-gray-400 shadow-md hover:shadow-md hover:shadow-gray-400 hover:bg-gray-800 mt-5 ' onClick={handleNewProject}
+                className='text-white justify-center h-8 w-[80px] bg-orange-800 p-5 text-sm rounded-full flex  items-center border-solid border-2 border-black  hover:bg-orange-900 mt-5 ' onClick={handleNewProject}
               >Finish</button>
             </div>
 

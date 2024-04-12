@@ -67,9 +67,9 @@ const Auth = (params) => {
 
   return (
 
-    <div className='font-poppins min-h-screen'>
+    <div className='font-poppins min-h-screen bg-[#212121]'>
       <Link to='/'>
-        <div className='text-3xl ml-3 p-5'>
+        <div className='text-3xl ml-3 p-5  text-orange-800' >
           <IoArrowBackCircle />
         </div>
       </Link>
@@ -89,12 +89,12 @@ const Auth = (params) => {
             </div> */}
       <form onSubmit={handleRegister}>
         {params.title == "SignUp" ? (
-            <div className="flex font-poppins items-center justify-center  mt-0 w-full">
+            <div className="flex font-poppins items-center justify-center  mt-0 w-full ">
               <div className="px-8 py-6 mx-4 mt-4 text-left  md:w-1/3 lg:w-1/3 sm:w-1/3">
                 <div
-                  className="flex items-center justify-center mb-4 bg-black text-white rounded-full h-10 w-10 m-auto text-2xl font-bold"
+                  className="flex items-center justify-center mb-4 bg-orange-800 text-white rounded-full h-10 w-10 m-auto text-2xl font-bold"
                 > <FiLock /></div>
-                <h3 className="text-2xl font-bold text-center text-gray-800">Sign Up</h3>
+                <h3 className="text-2xl font-bold text-center text-orange-800">Sign Up</h3>
                 <div>
                   <div className="mt-4">
                     <div>
@@ -106,7 +106,7 @@ const Auth = (params) => {
                         value={data.name}
                         name="name"
                         required
-                        className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
+                        className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600 rounded-md"
                       />
 
                     </div>
@@ -119,7 +119,7 @@ const Auth = (params) => {
                         value={data.email}
                         name="email"
                         required
-                        className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
+                        className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600 rounded-md"
                       />
 
                     </div>
@@ -132,7 +132,7 @@ const Auth = (params) => {
                         type="Password"
                         required
                         placeholder="Password"
-                        className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
+                        className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600 rounded-md"
                       />
 
                     </div>
@@ -140,17 +140,17 @@ const Auth = (params) => {
 
                       <button type="submit"
                         // onClick={handleRegister}
-                        className="w-full px-6 py-2 mt-4  text-white bg-[black] rounded-md font-poppins  hover:bg-gray-800"
+                        className="w-full px-6 py-2 mt-4  text-white  bg-orange-800 rounded-md font-poppins  hover:bg-gray-800 hover:text-orange-800" 
                       >
                         Create Account
                       </button>
 
                     </div>
-                    <div className="mt-6 flex  font-poppins text-grey-dark">
+                    <div className="mt-6 flex  font-poppins text-white">
                       Already have an account?
                       <Link to='/login'>
                         <div
-                          className="text-[#33BBCF] ml-2 hover:underline"
+                          className=" text-orange-800 ml-2 hover:underline"
                         >
                           Log In
                         </div>
@@ -164,9 +164,9 @@ const Auth = (params) => {
           <div className="flex font-poppins items-center justify-center  mt-0 w-full">
             <div className="px-8 py-6 mx-4 mt-4 text-left  md:w-1/3 lg:w-1/3 sm:w-1/3">
               <div
-                className="flex items-center justify-center mb-4 bg-black text-white rounded-full h-10 w-10 m-auto text-2xl font-bold"
+                className="flex items-center justify-center mb-4  bg-orange-800 text-white rounded-full h-10 w-10 m-auto text-2xl font-bold"
               > <FiLock /></div>
-              <h3 className="text-2xl font-bold text-gray-800 text-center">Log In</h3>
+              <h3 className="text-2xl font-bold  text-orange-800 text-center">Log In</h3>
               <div>
                 <div className="mt-4">
 
@@ -179,7 +179,7 @@ const Auth = (params) => {
                       value={data.email}
                       name="email"
                       required
-                      className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
+                      className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600 rounded-md"
                     />
 
                   </div>
@@ -192,7 +192,7 @@ const Auth = (params) => {
                       type="Password"
                       required
                       placeholder="Password"
-                      className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600"
+                      className="w-full px-4 py-2 mt-2 border  focus:outline-none focus:ring-1 focus:ring-gray-600 rounded-md"
                     />
 
                   </div>
@@ -201,17 +201,17 @@ const Auth = (params) => {
 
                     <button
                       onClick={handleSignIn}
-                      className="w-full px-6 py-2 mt-4 text-white bg-[black] rounded-xl hover:bg-gray-800 "
+                      className="w-full px-6 py-2 mt-4 text-white  bg-orange-800 rounded-md hover:bg-gray-800 hover:text-orange-800 "
                     >
                       Log In
                     </button>
 
                   </div>
-                  <div className="mt-6 text-grey-dark flex">
+                  <div className="mt-6 text-white flex">
                     Don't have an account?
                     <Link to="/signup">
                       <div
-                        className="text-[#14b8a6] ml-2 hover:underline"
+                        className=" text-orange-800 ml-2 hover:underline"
                       >
                         Sign Up
                       </div>

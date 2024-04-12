@@ -8,10 +8,7 @@ import { descriptionContext } from '../Context'
 import { auth, db } from '../firebase'
 import { addDoc, collection } from 'firebase/firestore'
 
-window.addEventListener('beforeunload', function(event) {
-    event.preventDefault();
-    event.returnValue = 'Are you sure you want to leave?'; 
-});
+
 
 
 export default (props) => {
