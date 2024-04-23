@@ -26,7 +26,7 @@ import GptNode from './CustomNodes/GptNode'
 import TextToAudio from './CustomNodes/TextToAudio'
 import VoiceCloning from './CustomNodes/VoiceCloning'
 import TextToSpeechDesc from '../components/TextToSpeechDesc'
-
+import TextToImage from './CustomNodes/TextToImage'
 //import { useStoreState } from 'react-flow-renderer';
 
 // import { Description } from '@headlessui/react/dist/components/description/description'
@@ -42,7 +42,8 @@ const nodeTypes = {
     selectorNode: ColorSelectorNode,
     gptNode: GptNode,
     TextToAudio: TextToAudio,
-    VoiceCloning: VoiceCloning
+    VoiceCloning: VoiceCloning,
+    TextToImage:TextToImage
 }
 
 const handleNodeDelete = (nodeId) => {
@@ -88,6 +89,8 @@ const DnDFlowInside = () => {
     const [initialDesc, setDesc] = useState("Act as an agent")
     //textToSpeech
     const [initialVoice, setVoice] = useState("alloy")
+    //textToImage
+    const [imageDesc,setImageDesc]=useState("Act as painter")
     const onConnect = useCallback(
         (params) =>
             setEdges((eds) =>
@@ -129,6 +132,9 @@ const DnDFlowInside = () => {
         } else if (type === 'TextToAudio') {
             return initialVoice
         }
+        else if(type==='TextToImage'){
+            return imageDesc
+        }
         else {
             return null
         }
@@ -138,6 +144,8 @@ const DnDFlowInside = () => {
             return setDesc
         } else if (type === 'TextToAudio') {
             return setVoice
+        }else if(type==='TextToImage'){
+            return setImageDesc
         }
     }
 
@@ -146,6 +154,9 @@ const DnDFlowInside = () => {
             return event.target.value
         } else if (type === 'TextToAudio') {
             return event
+        }
+        else if(type==='TextToImage'){
+            return event.target.value
         }
     }
 
@@ -184,6 +195,9 @@ const DnDFlowInside = () => {
                         } else if (type === 'TextToAudio') {
                             setVoice(dataChanged);
                         }
+                        else if(type === 'TextToAudio'){
+                            setImageDesc(dataChanged)
+                        }
 
                         setNodes((nds) =>
                             nds.map((node) => {
@@ -209,7 +223,7 @@ const DnDFlowInside = () => {
 
             setNodes((nds) => nds.concat(newNode));
         },
-        [reactFlowInstance, setNodes, setDesc, setVoice]
+        [reactFlowInstance, setNodes, setDesc, setVoice, setImageDesc]
     );
 
 

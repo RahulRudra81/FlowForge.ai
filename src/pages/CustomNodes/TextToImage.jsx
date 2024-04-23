@@ -1,60 +1,46 @@
-import React, { memo, useEffect, useState } from 'react'
+import  { memo, useState } from 'react'
 import { Handle } from 'reactflow'
-//import { useBearStore } from '../DnDFlow'
-import './styles/textNode.css'
-import { Option, Select } from '@material-tailwind/react'
+import './styles/gptNode.css'
 
 export default memo(({ data, isConnectable }) => {
-
+  
     return (
-        <div className='text-node-wrapper'>
+        <div className='gpt-node-wrapper'>
             <Handle
                 type='target'
-                id='textToAudioIn'
+                id='textToImageIn'
                 position='left'
                 style={{ marginTop: 18, background: '#555' }}
                 isConnectable={isConnectable}
-            />
+            /> 
             
             <Handle
                 type='source'
                 id='textToAudioOut'
                 position='right'
                 style={{
-                    marginTop: 70,
-                    // marginLeft: '70px',
+                    marginTop: 136,
                     background: '#555',
-                    // width: 15,
-                    // height: 15,
+                    
                 }}
                 isConnectable={isConnectable}
             />
-            <div className='node-title'>Text-To-Audio</div>
+            <div className='node-title'>Text-To-Image</div>
             <div className='node-content-wrapper'>
                 <div className='node-description'>
-                    Convert your text to audio.
+                    Convert your thoughts into visuals
                 </div>
-                
-                <div className='input-section-wrapper '>
+              
+                <div className='input-section-wrapper'>
                     <div className='input-title'>Input</div>
+
+                   
                     <div className='input-wrapper'>
-                    <div className="">
-                        <Select
-                            size='sm'
-                            label="Select Voice"
-                            value={data.dataOfNode}
-                            onChange={data.onChange}
-                        >
-                            <Option value="alloy">Alloy</Option>
-                            <Option value="echo">Echo</Option>
-                            <Option value="fable">Fable</Option>
-                            <Option value="onyx">Onyx</Option>
-                            <Option value="nova">Nova</Option>
-                            <Option value="shimmer">Shimmer</Option>
-                        </Select>
+                        
+                            <input type="text" className='border-black border-2 rounded ' placeholder='Enter description' defaultValue={data.dataOfNode} onChange={data.onChange}/>
+                        
                     </div>
-                     
-                    </div>
+                    
                 </div>
                 <div className='output-section-wrapper'>
                     <div className='input-title'>Output</div>
@@ -69,7 +55,7 @@ export default memo(({ data, isConnectable }) => {
                     </div>
                 </div>
             </div>
-            
+           
         </div>
     )
 })

@@ -113,14 +113,10 @@ export default (props) => {
     
 
     const checkConnectivity=async()=>{
-        // console.log(props.checkConnectivity())
-        if(!props.checkConnectivity()){
-            // console.log("1st");
+        if(!props.checkConnectivity()){         
             return ;
-            
         }
         else{
-            // console.log("2nd");
             fetchId();
             return ;
         }
@@ -203,6 +199,19 @@ export default (props) => {
                 </div>
                 <div className='ml-4 text-black'>
                     Text-to-Audio
+                </div>
+            </div>
+            <div className="flex-grow mt-5  border-t border-zinc-300"></div>
+            <div
+                className='p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-orange-700'
+                onDragStart={(event) => onDragStart(event, 'TextToImage')}
+                draggable
+            >
+                <div>
+                    <FaRobot />
+                </div>
+                <div className='ml-4 text-black'>
+                    Text-to-Image
                 </div>
             </div>
             <div className="flex-grow mt-5  border-t border-zinc-300"></div>
