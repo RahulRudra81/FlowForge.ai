@@ -9,25 +9,25 @@ const RecentProject = (props) => {
    // const [loading, setLoading] = useState(true)
    
     
-    useEffect(() => {
-        const fetchProjects = async () => {
-            try {
-                const response = await fetch('https://bit-hackathon-1.onrender.com/api/v1/aiModel/getModels',{
-                   method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem('token')}`
-                    }
+    // useEffect(() => {
+    //     const fetchProjects = async () => {
+    //         try {
+    //             const response = await fetch('https://bit-hackathon-1.onrender.com/api/v1/aiModel/getModels',{
+    //                method: 'GET',
+    //                 headers: {
+    //                     Authorization: `Bearer ${localStorage.getItem('token')}`
+    //                 }
 
-                })
-                const datafrombakend = await response.json()
-                setProjects(datafrombakend.data)
-              //  setLoading(false)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchProjects()
-    }, [projects])
+    //             })
+    //             const datafrombakend = await response.json()
+    //             setProjects(datafrombakend.data)
+    //           //  setLoading(false)
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     }
+    //     fetchProjects()
+    // }, [projects])
 
     //console.log(projects)
 
@@ -55,7 +55,7 @@ const RecentProject = (props) => {
               <span className='text-xl text-orange-800 font-bold '>Recent Projects </span>
               
     <div>
-      {projects.map((project) => (
+      {/* {projects.map((project) => (
         <Link
         to={`/project/${project._id}`} 
         key={project._id}
@@ -63,7 +63,7 @@ const RecentProject = (props) => {
         <h1 className='lg:text-lg text-sm font-myfont '> {project.modelDescription}</h1>
         <h1 className='lg:text-lg text-sm font-myfont'><span className="font-bold "> Project Id-</span> {project._id}</h1>
       </Link>
-      ))}
+      ))} */}
     </div>
     </>
   )

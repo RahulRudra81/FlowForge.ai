@@ -49,12 +49,12 @@ export default (props) => {
         else{
         try {
             
-            const req = await fetch('https://bit-hackathon-1.onrender.com/api/v1/aiModel/deployModel', {
+            const req = await fetch('https://localhost:8000/api/v1/aiModel/deployModel', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
                 },
+                credentials: 'include',
                 body: JSON.stringify({
                     dropArray: idMapObject,
                     mapArray: edgeConnections,

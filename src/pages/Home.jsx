@@ -38,15 +38,14 @@ const Home = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch('https://bit-hackathon-1.onrender.com/api/v1/aiModel/getModels', {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
+        const response = await fetch('http://localhost:8000/api/v1/aiModel/getModels', {
+          method: 'GET',   
+          credentials: 'include'      
 
         })
-        const datafrombakend = await response.json()
-        setProjects(datafrombakend.data)
+        const datafrombackend = await response.json()
+        console.log(datafrombackend) 
+        //setProjects(datafrombakend.data)
         //  setLoading(false)
       } catch (error) {
         console.log(error)

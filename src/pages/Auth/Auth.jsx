@@ -48,7 +48,7 @@ const Auth = (params) => {
   }
   //google login
   const loginwithgoogle = ()=>{
-    window.open("http://localhost:8000/google/callback","_self")
+    window.open("http://localhost:8000/googleauth","_self")
   }
   //github login
   const loginwithgithub = ()=>{

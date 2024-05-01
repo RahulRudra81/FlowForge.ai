@@ -40,14 +40,24 @@ const Navbar = () => {
     navigate('/dnd')
 
   }
-  const handleLogout = () => {
-    signOut(auth).then(() => {
-      localStorage.clear()
+  const handleLogout = async () => {
+   // console.log('Logging out...');
+    try {
+      const response = await fetch('http://localhost:8000/logout', {
+        method: 'POST',
+        credentials: 'include' 
+      });
+
+      if (!response.ok) {
+        throw new Error('Logout request failed');
+      }
+      
       navigate('/')
-    }).catch((error) => {
-      alert(error.message)
-    })
-  }
+    } catch (error) {
+      console.error('Logout failed:', error);
+      
+    }
+  };
   const view = () => {
     setButtonPopup(true)
   }
