@@ -49,7 +49,7 @@ export default (props) => {
         else{
         try {
             
-            const req = await fetch('https://localhost:8000/api/v1/aiModel/deployModel', {
+            const req = await fetch('http://localhost:8000/api/v1/aiModel/deployModel', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
